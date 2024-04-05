@@ -1,6 +1,6 @@
 # NOME DO JOGO
 
-## Jogo de RPG Textual
+### Jogo de RPG Textual
 
 ---
 ## Tutorial
