@@ -23,6 +23,7 @@ public class menu {
       switch (opcaoMenu) {
         case 1:
           printBomJogo();
+          // jogo.main(args)
           //Chamar a função do jogo OUTRO ARQUIVO
           break;
         case 2:
