@@ -2,6 +2,10 @@ import java.util.Scanner;
 
 public class jogo {
   
-  Scanner sc = new Scanner(System.in);
+  Personagem personagem = criarPersonagem();
+  int vida = personagem.vida;
+  int agilidade = personagem.agilidade;
+  double dano = personagem.dano;
+  
 
 }
