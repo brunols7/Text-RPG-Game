@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class menu {
+public class Menu {
 
   public static void main(String[] args){
 
@@ -23,7 +23,7 @@ public class menu {
       switch (opcaoMenu) {
         case 1:
           printBomJogo();
-          // jogo.main(args)
+          // Jogo.main(args)
           //Chamar a função do jogo OUTRO ARQUIVO
           break;
         case 2:
