@@ -20,9 +20,7 @@ public class Jogo {
             switch (opcaoMenu) {
                 case 1:
                     Personagem personagem = Personagem.criarPersonagem();
-                    int vida = personagem.vida;
-                    int agilidade = personagem.agilidade;
-                    double dano = personagem.dano;
+                    jogar(personagem);
                     opcaoMenu = 4;
                     break;
                 case 2:
@@ -62,6 +60,13 @@ public class Jogo {
                 " |_____| | |  | | (_| | |  | | (_| | | | | (_| |   \\ V / | | (_| | (_| | |            \n" +
                 "         |_|  |_|\\__,_|_|  |_|\\__,_|_| |_|\\__,_|    \\_/  |_|\\__,_|\\__,_|_|            \n";
         System.out.println(creditos);
+    }
+    
+    public static void jogar(Personagem personagem){
+        int vida = personagem.vida;
+        int agilidade = personagem.agilidade;
+        double dano = personagem.dano;
+        
     }
 }
 
@@ -104,4 +109,5 @@ class Personagem {
 
         return personagem;
     }
+
 }
