@@ -16,4 +16,4 @@
 ## Desenvolvido por:
 ### - Bruno Leonardo Silva
 ### - Mariana Vidal Vaz
-### - João Victor de Sozua Cavalcanti
+### - João Victor de Souza Cavalcanti
