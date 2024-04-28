@@ -25,8 +25,7 @@ public class Jogo {
                     clearConsole();
                     System.out.println("\n=-=-=-=-=-= INICIANDO JOGO =-=-=-=-=-=");
                     Thread.sleep(1000);
-                    Personagem personagem = criarPersonagem();
-                    jogar(personagem);
+                    criarPersonagem();
                     opcaoMenu = 4;
                     break;
                 //se escolher instrução
@@ -60,10 +59,12 @@ public class Jogo {
     }
 
     // Função usada para usuário escolher qual personagem ele vai querer jogar, podendo escolher pelos pontos de dano, vida e agilidade.
-    public static Personagem criarPersonagem() throws InterruptedException {
+    public static void criarPersonagem() throws InterruptedException {
         Scanner sc = new Scanner(System.in);
-        Personagem personagem = new Personagem();
         int opcao;
+        int vida = 0;
+        int agilidade = 0;
+        double dano = 0;
 
         do {
             System.out.println("ESCOLHA UM PERSONAGEM:\n ");
@@ -78,18 +79,19 @@ public class Jogo {
             if (opcao == 1) {
                 // Colorindo a String no Console
                 System.out.println("PERSONAGEM ESCOLHIDO: \u001B[36mJONN\u001B[0m\n");
-                personagem.vida = 100;
-                personagem.agilidade = 60;
-                personagem.dano = 0.8;
+                vida = 100;
+                agilidade = 60;
+                dano = 0.8;
             } else if (opcao == 2) {
                 // Colorindo a String no Console utilizando \u001B[36m e outros.
                 System.out.println("PERSONAGEM ESCOLHIDO: \u001B[36mANNE\u001B[0m\n");
-                personagem.vida = 100;
-                personagem.agilidade = 80;
-                personagem.dano = 0.6;
+                vida = 100;
+                agilidade = 80;
+                dano = 0.6;
             } else {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
+
             Thread.sleep(2500);
             System.out.println("\n=-=-=-=-=-= INICIANDO JOGO =-=-=-=-=-=");
             Thread.sleep(2000);
@@ -97,8 +99,7 @@ public class Jogo {
         } while (opcao < 1 || opcao > 2);
 
         sc.close();
-
-        return personagem;
+        jogar(vida, agilidade, dano);
     }
 
     // Função onde mostra os créditos, utilizamos uma String com texto em ASCII.
@@ -127,39 +128,20 @@ public class Jogo {
     }
    
     // Função onde ocorre o jogo.
-    public static void jogar(Personagem personagem) throws InterruptedException{
+    public static void jogar(int vida, int agilidade, double dano) throws InterruptedException{
  
         Scanner input = new Scanner(System.in);
 
         // Variáveis que vão ser usadas para o personagem escolhido, utilizando os valores de vida, agilidade e dano escolhidos.
-        int vida = personagem.vida;
-        int agilidade = personagem.agilidade;
-        double dano = personagem.dano;
+        int vidaPersonagem = vida;
+        int agilidadePersonagem = agilidade;
+        double danoPersonagem = dano;
        
         clearConsole();
 
         /*
-         * Variáveis de textos em ASCII para a história do jogo.
+         * Variáveis de textos em ASCII para o jogo.
          */
-
-        String historiaString =
-                " ██░ ██  ██▓  ██████ ▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      \n" +
-                "▓██░ ██▒▓██▒▒██    ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒▓██▒▒████▄    \n" +
-                "▒██▀▀██░▒██▒░ ▓██▄   ▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒▒██▒▒██  ▀█▄  \n" +
-                "░▓█ ░██ ░██░  ▒   ██▒░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  ░██░░██▄▄▄▄██ \n" +
-                "░▓█▒░██▓░██░▒██████▒▒  ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒░██░ ▓█   ▓██▒\n" +
-                " ▒ ░░▒░▒░▓  ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░▓   ▒▒   ▓▒█░\n" +
-                " ▒ ░▒░ ░ ▒ ░░ ░▒  ░ ░    ░      ░ ▒ ▒░   ░▒ ░ ▒░ ▒ ░  ▒   ▒▒ ░\n" +
-                " ░  ░░ ░ ▒ ░░  ░  ░    ░      ░ ░ ░ ▒    ░░   ░  ▒ ░  ░   ▒   \n" +
-                " ░  ░  ░ ░        ░               ░ ░     ░      ░        ░  ░ \n\n\n\n";
-       
-        String boaSorteString =
-        "______                              _       \n" +
-        "| ___ \\                            | |      \n" +
-        "| |_/ / ___   __ _   ___  ___  _ __| |_ ___ \n" +
-        "| ___ \\/ _ \\ / _` | / __|/ _ \\| '__| __/ _ \\\n" +
-        "| |_/ / (_) | (_| | \\__ \\ (_) | |  | ||  __/\n" +
-        "\\____/ \\___/ \\__,_| |___/\\___/|_|   \\__\\___|";
 
         String primeiroMob = "\n\n"+
         "                                        ::::::::                                           \n" +
@@ -179,19 +161,7 @@ public class Jogo {
     
 
         // Começando o jogo e as histórias
-        System.out.println("\u001B[31m" + historiaString + "\u001B[0m");
-        System.out.println("Após a perda recente de seu pai, um mestre da matemática, você se encontra em um estado de luto e confusão. Em uma noite, você decide tentar entrar em contato com ele,\nna esperança de sentir sua presença de alguma forma. ");
-        Thread.sleep(6000);
-        System.out.println("Porém você acaba encontrando um outro ser...");
-        Thread.sleep(5000);
-        System.out.println("\nAcreditando ser apenas algo da sua imaginação, você apenas ignora e decide dormir... \nMas essa nem sempre é a melhor opção, certo?\n");
-        System.out.println("Você começa a ter um pesadelo e nele você vê partes de um mapa antigo e esse mapa parece familiar para você...\n\n");
-        Thread.sleep(10000);
-        System.out.println("\u001B[31m " + boaSorteString + "\u001B[0m\n\n\n");
-        Thread.sleep(8000);
-        clearConsole();
-        System.out.println("\nAo acordar, você se encontra no meio do nada ao lado de uma escola, muito confuso e percebe que não está sozinho.\nEntão, você decide entrar na escola para se esconder, porém, na medida que você explora os corredores da escola, é possivel ver pedaços de mapas presos em armários e janelas.\n\nMas você não é capaz de pegar aqueles pedaços sem antes resolver problemas de matemática e a cada resposta correta o aproxima mais da verdade...\n\n");
-        Thread.sleep(10000);
+        historiaInicial();
        
     }
  
@@ -206,7 +176,7 @@ public class Jogo {
         System.out.println("- Seu personagem terá uma VIDA, onde ela vai servir de base para as suas tentivas de responder as questões.");
         System.out.println("- Leia com atenção as questões!");
         System.out.println("- Itens de Dano irão ajudar a finalizar mais rápido os Monstros.");
-        System.out.println("- Itens de Agilidade irão ajudar a desviar de ataques. Caso você tenha baixa agilidade, você pode ser atingido e perder vida.");
+        System.out.println("- Itens de Agilidade irão ajudar a desviar de ataques. Caso você tenha baixa");
         System.out.println("- Para uma experiência mais imersiva e completa, sugerimos que você deixe a janela do console grande. Assim, você poderá aproveitar ao máximo cada detalhe e ter uma experiência ainda melhor.");
         System.out.println("- Aproveite o jogo e se divirta!\n");
         System.out.println("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
@@ -219,5 +189,48 @@ public class Jogo {
     public static void clearConsole() {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
+    }
+
+    public static void historiaInicial() throws InterruptedException{
+
+        /*
+         * Variáveis de textos em ASCII para a história do jogo.
+         */
+
+         String historiaString =
+         " ██░ ██  ██▓  ██████ ▄▄▄█████▓ ▒█████   ██▀███   ██▓ ▄▄▄      \n" +
+         "▓██░ ██▒▓██▒▒██    ▒ ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒▓██▒▒████▄    \n" +
+         "▒██▀▀██░▒██▒░ ▓██▄   ▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒▒██▒▒██  ▀█▄  \n" +
+         "░▓█ ░██ ░██░  ▒   ██▒░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  ░██░░██▄▄▄▄██ \n" +
+         "░▓█▒░██▓░██░▒██████▒▒  ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒░██░ ▓█   ▓██▒\n" +
+         " ▒ ░░▒░▒░▓  ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░▓   ▒▒   ▓▒█░\n" +
+         " ▒ ░▒░ ░ ▒ ░░ ░▒  ░ ░    ░      ░ ▒ ▒░   ░▒ ░ ▒░ ▒ ░  ▒   ▒▒ ░\n" +
+         " ░  ░░ ░ ▒ ░░  ░  ░    ░      ░ ░ ░ ▒    ░░   ░  ▒ ░  ░   ▒   \n" +
+         " ░  ░  ░ ░        ░               ░ ░     ░      ░        ░  ░ \n\n\n\n";
+
+        String boaSorteString =
+        "______                              _       \n" +
+        "| ___ \\                            | |      \n" +
+        "| |_/ / ___   __ _   ___  ___  _ __| |_ ___ \n" +
+        "| ___ \\/ _ \\ / _` | / __|/ _ \\| '__| __/ _ \\\n" +
+        "| |_/ / (_) | (_| | \\__ \\ (_) | |  | ||  __/\n" +
+        "\\____/ \\___/ \\__,_| |___/\\___/|_|   \\__\\___|";
+
+        // Começando o jogo e as histórias
+        System.out.println("\u001B[31m" + historiaString + "\u001B[0m");
+
+        System.out.println("Após a perda recente de seu pai, um mestre da matemática, você se encontra em um estado de luto e confusão. Em uma noite, você decide tentar entrar em contato com ele,\nna esperança de sentir sua presença de alguma forma. ");
+        Thread.sleep(6000);
+        System.out.println("Porém você acaba encontrando um outro ser...");
+        Thread.sleep(5000);
+        System.out.println("\nAcreditando ser apenas algo da sua imaginação, você apenas ignora e decide dormir... \nMas essa nem sempre é a melhor opção, certo?\n");
+        System.out.println("Você começa a ter um pesadelo e nele você vê partes de um mapa antigo e esse mapa parece familiar para você...\n\n");
+        Thread.sleep(10000);
+        System.out.println("\u001B[31m " + boaSorteString + "\u001B[0m\n\n\n");
+        Thread.sleep(8000);
+        clearConsole();
+        System.out.println("\nAo acordar, você se encontra no meio do nada ao lado de uma escola, muito confuso e percebe que não está sozinho.\nEntão, você decide entrar na escola para se esconder, porém, na medida que você explora os corredores da escola, é possivel ver pedaços de mapas presos em armários e janelas.\n\nMas você não é capaz de pegar aqueles pedaços sem antes resolver problemas de matemática e a cada resposta correta o aproxima mais da verdade...\n\n");
+        Thread.sleep(10000);
+
     }
 }
