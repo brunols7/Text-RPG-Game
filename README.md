@@ -1,15 +1,13 @@
 # NOME DO JOGO
 
 ### Jogo de RPG Textual
-### Atividade Projeto Integrado - 1º Semestre, turma A - Noite. Curso Análise e Desenvolvimento de Sistemas.
+### Atividade Projeto Integrado - 1º Semestre, turma A - Grupo 3, Noite. Curso Análise e Desenvolvimento de Sistemas.
 
 ---
 
 ## Tutorial
 
-### TAL TAL
-
-### TAL TAL TAL TAL
+### ---
 
 ---
 
