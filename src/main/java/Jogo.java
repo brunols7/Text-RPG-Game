@@ -6,7 +6,8 @@ public class Jogo {
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         int opcaoMenu;
- 
+        
+        clearConsole();
         System.out.println("Olá, seja bem-vindo(a) ao Mathmancer!\n");
         System.out.println("Para uma experiência mais imersiva e completa, sugerimos que você deixe a janela do console grande. Assim, você poderá aproveitar ao máximo cada detalhe e ter uma experiência ainda melhor.\n");
  
@@ -48,7 +49,6 @@ public class Jogo {
        
         System.out.println("\n\nAcabou!");
  
-        sc.close();
     }
     
     // Classe de personagem que define a vida, agilidade e dano do personagem.
@@ -98,7 +98,6 @@ public class Jogo {
             System.out.println("\n\n\n\n\n");
         } while (opcao < 1 || opcao > 2);
 
-        sc.close();
         jogar(vida, agilidade, dano);
     }
 
@@ -132,10 +131,12 @@ public class Jogo {
  
         Scanner input = new Scanner(System.in);
 
-        // Variáveis que vão ser usadas para o personagem escolhido, utilizando os valores de vida, agilidade e dano escolhidos.
+        // Variáveis que vão ser usadas para controla a vida, dano e agilidade do personagem.
         int vidaPersonagem = vida;
         int agilidadePersonagem = agilidade;
         double danoPersonagem = dano;
+        double danoArma = 0;
+        double danoGeral = 0;
        
         clearConsole();
 
@@ -162,6 +163,14 @@ public class Jogo {
 
         // Começando o jogo e as histórias
         historiaInicial();
+        clearConsole();
+
+        // Escolher arma e definir o dano e o status atual.
+        danoArma = escolherArma(input, agilidade);
+        danoGeral = (dano * danoArma) + danoArma;
+
+        // Mostrar status atual do personagem.
+        statusAtual(vidaPersonagem, agilidadePersonagem, danoGeral);
        
     }
  
@@ -219,10 +228,11 @@ public class Jogo {
         // Começando o jogo e as histórias
         System.out.println("\u001B[31m" + historiaString + "\u001B[0m");
 
+        Thread.sleep(2000);
         System.out.println("Após a perda recente de seu pai, um mestre da matemática, você se encontra em um estado de luto e confusão. Em uma noite, você decide tentar entrar em contato com ele,\nna esperança de sentir sua presença de alguma forma. ");
-        Thread.sleep(6000);
+        Thread.sleep(7000);
         System.out.println("Porém você acaba encontrando um outro ser...");
-        Thread.sleep(5000);
+        Thread.sleep(6000);
         System.out.println("\nAcreditando ser apenas algo da sua imaginação, você apenas ignora e decide dormir... \nMas essa nem sempre é a melhor opção, certo?\n");
         System.out.println("Você começa a ter um pesadelo e nele você vê partes de um mapa antigo e esse mapa parece familiar para você...\n\n");
         Thread.sleep(10000);
@@ -230,7 +240,43 @@ public class Jogo {
         Thread.sleep(8000);
         clearConsole();
         System.out.println("\nAo acordar, você se encontra no meio do nada ao lado de uma escola, muito confuso e percebe que não está sozinho.\nEntão, você decide entrar na escola para se esconder, porém, na medida que você explora os corredores da escola, é possivel ver pedaços de mapas presos em armários e janelas.\n\nMas você não é capaz de pegar aqueles pedaços sem antes resolver problemas de matemática e a cada resposta correta o aproxima mais da verdade...\n\n");
-        Thread.sleep(10000);
+        Thread.sleep(20000);
 
+    }
+
+    public static int escolherArma(Scanner input, int agilidadePersonagem) {
+        int danoArma = 0;
+        int opcaoPrimeiraArma;
+        do {
+            System.out.println("\nVocê encontra uma TESOURA e uma FACA no chão, qual você deseja pegar?\n");
+            System.out.println("[1] FACA\n\nDano: 10\nAgilidade: -10\n");
+            System.out.println("[2] TESOURA\n\nDano: 7\nAgilidade: 10\n");
+
+
+            System.out.print("OPÇÃO DESEJADA: ");
+            opcaoPrimeiraArma = input.nextInt();
+
+            if (opcaoPrimeiraArma == 1) {
+                System.out.println("Você pegou a FACA!\n");
+                danoArma = 10;
+                agilidadePersonagem -= 10;
+            } else if (opcaoPrimeiraArma == 2) {
+                System.out.println("Você pegou a TESOURA!\n");
+                danoArma = 7;
+                agilidadePersonagem += 10;
+            } else {
+                System.out.println("OPÇÃO INVÁLIDA!\n");
+            }
+
+        } while (opcaoPrimeiraArma < 1 || opcaoPrimeiraArma > 2);
+
+        return danoArma;
+    }
+
+    public static void statusAtual(int vida, int agilidade, double dano) {
+        System.out.println("=-=-=-=-=-= STATUS ATUAL =-=-=-=-=-=");
+        System.out.println("\nVida: " + vida);
+        System.out.println("Agilidade: " + agilidade);
+        System.out.println("Dano: " + dano + "\n\n");
     }
 }
