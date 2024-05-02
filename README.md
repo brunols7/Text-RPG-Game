@@ -7,7 +7,7 @@
 
 ## Tutorial
 
-### ---
+### Siga as instruções do jogo, apenas digite o que for pedido.
 
 ---
 
