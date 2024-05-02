@@ -143,7 +143,7 @@ public class Jogo {
         /*
          * Variáveis de textos em ASCII para o jogo.
          */
-
+     
         String primeiroMob = "\n\n"+
         "                                        ::::::::                                           \n" +
         "                                      :.        .:                                         \n" +
