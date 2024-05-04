@@ -167,7 +167,7 @@ public class Jogo {
         // Escolher arma e definir o dano e o status atual.
         danoArma =  primeiraSala(input, agilidadePersonagem);
         danoGeral = (dano * danoArma) + danoArma;
-
+        System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         // Mostrar status atual do personagem.
         statusAtual(vidaPersonagem, agilidadePersonagem, danoGeral);
        
@@ -245,7 +245,7 @@ public class Jogo {
     
         do{
             System.out.println("*O que eu devo fazer?*");
-            System.out.println("[1] Procurar sua casa. [2] Procurar ajuda. [3]Entrar na escola\n");
+            System.out.println("[1] Procurar sua casa. [2] Procurar ajuda. [3] Entrar na escola.\n");
             System.out.print("OPÇÃO DESEJADA: ");
             escolhaPrincipal = input.nextInt();
 
@@ -269,28 +269,28 @@ public class Jogo {
  
         int opcaoSala;
         int danoArma = 0;
- 
+        
+        Thread.sleep(2500);
+        clearConsole();
         System.out.println("\n =-=-=-=-=-=-=-=-= VOCÊ ENTROU NA ESCOLA =-=-=-=-=-=-=-=-=\n\n");
         System.out.println("Você se encontra em um corredor imenso e tem duas portas próximas a você.");
         System.out.println("Você precisar entrar em uma dessas salas para procurar algo para se proteger...");
-        System.out.println("\n\nVocê deseja entrar na sala a ESQUERDA ou a DIREITA?\n");
-        System.out.println("[1] SALA A ESQUERDA");
-        System.out.println("[2] SALA A DIREITA\n");
  
         do {
+            System.out.println("\n\nVocê deseja entrar na sala a ESQUERDA ou a DIREITA?\n");
+            System.out.println("[1] SALA A ESQUERDA");
+            System.out.println("[2] SALA A DIREITA\n");
             System.out.print("\nOPÇÃO DESEJADA: ");
             opcaoSala = input.nextInt();
  
             if(opcaoSala == 1){
                 danoArma = salaEsquerda(input, agilidadePersonagem);
-                System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
                 return danoArma;
             }else if(opcaoSala == 2){
                 salaDireita(input);
-                System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
             }
  
-        }while (opcaoSala < 1 || opcaoSala > 2);
+        }while (opcaoSala != 1);
        
         return danoArma;
     }
@@ -333,7 +333,8 @@ public class Jogo {
  
                 }while(segundaOpcao < 1 || segundaOpcao > 2);
             }else if(primeiraOpcao == 2){
-                break;
+                System.out.println("Você decidiu ir embora...");
+                Thread.sleep(1500);
             }else if(primeiraOpcao < 1 || primeiraOpcao > 2){
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
@@ -347,7 +348,7 @@ public class Jogo {
         int danoArma = 0;
         int opcaoPrimeiraArma;
         int opcaoSala;
-        
+
             System.out.println("\n=-=-=-=-=-=-=-=-= VOCÊ ENTROU NA SALA À ESQUERDA =-=-=-=-=-=-=-=-=\n");
  
             System.out.println("\nVocê se encontra em uma sala com poucas mesas.");
@@ -383,6 +384,7 @@ public class Jogo {
             }else if(opcaoSala == 2){
                 System.out.println("Você decidiu ir embora...");
                 Thread.sleep(1500);
+                primeiraSala(input, agilidadePersonagem);
             }
         return danoArma;
     }
@@ -392,6 +394,7 @@ public class Jogo {
         System.out.println("\nVida: " + vida);
         System.out.println("Agilidade: " + agilidade);
         System.out.println("Dano: " + dano + "\n");
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
        
     }
 }
