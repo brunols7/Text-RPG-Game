@@ -163,10 +163,9 @@ public class Jogo {
 
         // Começando o jogo e as histórias
         historiaInicial();
-        clearConsole();
-
+        escolherCaminhoPrincipal(input);
         // Escolher arma e definir o dano e o status atual.
-        danoArma = escolherArma(input, agilidade);
+        danoArma =  primeiraSala(input, agilidadePersonagem);
         danoGeral = (dano * danoArma) + danoArma;
 
         // Mostrar status atual do personagem.
@@ -239,46 +238,160 @@ public class Jogo {
         System.out.println("\u001B[31m " + boaSorteString + "\u001B[0m\n\n\n");
         Thread.sleep(8000);
         clearConsole();
-        System.out.println("\nAo acordar, você se encontra no meio do nada ao lado de uma escola, muito confuso e percebe que não está sozinho.\nEntão, você decide entrar na escola para se esconder, porém, na medida que você explora os corredores da escola, é possivel ver pedaços de mapas presos em armários e janelas.\n\nMas você não é capaz de pegar aqueles pedaços sem antes resolver problemas de matemática e a cada resposta correta o aproxima mais da verdade...\n\n");
-        Thread.sleep(20000);
-
-    }
-
-    public static int escolherArma(Scanner input, int agilidadePersonagem) {
-        int danoArma = 0;
-        int opcaoPrimeiraArma;
-        do {
-            System.out.println("\nVocê encontra uma TESOURA e uma FACA no chão, qual você deseja pegar?\n");
-            System.out.println("[1] FACA\n\nDano: 10\nAgilidade: -10\n");
-            System.out.println("[2] TESOURA\n\nDano: 7\nAgilidade: 10\n");
-
-
+        System.out.println("\n\nAo acordar, você se encontra no meio do nada em frente a uma escola, muito confuso você percebe que não está sozinho, escutando barulhos de passos se aproximando, mas você não consegue enxergar nada com a neblina e as enormes árvores.\n\n");   
+}
+    public static int escolherCaminhoPrincipal(Scanner input) {
+        int escolhaPrincipal;
+    
+        do{
+            System.out.println("*O que eu devo fazer?*");
+            System.out.println("[1] Procurar sua casa. [2] Procurar ajuda. [3]Entrar na escola\n");
             System.out.print("OPÇÃO DESEJADA: ");
-            opcaoPrimeiraArma = input.nextInt();
+            escolhaPrincipal = input.nextInt();
 
-            if (opcaoPrimeiraArma == 1) {
-                System.out.println("Você pegou a FACA!\n");
-                danoArma = 10;
-                agilidadePersonagem -= 10;
-            } else if (opcaoPrimeiraArma == 2) {
-                System.out.println("Você pegou a TESOURA!\n");
-                danoArma = 7;
-                agilidadePersonagem += 10;
-            } else {
+            if  (escolhaPrincipal == 1){
+                System.out.println("\n*Não é uma boa ideia, imagino que eu não esteja perto de casa*\n");
+            }else if (escolhaPrincipal == 2){
+                System.out.println("\n*Não é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto*\n");
+            }else if (escolhaPrincipal == 3){
+                System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha\n");
+            }else if(escolhaPrincipal > 3 || escolhaPrincipal < 1){
                 System.out.println("OPÇÃO INVÁLIDA!\n");
             }
-
-        } while (opcaoPrimeiraArma < 1 || opcaoPrimeiraArma > 2);
-
-        return danoArma;
+        }while(escolhaPrincipal != 3);
+            
+        
+        return 0;
     }
 
+    // Escolha da primeira da Sala
+    public static int primeiraSala(Scanner input, int agilidadePersonagem) throws InterruptedException{
+ 
+        int opcaoSala;
+        int danoArma = 0;
+ 
+        System.out.println("\n =-=-=-=-=-=-=-=-= VOCÊ ENTROU NA ESCOLA =-=-=-=-=-=-=-=-=\n\n");
+        System.out.println("Você se encontra em um corredor imenso e tem duas portas próximas a você.");
+        System.out.println("Você precisar entrar em uma dessas salas para procurar algo para se proteger...");
+        System.out.println("\n\nVocê deseja entrar na sala a ESQUERDA ou a DIREITA?\n");
+        System.out.println("[1] SALA A ESQUERDA");
+        System.out.println("[2] SALA A DIREITA\n");
+ 
+        do {
+            System.out.print("\nOPÇÃO DESEJADA: ");
+            opcaoSala = input.nextInt();
+ 
+            if(opcaoSala == 1){
+                danoArma = salaEsquerda(input, agilidadePersonagem);
+                System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
+                return danoArma;
+            }else if(opcaoSala == 2){
+                salaDireita(input);
+                System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
+            }
+ 
+        }while (opcaoSala < 1 || opcaoSala > 2);
+       
+        return danoArma;
+    }
+ 
+    public static void salaDireita(Scanner input) throws InterruptedException{
+        int primeiraOpcao;
+        int segundaOpcao;
+ 
+        System.out.println("\n=-=-=-=-=-=-=-=-= VOCÊ ENTROU NA SALA À DIREITA =-=-=-=-=-=-=-=-=\n");
+        System.out.println("Você se encontra em uma sala de aula com as mesas e cadeiras reviradas.");
+       
+        do{
+            System.out.println("Você deseja [1] EXPLORAR a sala ou deseja [2] VOLTAR?\n");
+            System.out.print("OPÇÃO DESEJADA: ");
+            primeiraOpcao = input.nextInt();
+ 
+            if(primeiraOpcao == 1){
+                System.out.println("\nVocê decidiu explorar a sala.");
+                System.out.println("\nPROCURANDO...\n");
+                Thread.sleep(1500);
+                System.out.println("Você olhou nas mesas e nas cadeiras e não encontrou nada!");
+                System.out.println("Você deseja [1] PROCURAR no armário ou deseja [2] VOLTAR para o corredor\n");
+                System.out.print("OPÇÃO DESEJADA: ");
+                segundaOpcao = input.nextInt();
+ 
+                do{
+                    if(segundaOpcao == 1){
+                        System.out.println("\nVocê decidiu olhar o armário.");
+                        System.out.println("\nPROCURANDO...\n");
+                        Thread.sleep(1000);
+                        System.out.println("Você encontrou uma maçã apodrecida e uns papéis.");
+                        System.out.println("Melhor voltar para a corredor e ir explorar a outra sala...");
+                        Thread.sleep(4000);
+                        break;
+                    }else if(segundaOpcao == 2){
+                        break;
+                    }else if(segundaOpcao < 1 || segundaOpcao > 2){
+                        System.out.println("\nOPÇÃO INVÁLIDA!\n");
+                    }
+ 
+                }while(segundaOpcao < 1 || segundaOpcao > 2);
+            }else if(primeiraOpcao == 2){
+                break;
+            }else if(primeiraOpcao < 1 || primeiraOpcao > 2){
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
+            }
+ 
+ 
+        }while(primeiraOpcao < 1 || primeiraOpcao > 2);
+    }
+ 
+    // Jogador entrou na sala à esquerda e vai encontrar sua arma
+    public static int salaEsquerda(Scanner input, int agilidadePersonagem) throws InterruptedException {
+        int danoArma = 0;
+        int opcaoPrimeiraArma;
+        int opcaoSala;
+        
+            System.out.println("\n=-=-=-=-=-=-=-=-= VOCÊ ENTROU NA SALA À ESQUERDA =-=-=-=-=-=-=-=-=\n");
+ 
+            System.out.println("\nVocê se encontra em uma sala com poucas mesas.");
+            System.out.println("Você acha que viu algo para se proteger perto da mesa do professor.");
+            System.out.println("Você deseja ir [1] OLHAR a mesa do professor ou deseja ir [2] EMBORA\n");
+            System.out.print("OPÇÃO DESEJADA: ");
+            opcaoSala = input.nextInt();
+            if(opcaoSala == 1){
+                do { 
+                    System.out.println("\nVocê encontra uma TESOURA e uma FACA na mesa do professor, qual você deseja pegar?\n");
+                    System.out.println("[1] FACA\n\nDano: 10\nAgilidade: -10\n");
+                    System.out.println("[2] TESOURA\n\nDano: 7\nAgilidade: 10\n");
+         
+         
+                    System.out.print("OPÇÃO DESEJADA: ");
+                    opcaoPrimeiraArma = input.nextInt();
+         
+                    if (opcaoPrimeiraArma == 1) {
+                        System.out.println("Você pegou a FACA!\n");
+                        danoArma = 10;
+                        agilidadePersonagem -= 10;
+                    } else if (opcaoPrimeiraArma == 2) {
+                        System.out.println("Você pegou a TESOURA!\n");
+                        danoArma = 7;
+                        agilidadePersonagem += 10;
+                    } else {
+                        System.out.println("OPÇÃO INVÁLIDA!\n");
+                    }
+         
+                } while (opcaoPrimeiraArma < 1 || opcaoPrimeiraArma > 2);
+         
+                return danoArma;
+            }else if(opcaoSala == 2){
+                System.out.println("Você decidiu ir embora...");
+                Thread.sleep(1500);
+            }
+        return danoArma;
+    }
+ 
     public static void statusAtual(int vida, int agilidade, double dano) {
         System.out.println("=-=-=-=-=-= STATUS ATUAL =-=-=-=-=-=");
         System.out.println("\nVida: " + vida);
         System.out.println("Agilidade: " + agilidade);
         System.out.println("Dano: " + dano + "\n");
-        
+       
     }
 }
-
