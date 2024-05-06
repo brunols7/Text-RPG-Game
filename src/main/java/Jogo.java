@@ -72,7 +72,7 @@ public class Jogo {
                         "4 + 1 = 5\r\n" + //
                         "");
         System.out.println("Qual é o resultado da operação?");
-        
+
         System.out.println("a) 5x² - x + 5");
         System.out.println("b) 5x² - x + 3");
         System.out.println("c) 5x² + 2x + 5");
@@ -92,8 +92,18 @@ public class Jogo {
         System.out.println("Questão 2");
         System.out.println("Problema: Calcule a soma dos polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
         System.out.println("Tutorial:");
-        System.out.println("Para somar polinômios, agrupamos os termos semelhantes...");
-        // Restante do tutorial omitido
+        System.out.println("Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.");
+        System.out.println("PASSO 1:");
+        System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
+                        "(4x³ + 2x² + 7) + (3x³ - 5x² + 1) \r\n" + //
+                        "= (4x³ + 3x³) + (2x² - 5x²) + (7 + 1)\r\n" + //
+                        "");
+        System.out.println("PASSO 2: ");
+        System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
+                        "4x³ + 3x³ = 7x³\r\n" + //
+                        "2x² - 5x² = -3x²\r\n" + //
+                        "7 + 1 = 8\r\n" + //
+                        "");
         System.out.println("Qual é o resultado da operação?");
         System.out.println("a) 7x³ - 3x² + 8");
         System.out.println("b) 7x³ - 3x² + 6");
