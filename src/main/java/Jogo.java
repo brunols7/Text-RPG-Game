@@ -1,7 +1,10 @@
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Jogo {
-
     // Função principal onde é o Menu e onde vai chamar as outras funções que o jogo
     // possue.
     public static void main(String[] args) throws InterruptedException {
