@@ -65,6 +65,7 @@ public class Jogo {
                 "(3x² + 5x + 4) + (2x² - 3x + 1) \r\n" + //
                 "= (3x² + 2x²) + (5x - 3x) + (4 + 1)\r\n" + //
                 "");
+        System.out.println("========================================================");
         System.out.println("PASSO 2:");
         System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
                         "3x² + 2x² = 5x²\r\n" + //
@@ -98,6 +99,7 @@ public class Jogo {
                         "(4x³ + 2x² + 7) + (3x³ - 5x² + 1) \r\n" + //
                         "= (4x³ + 3x³) + (2x² - 5x²) + (7 + 1)\r\n" + //
                         "");
+        System.out.println("======================================================");
         System.out.println("PASSO 2: ");
         System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
                         "4x³ + 3x³ = 7x³\r\n" + //
@@ -124,8 +126,20 @@ public class Jogo {
         System.out.println("Questão 3");
         System.out.println("Problema: Qual é o resultado da operação (6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1)?");
         System.out.println("Tutorial:");
-        System.out.println("Para somar polinômios, agrupamos os termos semelhantes...");
-        // Restante do tutorial omitido
+        System.out.println("Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.");
+        System.out.println("PASSO 1: ");
+        System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
+                        "(6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1) \r\n" + //
+                        "= (6x⁴ + x⁴) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
+                        "");
+        System.out.println("=============================================================");
+        System.out.println("PASSO 2: ");
+        System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
+                        "6x⁴ + x⁴ = 7x⁴\r\n" + //
+                        "-3x³ + 5x³ = 2x³\r\n" + //
+                        "2x² - x² = x²\r\n" + //
+                        "0 + 1 = 1\r\n" + //
+                        "");
         System.out.println("Qual é o resultado da operação?");
         System.out.println("a) 7x⁴ + 2x³ + x² + 1");
         System.out.println("b) 7x⁴ - 3x³ + x² + 1");
