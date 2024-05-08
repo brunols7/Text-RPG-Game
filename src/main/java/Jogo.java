@@ -236,20 +236,50 @@ public class Jogo {
          */
 
         String primeiroMob = "\n\n" +
-                "                                        ::::::::                                           \n" +
-                "                                      :.        .:                                         \n" +
-                "                                     -     ==-    =                                       \n" +
-                "                                    -     #::=-   -.                                      \n" +
-                "                                    =     #.:+:    =                                      \n" +
-                "                                    =     .==-    .-                                      \n" +
-                "                                     -            .-                                      \n" +
-                "                                     =  .        .::                                      \n" +
-                "                                     .= +#+-::-+%--                                       \n" +
-                "                                      -. %@@@@@@+ -                                       \n" +
-                "                                       - .#@@@@* -                                        \n" +
-                "                                        -. =##+ -.                                        \n" +
-                "                                         .::...:                                            " +
-                "\n\n";
+        "                                                                                                              \n" +
+        "                                                                                mm########                    \n" +
+        "                                                                            ..@@            ##                \n" +
+        "                                                                          @@--                ##              \n" +
+        "                                                                        ..--                    ##            \n" +
+        "                                                                        @@                        ++          \n" +
+        "                                                                      ##                          ##          \n" +
+        "                                                                    ##              MMMMM          mm         \n" +
+        "                                                                  ++              ##    MM         ++         \n" +
+        "                                                                  ++            ##  ##  MM         --         \n" +
+        "                                                              ####            MM   ###  MM        ##          \n" +
+        "                                                        ####  mm              ##  ##  ##         mm           \n" +
+        "                                                      ##@@    ##              ##     ##         ##            \n" +
+        "                                                    ##  @@     :               #..##::         ++             \n" +
+        "                                      ----####MMm         ::  :      ###                      MM              \n" +
+        "                      mm##mm--++++..                      ##  :     ######                   ##               \n" +
+        "                    ##                                      --+    ########                ++                 \n" +
+        "                  mm                                        MM:   ##################      MM                  \n" +
+        "                  ##                                        ##:   #################    ##                     \n" +
+        "                                                            ##-   ###############    ++..                     \n" +
+        "                mm                                          MM    ############    ####                        \n" +
+        "                ##                                          ::     M########      ##    ##                    \n" +
+        "              ++                                              ::    @@##      ----        ##..                \n" +
+        "              @@                                              ##            @@                ##              \n" +
+        "            ::                                                  ##      ::##                    @@::          \n" +
+        "            ##                                                    ..mm                              ##        \n" +
+        "          ..--                                                                                        ##..    \n" +
+        "          mm                                                                                            ##    \n" +
+        "          ##                                                                                            @@    \n" +
+        "          ::                                                                                            ##    \n" +
+        "        --                                                                                              ##    \n" +
+        "        ##                                                                                              ##    \n" +
+        "        @@                                                                                              ##    \n" +
+        "                             m                                                                          ##    \n" +
+        "      mm                    ..                                                              m           ##    \n" +
+        "      ##                    ++                                                              mm          mm    \n" +
+        "      ##                    MM                                                              mm          ..    \n" +
+        "      @@                    ##                                                              mm          --    \n" +
+        "      @@                    ##                                                              --          ++    \n" +
+        "      --                    --                                                              ##          ::    \n" +
+        "      mm                    mm                                                              --          ##    \n";
+
+        //System.out.println("\u001B[31m" + primeiroMob + "\u001B[0m");
+        //System.out.println(primeiroMob);
 
         // Começando o jogo e as histórias
         historiaInicial();
@@ -257,10 +287,9 @@ public class Jogo {
         // Escolher arma e definir o dano e o status atual.
         danoArma = primeiraSala(input, agilidadePersonagem);
         danoGeral = (dano * danoArma) + danoArma;
-        System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
-        // Mostrar status atual do personagem.
         statusAtual(vidaPersonagem, agilidadePersonagem, danoGeral);
-
+        // FAZER FUNÇÃO DE AO FINALIZAR BUSCA PELA SALA, O PERSONAGEM SE DEPARA COM UM MONSTRO NA PORTA ANTES (SENDO A PRIMEIRA BOSS FIGHT)
+        System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
     }
 
     // Função que mostra as instruções do jogo, ele contem um sleep onde vai segurar
