@@ -281,6 +281,50 @@ public class Jogo {
         //System.out.println("\u001B[31m" + primeiroMob + "\u001B[0m");
         //System.out.println(primeiroMob);
 
+        String MobPequeno = 
+                        "                                                            \n" +
+                        "                      ::######MM######@@                    \n" +
+                        "                ..##                        MM##            \n" +
+                        "              ##                                --++        \n" +
+                        "            ##                                      ##      \n" +
+                        "          ##                                          ##    \n" +
+                        "        ++                                              ##  \n" +
+                        "                                                        ##  \n" +
+                        "      @@                                                    \n" +
+                        "    --                                                    MM\n" +
+                        "    ::                                                    ##\n" +
+                        "  ..                                                      ++\n" +
+                        "  ##                                                        \n" +
+                        "  ..                                                        \n" +
+                        "              ####                          ####            \n" +
+                        "            ########                      ########          \n" +
+                        "  --        ########                      @@####..          \n" +
+                        "  mm          mmMM                          ++              \n" +
+                        "  MM                                                      --\n" +
+                        "  ##                                                      ++\n" +
+                        "  ##                                                      ##\n" +
+                        "  --                                                      ##\n" +
+                        "    ##                                                      \n" +
+                        "    mm                                            ..##  MM  \n" +
+                        "    ..   #                                      ####    MM  \n" +
+                        "    ..   MM##                                ######    --   \n" +
+                        "     ##    ####@@                        ####--##      ##   \n" +
+                        "      mm     ########            ..######  --##..           \n" +
+                        "              --##  --############      ..##--      ##      \n" +
+                        "        ##        ####                ####mm                \n" +
+                        "        --          ####..        --####          ##        \n" +
+                        "          ##            ####  ++####++          mm          \n" +
+                        "            mm            @@####::            ++            \n" +
+                        "              ..                                            \n" +
+                        "                --                          ##              \n" +
+                        "                  ##                      ##                \n" +
+                        "                    --@@                --                  \n" +
+                        "                        MM##::    ..@@                      \n";
+
+
+        //System.out.println("\u001B[31m" + MobPequeno + "\u001B[0m");
+        //System.out.println(MobPequeno);
+
         // Começando o jogo e as histórias
         historiaInicial();
         escolherCaminhoPrincipal(input);
