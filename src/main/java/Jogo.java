@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -77,10 +78,19 @@ public class Jogo {
                         "");
         System.out.println("Qual é o resultado da operação?");
 
+        List<String> alternativas = new ArrayList<>();
         System.out.println("a) 5x² - x + 5");
         System.out.println("b) 5x² - x + 3");
         System.out.println("c) 5x² + 2x + 5");
         System.out.println("d) 5x² + 2x + 3");
+
+        // Embaralhar as alternativas
+        Collections.shuffle(alternativas);
+
+        for (String alternativa : alternativas) {
+            System.out.println(alternativa);
+        }
+
         System.out.print("Resposta: ");
         String resposta = sc.next();
         if (resposta.equalsIgnoreCase("a")) {
@@ -110,10 +120,20 @@ public class Jogo {
                         "7 + 1 = 8\r\n" + //
                         "");
         System.out.println("Qual é o resultado da operação?");
+
+        List<String> alternativas = new ArrayList<>();
         System.out.println("a) 7x³ - 3x² + 8");
         System.out.println("b) 7x³ - 3x² + 6");
         System.out.println("c) 7x³ - 5x² + 8");
         System.out.println("d) 7x³ - 5x² + 6");
+
+        // Embaralhar as alternativas
+        Collections.shuffle(alternativas);
+
+        for (String alternativa : alternativas) {
+            System.out.println(alternativa);
+        }
+
         System.out.print("Resposta: ");
         String resposta = sc.next();
         if (resposta.equalsIgnoreCase("a")) {
@@ -143,11 +163,22 @@ public class Jogo {
                         "2x² - x² = x²\r\n" + //
                         "0 + 1 = 1\r\n" + //
                         "");
+
         System.out.println("Qual é o resultado da operação?");
+
+        List<String> alternativas = new ArrayList<>();
         System.out.println("a) 7x⁴ + 2x³ + x² + 1");
         System.out.println("b) 7x⁴ - 3x³ + x² + 1");
         System.out.println("c) 7x⁴ + 2x³ + x² - 1");
         System.out.println("d) 7x⁴ - 3x³ + x² - 1");
+
+        // Embaralhar as alternativas
+        Collections.shuffle(alternativas);
+
+        for (String alternativa : alternativas) {
+            System.out.println(alternativa);
+        }
+
         System.out.print("Resposta: ");
         String resposta = sc.next();
         if (resposta.equalsIgnoreCase("a")) {
