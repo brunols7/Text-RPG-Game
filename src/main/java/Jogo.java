@@ -114,35 +114,36 @@ public class Jogo {
         }
     }
 
-     // Função para o exercício de adição 2
-     public static void exercicioAdicao02() {
+    // Função para o exercício de adição 2
+    public static void exercicioAdicao02() {
         Scanner sc = new Scanner(System.in);
         int tentativas = 3;
 
         while (tentativas > 0) {
-        System.out.println("\nQUESTÃO 2");
-        System.out.println("========================================================");
-        System.out.println("Problema: Calcule a soma dos polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
-        System.out.println("TUTORIAL:");
-        System.out.println("Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
-        System.out.println("PASSO 1: ");
-        System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
-                "(4x³ + 2x² + 7) + (3x³ - 5x² + 1) \r\n" + //
-                "= (4x³ + 3x³) + (2x² - 5x²) + (7 + 1)\r\n" + //
-                "");
-        System.out.println("PASSO 2: ");
-        System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
-                "4x³ + 3x³ = 7x³\r\n" + //
-                "2x² - 5x² = -3x²\r\n" + //
-                "7 + 1 = 8\r\n" + //
-                "");
-        System.out.println("Qual é o resultado da operação?");
-        System.out.println("a) 7x³ - 3x² + 8");
-        System.out.println("b) 7x³ - 3x² + 6");
-        System.out.println("c) 7x³ - 5x² + 8");
-        System.out.println("d) 7x³ - 5x² + 6");
+            System.out.println("\nQUESTÃO 2");
+            System.out.println("========================================================");
+            System.out.println("Problema: Calcule a soma dos polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
+            System.out.println("TUTORIAL:");
+            System.out.println(
+                    "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
+            System.out.println("PASSO 1: ");
+            System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
+                    "(4x³ + 2x² + 7) + (3x³ - 5x² + 1) \r\n" + //
+                    "= (4x³ + 3x³) + (2x² - 5x²) + (7 + 1)\r\n" + //
+                    "");
+            System.out.println("PASSO 2: ");
+            System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
+                    "4x³ + 3x³ = 7x³\r\n" + //
+                    "2x² - 5x² = -3x²\r\n" + //
+                    "7 + 1 = 8\r\n" + //
+                    "");
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 7x³ - 3x² + 8");
+            System.out.println("b) 7x³ - 3x² + 6");
+            System.out.println("c) 7x³ - 5x² + 8");
+            System.out.println("d) 7x³ - 5x² + 6");
 
-        System.out.print("Resposta: ");
+            System.out.print("Resposta: ");
             String resposta = sc.next();
             if (resposta.equalsIgnoreCase("a")) {
                 System.out.println("Resposta correta! Parabéns!");
@@ -162,60 +163,63 @@ public class Jogo {
         }
     }
 
-
-
     // Função para o exercício de adição 3
     public static void exercicioAdicao03() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Questão 3");
-        System.out.println("Problema: Qual é o resultado da operação (6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1)?");
-        System.out.println("Tutorial:");
-        System.out.println(
-                "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.");
-        System.out.println("PASSO 1: ");
-        System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
-                "(6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1) \r\n" + //
-                "= (6x⁴ + x⁴) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
-                "");
-        System.out.println("=============================================================");
-        System.out.println("PASSO 2: ");
-        System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
-                "6x⁴ + x⁴ = 7x⁴\r\n" + //
-                "-3x³ + 5x³ = 2x³\r\n" + //
-                "2x² - x² = x²\r\n" + //
-                "0 + 1 = 1\r\n" + //
-                "");
+        int tentativas = 3;
 
-        System.out.println("Qual é o resultado da operação?");
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 3");
+            System.out.println("========================================================");
+            System.out.println("Problema: Qual é o resultado da operação (6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1)?");
+            System.out.println("TUTORIAL: ");
+            System.out.println(
+                    "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
+            System.out.println("PASSO 1: ");
+            System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
+                    "(6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1) \r\n" + //
+                    "= (6x⁴ + x⁴) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
+                    "");
+            System.out.println("PASSO 2: ");
+            System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
+                    "6x⁴ + x⁴ = 7x⁴\r\n" + //
+                    "-3x³ + 5x³ = 2x³\r\n" + //
+                    "2x² - x² = x²\r\n" + //
+                    "0 + 1 = 1\r\n" + //
+                    "");
 
-        List<String> alternativas = new ArrayList<>();
-        System.out.println("a) 7x⁴ + 2x³ + x² + 1");
-        System.out.println("b) 7x⁴ - 3x³ + x² + 1");
-        System.out.println("c) 7x⁴ + 2x³ + x² - 1");
-        System.out.println("d) 7x⁴ - 3x³ + x² - 1");
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 7x⁴ + 2x³ + x² + 1");
+            System.out.println("b) 7x⁴ - 3x³ + x² + 1");
+            System.out.println("c) 7x⁴ + 2x³ + x² - 1");
+            System.out.println("d) 7x⁴ - 3x³ + x² - 1");
 
-        // Embaralhar as alternativas
-        Collections.shuffle(alternativas);
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("a")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
 
-        for (String alternativa : alternativas) {
-            System.out.println(alternativa);
-        }
-
-        System.out.print("Resposta: ");
-        String resposta = sc.next();
-        if (resposta.equalsIgnoreCase("a")) {
-            System.out.println("Resposta correta! Parabézns!");
-        } else {
-            System.out.println("Resposta incorreta. Tente novamente!");
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: a) 7x⁴ + 2x³ + x² + 1");
+            }
         }
     }
-    // FIM DAS QUESTÕES DE ADIÇÃO!
+// FIM DAS QUESTÕES DE ADIÇÃO!
 
-    // Classe de personagem que define a vida, agilidade e dano do personagem.
-    static class Personagem {
-        int vida;
-        int agilidade;
-        double dano;
+// Classe de personagem que define a vida, agilidade e dano do personagem.
+static class Personagem {
+    int vida;
+    int agilidade;
+    double dano;
     }
 
     // Função usada para usuário escolher qual personagem ele vai querer jogar,
