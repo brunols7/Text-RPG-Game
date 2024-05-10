@@ -57,7 +57,7 @@ public class Jogo {
 
     }
 
-    //INÍCIO DAS QUESTÕES DE ADIÇÃO!!
+    // INÍCIO DAS QUESTÕES DE ADIÇÃO!!
     // Função para o exercício de adição 1
     public static void exercicioAdicao01() {
         Scanner sc = new Scanner(System.in);
@@ -210,65 +210,112 @@ public class Jogo {
 
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: a) 7x⁴ + 2x³ + x² + 1");
+                System.out
+                        .println("Você excedeu o número de tentativas. A resposta correta era: a) 7x⁴ + 2x³ + x² + 1");
             }
         }
     }
-// FIM DAS QUESTÕES DE ADIÇÃO!
+    // FIM DAS QUESTÕES DE ADIÇÃO!
 
+    // INÍCIO DAS QUESTÕES DE SUBTRAÇÃO!!
+    // Função para a questão de subtração 1
+    public static void exercicioSubtracao01() {
+        Scanner sc = new Scanner(System.in);
+        int tentativas = 3;
 
-//INÍCIO DAS QUESTÕES DE SUBTRAÇÃO!!
-// Função para a questão de subtração 1
-public static void exercicioSubtracao01() {
-    Scanner sc = new Scanner(System.in);
-    int tentativas = 3;
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 1");
+            System.out.println("========================================================");
+            System.out.println("Problema: Subtraia os polinômios (5x² + 3x + 8) e (2x² - 4x + 1).");
+            System.out.println("TUTORIAL:");
+            System.out.println(
+                    "Para subtrair polinômios, é semelhante à adição, mas desta vez subtraímos os termos semelhantes.");
+            System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
+                    "(5x² + 3x + 8) - (2x² - 4x + 1) \n" + //
+                    "= (5x² - 2x²) + (3x + 4x) + (8 - 1)\n");
 
-    while (tentativas > 0) {
-        System.out.println("\nQUESTÃO 1");
-        System.out.println("========================================================");
-        System.out.println("Problema: Subtraia os polinômios (5x² + 3x + 8) e (2x² - 4x + 1).");
-        System.out.println("TUTORIAL:");
-        System.out.println("Para subtrair polinômios, é semelhante à adição, mas desta vez subtraímos os termos semelhantes.");
-        System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
-                "(5x² + 3x + 8) - (2x² - 4x + 1) \n" + //
-                "= (5x² - 2x²) + (3x + 4x) + (8 - 1)\n");
+            System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
+                    "5x² - 2x² = 3x²\n" + //
+                    "3x + 4x = 7x\n" + //
+                    "8 - 1 = 7\n");
 
-        System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
-                "5x² - 2x² = 3x²\n" + //
-                "3x + 4x = 7x\n" + //
-                "8 - 1 = 7\n");
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 3x² - 7x - 7");
+            System.out.println("b) 3x² - 7x + 7");
+            System.out.println("c) 3x² + 7x - 7");
+            System.out.println("d) 3x² + 7x + 7");
 
-        System.out.println("Qual é o resultado da operação?");
-        System.out.println("a) 3x² - 7x - 7");
-        System.out.println("b) 3x² - 7x + 7");
-        System.out.println("c) 3x² + 7x - 7");
-        System.out.println("d) 3x² + 7x + 7");
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("d")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
 
-        System.out.print("Resposta: ");
-        String resposta = sc.next();
-        if (resposta.equalsIgnoreCase("d")) {
-            System.out.println("Resposta correta! Parabéns!");
-            break;
-        } else {
-            System.out.println("Resposta incorreta.");
-            tentativas--;
-            if (tentativas > 0) {
-                System.out.println("Tentativas restantes: " + tentativas);
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² + 7x + 7");
             }
         }
+    }
 
-        // Se for a última tentativa e ainda errar, exibe a resposta correta
-        if (tentativas == 0) {
-            System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² + 7x + 7");
+    // Função para a questão de subtração 2
+    public static void exercicioSubtracao02() {
+        Scanner sc = new Scanner(System.in);
+        int tentativas = 3;
+
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 2");
+            System.out.println("========================================================");
+            System.out.println("Problema: Calcule a diferença entre os polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
+            System.out.println("TUTORIAL:");
+            System.out.println("Para subtrair polinômios, agrupamos os termos semelhantes e, em seguida, subtraímos.");
+            System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
+                    "(4x³ + 2x² + 7) - (3x³ - 5x² + 1) \n" + //
+                    "= (4x³ - 3x³) + (2x² + 5x²) + (7 - 1)\n");
+
+            System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
+                    "4x³ - 3x³ = x³\n" + //
+                    "2x² + 5x² = 7x²\n" + //
+                    "7 - 1 = 6\n");
+
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) x³ + 7x² + 6");
+            System.out.println("b) x³ + 7x² - 6");
+            System.out.println("c) x³ - 7x² + 6");
+            System.out.println("d) x³ - 7x² - 6");
+
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("c")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
+
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: c) x³ - 7x² + 6");
+            }
         }
     }
-}
 
-// Classe de personagem que define a vida, agilidade e dano do personagem.
-static class Personagem {
-    int vida;
-    int agilidade;
-    double dano;
+    // Classe de personagem que define a vida, agilidade e dano do personagem.
+    static class Personagem {
+        int vida;
+        int agilidade;
+        double dano;
     }
 
     // Função usada para usuário escolher qual personagem ele vai querer jogar,
