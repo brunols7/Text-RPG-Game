@@ -316,7 +316,7 @@ public class Jogo {
 
     // -----------------------------------------------------------------------------------------------//
 
-    //INÍCIO DAS QUESTÕES DE MULTIPLICAÇÃO!!
+    // INÍCIO DAS QUESTÕES DE MULTIPLICAÇÃO!!
     // Função para a questão de multiplicação 1
     public static void exercicioMultiplicacao01() {
         Scanner sc = new Scanner(System.in);
@@ -416,6 +416,197 @@ public class Jogo {
             }
         }
     }
+    // FIM DAS QUESTÕES DE MULTIPLICAÇÃO!!
+
+    // ------------------------------------------------------------------------------------------------//
+
+    // INÍCIO DAS QUESTÕES DO BOSS!!
+    // Função para a questão BOSS 1
+    public static void exercicioBoss01() {
+        Scanner sc = new Scanner(System.in);
+        int tentativas = 3;
+
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 1");
+            System.out.println("========================================================");
+            System.out.println("Problema: Divida o polinômio (6x³ + 5x² - 4x + 8) por (2x - 1).");
+
+            System.out.println("TUTORIAL:");
+            System.out.println("Para dividir polinômios, usamos a divisão polinomial.");
+            System.out.println("1. Organize o polinômio de acordo com as potências decrescentes de x.");
+            System.out.println("2. Divida o termo de maior grau do dividendo pelo termo de maior grau do divisor.");
+            System.out.println("3. Multiplique o divisor pelo quociente encontrado e subtraia do dividendo.");
+            System.out.println("4. Repita o processo até que o grau do resto seja menor que o grau do divisor.");
+
+            System.out.println("(6x³ + 5x² - 4x + 8) ÷ (2x - 1)");
+            System.out.println("Passo 1:");
+            System.out.println("Grau do dividendo: 3");
+            System.out.println("Grau do divisor: 1");
+
+            System.out.println("Passo 2:");
+            System.out.println("6x³ ÷ 2x = 3x²");
+
+            System.out.println("Passo 3:");
+            System.out.println("(3x²) (2x - 1) = 6x³ - 3x²");
+            System.out.println("(6x³ + 5x² - 4x + 8) - (6x³ - 3x²) = 5x² - 4x + 8");
+
+            System.out.println("Passo 4:");
+            System.out.println("Grau do novo dividendo: 2");
+            System.out.println("Grau do divisor: 1");
+
+            System.out.println("Passo 5:");
+            System.out.println("5x² ÷ 2x = (5/2) x");
+
+            System.out.println("Passo 6:");
+            System.out.println("((5/2) x) (2x - 1) = (5/2) x² - (5/2) x");
+            System.out.println("(5x² - 4x + 8) - ((5/2) x² - (5/2) x) = (5/2) x - 4x + 8");
+
+            System.out.println("Passo 7:");
+            System.out.println("Grau do novo dividendo: 1");
+            System.out.println("Grau do divisor: 1");
+
+            System.out.println("Passo 8:");
+            System.out.println("(5/2) x ÷ 2x = 5/4");
+
+            System.out.println("Passo 9:");
+            System.out.println("((5/4)) (2x - 1) = (5/2) x - (5/4)");
+            System.out.println("((5/2) x - 4x + 8) - ((5/2) x - (5/4)) = 4x + 8 + (5/4)");
+
+            System.out.println(
+                    "Como o grau do novo dividendo é menor que o grau do divisor, o processo de divisão termina.");
+
+            System.out.println("Portanto, o quociente é 3x² + (5/2) x + (5/4) e o resto é 4x + 8 + (5/4).");
+
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 3x² - 5/2x + 5/4");
+            System.out.println("b) 3x² + 5/2x + 5/4");
+            System.out.println("c) 3x² + 5/2x - 5/4");
+            System.out.println("d) 3x² - 5/2x - 5/4");
+
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("d")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
+
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² - 5/2x - 5/4");
+            }
+        }
+    }
+
+    // Função para a questão BOSS 2
+    public static void exercicioBoss02() {
+        Scanner sc = new Scanner(System.in);
+        int tentativas = 3;
+
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 2");
+            System.out.println("========================================================");
+            System.out.println("Problema: Multiplique o polinômio (x² + 3x - 2) por (2x² - 5x + 1).");
+
+            System.out.println("TUTORIAL:");
+            System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
+            System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
+            System.out.println("(x² + 3x - 2) * (2x² - 5x + 1) ");
+            System.out.println("= x² * (2x² - 5x + 1) + 3x * (2x² - 5x + 1) - 2 * (2x² - 5x + 1)");
+
+            System.out.println(
+                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+            System.out.println("= 2x⁴ - 5x³ + x² + 6x³ - 15x² + 3x - 4x² + 10x - 2");
+
+            System.out.println("Agora, combinamos termos semelhantes:");
+            System.out.println("= 2x⁴ + (6x³ - 5x³) + (-15x² - 4x²) + (3x + 10x) - 2");
+            System.out.println("= 2x⁴ + x³ - 19x² + 13x - 2");
+
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 2x⁴ - x³ + 19x² - 13x + 2");
+            System.out.println("b) 2x⁴ + x³ - 19x² + 13x - 2");
+            System.out.println("c) 2x⁴ + x³ - 19x² - 13x - 2");
+            System.out.println("d) 2x⁴ + x³ - 19x² + 13x - 2");
+
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("a")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
+
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println(
+                        "Você excedeu o número de tentativas. A resposta correta era: a) 2x⁴ - x³ + 19x² - 13x + 2");
+            }
+        }
+    }
+
+    // Função para a questão BOSS 3
+    public static void exercicioBoss03() {
+        Scanner sc = new Scanner(System.in);
+        int tentativas = 3;
+
+        while (tentativas > 0) {
+            System.out.println("\nQUESTÃO 3");
+            System.out.println("========================================================");
+            System.out.println("Problema: Multiplique o polinômio (3x² - 2x + 5) por (4x - 1).");
+
+            System.out.println("TUTORIAL:");
+            System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
+            System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
+            System.out.println("(3x² - 2x + 5) * (4x - 1) ");
+            System.out.println("= 3x² * (4x - 1) - 2x * (4x - 1) + 5 * (4x - 1)");
+
+            System.out.println(
+                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+            System.out.println("= 12x³ - 3x² - 8x² + 2x + 20x - 5");
+
+            System.out.println("Agora, combinamos termos semelhantes:");
+            System.out.println("= 12x³ - (3x² + 8x²) + (2x + 20x) - 5");
+            System.out.println("= 12x³ - 11x² + 22x - 5");
+
+            System.out.println("Qual é o resultado da operação?");
+            System.out.println("a) 12x³ - 11x² + 22x - 5");
+            System.out.println("b) 12x³ + 11x² - 22x + 5");
+            System.out.println("c) 12x³ + 11x² + 22x - 5");
+            System.out.println("d) 12x³ - 11x² - 22x + 5");
+
+            System.out.print("Resposta: ");
+            String resposta = sc.next();
+            if (resposta.equalsIgnoreCase("b")) {
+                System.out.println("Resposta correta! Parabéns!");
+                break;
+            } else {
+                System.out.println("Resposta incorreta.");
+                tentativas--;
+                if (tentativas > 0) {
+                    System.out.println("Tentativas restantes: " + tentativas);
+                }
+            }
+
+            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            if (tentativas == 0) {
+                System.out.println(
+                        "Você excedeu o número de tentativas. A resposta correta era: b) 12x³ + 11x² - 22x + 5");
+            }
+        }
+    }
+    // FIM DAS QUEESTÕES DO BOSS!!
+//------------------------------------------- FIM DAS 10 QUESTÕES ------------------------------------------
+
 
     // Classe de personagem que define a vida, agilidade e dano do personagem.
     static class Personagem {
