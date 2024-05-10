@@ -409,7 +409,7 @@ public class Jogo {
                 }
             }
 
-            // Se for a última tentativa e ainda errar, exibe a resposta correta
+            // Se for a última tentativa e ainda errar, exibe a resposta correta.
             if (tentativas == 0) {
                 System.out
                         .println("Você excedeu o número de tentativas. A resposta correta era: d) 12x³ - x² - 2x - 3");
