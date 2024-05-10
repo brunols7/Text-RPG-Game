@@ -57,6 +57,7 @@ public class Jogo {
 
     }
 
+    //INÍCIO DAS QUESTÕES DE ADIÇÃO!!
     // Função para o exercício de adição 1
     public static void exercicioAdicao01() {
         Scanner sc = new Scanner(System.in);
@@ -214,6 +215,54 @@ public class Jogo {
         }
     }
 // FIM DAS QUESTÕES DE ADIÇÃO!
+
+
+//INÍCIO DAS QUESTÕES DE SUBTRAÇÃO!!
+// Função para a questão de subtração 1
+public static void exercicioSubtracao01() {
+    Scanner sc = new Scanner(System.in);
+    int tentativas = 3;
+
+    while (tentativas > 0) {
+        System.out.println("\nQUESTÃO 1");
+        System.out.println("========================================================");
+        System.out.println("Problema: Subtraia os polinômios (5x² + 3x + 8) e (2x² - 4x + 1).");
+        System.out.println("TUTORIAL:");
+        System.out.println("Para subtrair polinômios, é semelhante à adição, mas desta vez subtraímos os termos semelhantes.");
+        System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
+                "(5x² + 3x + 8) - (2x² - 4x + 1) \n" + //
+                "= (5x² - 2x²) + (3x + 4x) + (8 - 1)\n");
+
+        System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
+                "5x² - 2x² = 3x²\n" + //
+                "3x + 4x = 7x\n" + //
+                "8 - 1 = 7\n");
+
+        System.out.println("Qual é o resultado da operação?");
+        System.out.println("a) 3x² - 7x - 7");
+        System.out.println("b) 3x² - 7x + 7");
+        System.out.println("c) 3x² + 7x - 7");
+        System.out.println("d) 3x² + 7x + 7");
+
+        System.out.print("Resposta: ");
+        String resposta = sc.next();
+        if (resposta.equalsIgnoreCase("d")) {
+            System.out.println("Resposta correta! Parabéns!");
+            break;
+        } else {
+            System.out.println("Resposta incorreta.");
+            tentativas--;
+            if (tentativas > 0) {
+                System.out.println("Tentativas restantes: " + tentativas);
+            }
+        }
+
+        // Se for a última tentativa e ainda errar, exibe a resposta correta
+        if (tentativas == 0) {
+            System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² + 7x + 7");
+        }
+    }
+}
 
 // Classe de personagem que define a vida, agilidade e dano do personagem.
 static class Personagem {
