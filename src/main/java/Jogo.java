@@ -135,19 +135,19 @@ public class Jogo {
             int respostaUsuario = resposta.toLowerCase().charAt(0) - 'a';
 
             if (respostaUsuario == posicaoRespostaCorreta) {
-                System.out.println("Resposta correta! Parabéns!");
+                System.out.println("Resposta correta! Parabéns!\n");
                 break;
             } else {
-                System.out.println("Resposta incorreta.");
+                System.out.println("Resposta incorreta.\n");
                 tentativas--;
                 if (tentativas > 0) {
-                    System.out.println("Tentativas restantes: " + tentativas);
+                    System.out.println("Tentativas restantes: " + tentativas + "\n");
                 }
             }
 
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: c) 5x² + 2x + 5");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: c) 5x² + 2x + 5\n");
                 danoTomado = 10;
             }
         }
