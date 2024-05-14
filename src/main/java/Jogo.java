@@ -784,14 +784,14 @@ public class Jogo {
             if (opcao == 1) {
                 // Colorindo a String no Console
                 System.out.println("PERSONAGEM ESCOLHIDO: \u001B[36mJONN\u001B[0m\n");
-                vida = 100;
+                vida = 50;
                 agilidade = 60;
                 dano = 0.8;
             } else if (opcao == 2) {
                 // Colorindo a String no Console utilizando \u001B[36m e outros.
                 System.out.println("PERSONAGEM ESCOLHIDO: \u001B[36mANNE\u001B[0m\n");
-                vida = 100;
-                agilidade = 80;
+                vida = 50;
+                 agilidade = 80;
                 dano = 0.6;
             } else {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
