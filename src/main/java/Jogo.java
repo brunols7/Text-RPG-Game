@@ -59,15 +59,16 @@ public class Jogo {
 
     // INÍCIO DAS QUESTÕES DE ADIÇÃO!!
     // Função para o exercício de adição 1
-    public static void exercicioAdicao01() {
+    public static int exercicioAdicao01() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
         int tentativas = 3;
+        int danoTomado = 10;
 
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
             System.out.println("========================================================");
-            System.out.println(
-                    "Problema: Qual é o resultado da adição dos polinômios (3x² + 5x + 4) e (2x² - 3x + 1)?\n");
             System.out.println("TUTORIAL:");
             System.out.println(
                     "Para somar polinômios, basta somar os termos semelhantes. Termos semelhantes são aqueles que têm a mesma parte literal (as variáveis) elevada à mesma potência.\n");
@@ -89,15 +90,51 @@ public class Jogo {
                     "4 + 1 = 5\r\n"
                     + //
                     "");
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 5x² - x + 5");
-            System.out.println("b) 5x² - x + 3");
-            System.out.println("c) 5x² + 2x + 5");
-            System.out.println("d) 5x² + 2x + 3");
 
-            System.out.print("Resposta: ");
-            String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("c")) {
+              System.out.println(
+                "Problema: Qual é o resultado da adição dos polinômios (3x² + 5x + 4) e (2x² - 3x + 1)?\n");
+            // Lista de opções de resposta
+            String[] opcoesResposta = new String[]{
+                    "5x² - x + 3",
+                    "5x² - x + 5",
+                    "5x² + 2x + 5",
+                    "5x² + 2x + 3"
+            };
+
+            // Embaralha as opções de resposta
+            for (int i = 0; i < opcoesResposta.length; i++) {
+                // Gera um índice aleatório para trocar a posição das respostas
+                int indiceAleatorio = rand.nextInt(opcoesResposta.length);
+
+                // Troca as respostas de posição
+                String temp = opcoesResposta[i];
+                opcoesResposta[i] = opcoesResposta[indiceAleatorio];
+                opcoesResposta[indiceAleatorio] = temp;
+            }
+
+            // Exibe as opções de resposta com as letras (a, b, c, d)
+            for (int i = 0; i < opcoesResposta.length; i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta[i]);
+            }
+
+            System.out.print("\nResposta: ");
+            String resposta = "";
+            try {
+                resposta = sc.next();
+            } catch (java.util.NoSuchElementException e) {
+                // Se não houver entrada disponível, continue o loop
+                continue;
+            }
+
+            // Obtém a posição da resposta correta (c)
+            int posicaoRespostaCorreta = opcoesResposta[2].equals("5x² + 2x + 5") ? 2 :
+                    opcoesResposta[1].equals("5x² + 2x + 5") ? 1 :
+                            opcoesResposta[0].equals("5x² + 2x + 5") ? 0 : 3;
+
+            // Converte a resposta do usuário para o índice (0, 1, 2, 3)
+            int respostaUsuario = resposta.toLowerCase().charAt(0) - 'a';
+
+            if (respostaUsuario == posicaoRespostaCorreta) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -111,19 +148,22 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: c) 5x² + 2x + 5");
+                danoTomado = 10;
             }
         }
+        
+        return danoTomado;
     }
 
     // Função para o exercício de adição 2
     public static void exercicioAdicao02() {
         Scanner sc = new Scanner(System.in);
+        Random rdm = new Random();
         int tentativas = 3;
 
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
             System.out.println("========================================================");
-            System.out.println("Problema: Calcule a soma dos polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
             System.out.println("TUTORIAL:");
             System.out.println(
                     "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
@@ -138,15 +178,30 @@ public class Jogo {
                     "2x² - 5x² = -3x²\r\n" + //
                     "7 + 1 = 8\r\n" + //
                     "");
+            System.out.println("Problema: Calcule a soma dos polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
             System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 7x³ - 3x² + 8");
-            System.out.println("b) 7x³ - 3x² + 6");
-            System.out.println("c) 7x³ - 5x² + 8");
-            System.out.println("d) 7x³ - 5x² + 6");
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("7x³ - 3x² + 8");
+            opcoesResposta.add("7x³ - 3x² + 6");
+            opcoesResposta.add("7x³ - 5x² + 8");
+            opcoesResposta.add("7x³ - 5x² + 6");
 
-            System.out.print("Resposta: ");
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+
+            // Selecionando aleatoriamente a letra da resposta correta
+            int indiceRespostaCorreta = rdm.nextInt(opcoesResposta.size());
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("7x³ - 3x² + 8"));
+
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("a")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -159,7 +214,7 @@ public class Jogo {
 
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: a) 7x³ - 3x² + 8");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 7x³ - 3x² + 8");
             }
         }
     }
@@ -172,28 +227,28 @@ public class Jogo {
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 3");
             System.out.println("========================================================");
-            System.out.println("Problema: Qual é o resultado da operação (6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1)?");
+            System.out.println("Problema: Qual é o resultado da operação (6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1)?");
             System.out.println("TUTORIAL: ");
             System.out.println(
                     "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
             System.out.println("PASSO 1: ");
             System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
-                    "(6x⁴ - 3x³ + 2x²) + (x⁴ + 5x³ - x² + 1) \r\n" + //
-                    "= (6x⁴ + x⁴) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
+                    "(6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1) \r\n" + //
+                    "= (6x^4 + x^4) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
                     "");
             System.out.println("PASSO 2: ");
             System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
-                    "6x⁴ + x⁴ = 7x⁴\r\n" + //
+                    "6x^4 + x^4 = 7x^4\r\n" + //
                     "-3x³ + 5x³ = 2x³\r\n" + //
                     "2x² - x² = x²\r\n" + //
                     "0 + 1 = 1\r\n" + //
                     "");
 
             System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 7x⁴ + 2x³ + x² + 1");
-            System.out.println("b) 7x⁴ - 3x³ + x² + 1");
-            System.out.println("c) 7x⁴ + 2x³ + x² - 1");
-            System.out.println("d) 7x⁴ - 3x³ + x² - 1");
+            System.out.println("a) 7x^4 + 2x³ + x² + 1");
+            System.out.println("b) 7x^4 - 3x³ + x² + 1");
+            System.out.println("c) 7x^4 + 2x³ + x² - 1");
+            System.out.println("d) 7x^4 - 3x³ + x² - 1");
 
             System.out.print("Resposta: ");
             String resposta = sc.next();
@@ -211,7 +266,7 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out
-                        .println("Você excedeu o número de tentativas. A resposta correta era: a) 7x⁴ + 2x³ + x² + 1");
+                        .println("Você excedeu o número de tentativas. A resposta correta era: a) 7x^4 + 2x³ + x² + 1");
             }
         }
     }
@@ -223,33 +278,47 @@ public class Jogo {
     // Função para a questão de subtração 1
     public static void exercicioSubtracao01() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
             System.out.println("========================================================");
-            System.out.println("Problema: Subtraia os polinômios (5x² + 3x + 8) e (2x² - 4x + 1).");
             System.out.println("TUTORIAL:");
             System.out.println(
                     "Para subtrair polinômios, é semelhante à adição, mas desta vez subtraímos os termos semelhantes.");
             System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
                     "(5x² + 3x + 8) - (2x² - 4x + 1) \n" + //
                     "= (5x² - 2x²) + (3x + 4x) + (8 - 1)\n");
-
+    
             System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
                     "5x² - 2x² = 3x²\n" + //
                     "3x + 4x = 7x\n" + //
                     "8 - 1 = 7\n");
-
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 3x² - 7x - 7");
-            System.out.println("b) 3x² - 7x + 7");
-            System.out.println("c) 3x² + 7x - 7");
-            System.out.println("d) 3x² + 7x + 7");
-
-            System.out.print("Resposta: ");
+    
+            System.out.println("Problema: Subtraia os polinômios (5x² + 3x + 8) e (2x² - 4x + 1).");
+    
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("3x² - 7x - 7");
+            opcoesResposta.add("3x² - 7x + 7");
+            opcoesResposta.add("3x² + 7x - 7");
+            opcoesResposta.add("3x² + 7x + 7");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("3x² + 7x + 7"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("d")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -259,10 +328,10 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² + 7x + 7");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 3x² + 7x + 7");
             }
         }
     }
@@ -270,32 +339,45 @@ public class Jogo {
     // Função para a questão de subtração 2
     public static void exercicioSubtracao02() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
             System.out.println("========================================================");
-            System.out.println("Problema: Calcule a diferença entre os polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
             System.out.println("TUTORIAL:");
             System.out.println("Para subtrair polinômios, agrupamos os termos semelhantes e, em seguida, subtraímos.");
             System.out.println("Então, subtraímos os termos semelhantes de cada polinômio:\n" + //
                     "(4x³ + 2x² + 7) - (3x³ - 5x² + 1) \n" + //
                     "= (4x³ - 3x³) + (2x² + 5x²) + (7 - 1)\n");
-
+    
             System.out.println("Agora, subtraímos cada grupo de termos semelhantes:\n" + //
                     "4x³ - 3x³ = x³\n" + //
                     "2x² + 5x² = 7x²\n" + //
                     "7 - 1 = 6\n");
 
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) x³ + 7x² + 6");
-            System.out.println("b) x³ + 7x² - 6");
-            System.out.println("c) x³ - 7x² + 6");
-            System.out.println("d) x³ - 7x² - 6");
-
-            System.out.print("Resposta: ");
+            System.out.println("Problema: Calcule a diferença entre os polinômios (4x³ + 2x² + 7) e (3x³ - 5x² + 1).");
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("x³ + 7x² + 6");
+            opcoesResposta.add("x³ + 7x² - 6");
+            opcoesResposta.add("x³ - 7x² + 6");
+            opcoesResposta.add("x³ - 7x² - 6");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("x³ - 7x² + 6"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("c")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -305,10 +387,10 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: c) x³ - 7x² + 6");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") x³ - 7x² + 6");
             }
         }
     }
@@ -320,36 +402,50 @@ public class Jogo {
     // Função para a questão de multiplicação 1
     public static void exercicioMultiplicacao01() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
             System.out.println("========================================================");
-            System.out.println("Problema: Multiplique o polinômio (2x + 3) pelo polinômio (x² - 4x + 5).");
             System.out.println("TUTORIAL:");
-            System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
+            System.out.println("\nPara multiplicar polinômios, usamos a propriedade distributiva.");
             System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
             System.out.println("(2x + 3) * (x² - 4x + 5) ");
             System.out.println("= 2x * (x² - 4x + 5) + 3 * (x² - 4x + 5)");
-
+    
             System.out.println(
-                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+                    "\nAgora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
             System.out.println("= 2x * x² - 2x * 4x + 2x * 5 + 3 * x² - 3 * 4x + 3 * 5");
             System.out.println("= 2x³ - 8x² + 10x + 3x² - 12x + 15");
-
-            System.out.println("Agora, combinamos termos semelhantes:");
+    
+            System.out.println("\nAgora, combinamos termos semelhantes:");
             System.out.println("= 2x³ + 3x² - 8x² - 8x + 10x + 15");
             System.out.println("= 2x³ - 5x² + 2x + 15");
-
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 2x³ + 5x² + 2x + 15");
-            System.out.println("b) 2x³ - 5x² + 2x + 15");
-            System.out.println("c) 2x³ + 5x² - 2x - 15");
-            System.out.println("d) 2x³ - 5x² - 2x - 15");
-
-            System.out.print("Resposta: ");
+    
+            System.out.println("\nProblema: Multiplique o polinômio (2x + 3) pelo polinômio (x² - 4x + 5).");
+        
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("2x³ + 5x² + 2x + 15");
+            opcoesResposta.add("2x³ - 5x² + 2x + 15");
+            opcoesResposta.add("2x³ + 5x² - 2x - 15");
+            opcoesResposta.add("2x³ - 5x² - 2x - 15");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("2x³ - 5x² + 2x + 15"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("b")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -359,63 +455,74 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out
-                        .println("Você excedeu o número de tentativas. A resposta correta era: b) 2x³ - 5x² + 2x + 15");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 2x³ - 5x² + 2x + 15");
             }
         }
     }
 
     // Função para a questão de multiplicação 2
     public static void exercicioMultiplicacao02() {
-        Scanner sc = new Scanner(System.in);
-        int tentativas = 3;
+    Scanner sc = new Scanner(System.in);
+    Random rand = new Random();
+    int tentativas = 3;
 
-        while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 2");
-            System.out.println("========================================================");
-            System.out.println("Problema: Multiplique o polinômio (3x² + 2x - 1) pelo polinômio (4x - 3).");
-            System.out.println("TUTORIAL:");
-            System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
-            System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
-            System.out.println("(3x² + 2x - 1) * (4x - 3) ");
-            System.out.println("= 3x² * (4x - 3) + 2x * (4x - 3) - 1 * (4x - 3)");
+    while (tentativas > 0) {
+        System.out.println("\nQUESTÃO 2");
+        System.out.println("========================================================");
+        System.out.println("TUTORIAL:\n");
+        System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
+        System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
+        System.out.println("(3x² + 2x - 1) * (4x - 3) ");
+        System.out.println("= 3x² * (4x - 3) + 2x * (4x - 3) - 1 * (4x - 3)");
 
-            System.out.println(
-                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
-            System.out.println("= 12x³ - 9x² + 8x² - 6x - 4x + 3");
+        System.out.println(
+                "\nAgora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+        System.out.println("= 12x³ - 9x² + 8x² - 6x - 4x + 3");
 
-            System.out.println("Agora, combinamos termos semelhantes:");
-            System.out.println("= 12x³ - x² + 2x + 3");
+        System.out.println("\nAgora, combinamos termos semelhantes:");
+        System.out.println("= 12x³ - x² + 2x + 3");
+        System.out.println("\nProblema: Multiplique o polinômio (3x² + 2x - 1) pelo polinômio (4x - 3).");
 
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 12x³ + x² + 2x + 3");
-            System.out.println("b) 12x³ - x² + 2x + 3");
-            System.out.println("c) 12x³ - x² - 2x + 3");
-            System.out.println("d) 12x³ - x² - 2x - 3");
+        // Definindo as opções de resposta
+        List<String> opcoesResposta = new ArrayList<>();
+        opcoesResposta.add("12x³ + x² + 2x + 3");
+        opcoesResposta.add("12x³ - x² + 2x + 3");
+        opcoesResposta.add("12x³ - x² - 2x + 3");
+        opcoesResposta.add("12x³ - x² - 2x - 3");
 
-            System.out.print("Resposta: ");
-            String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("d")) {
-                System.out.println("Resposta correta! Parabéns!");
-                break;
-            } else {
-                System.out.println("Resposta incorreta.");
-                tentativas--;
-                if (tentativas > 0) {
-                    System.out.println("Tentativas restantes: " + tentativas);
-                }
-            }
+        // Embaralhando as opções de resposta
+        Collections.shuffle(opcoesResposta);
 
-            // Se for a última tentativa e ainda errar, exibe a resposta correta.
-            if (tentativas == 0) {
-                System.out
-                        .println("Você excedeu o número de tentativas. A resposta correta era: d) 12x³ - x² - 2x - 3");
+        // Exibindo as opções de resposta embaralhadas
+        for (int i = 0; i < opcoesResposta.size(); i++) {
+            System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+        }
+
+        // Selecionando aleatoriamente a letra da resposta correta
+        char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("12x³ - x² + 2x + 3"));
+
+        System.out.print("\nResposta: ");
+        String resposta = sc.next();
+        if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
+            System.out.println("Resposta correta! Parabéns!");
+            break;
+        } else {
+            System.out.println("Resposta incorreta.");
+            tentativas--;
+            if (tentativas > 0) {
+                System.out.println("Tentativas restantes: " + tentativas);
             }
         }
+
+        // Se for a última tentativa e ainda errar, exibe a resposta correta.
+        if (tentativas == 0) {
+            System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 12x³ - x² + 2x + 3");
+        }
     }
+}
     // FIM DAS QUESTÕES DE MULTIPLICAÇÃO!!
 
     // ------------------------------------------------------------------------------------------------//
@@ -424,68 +531,81 @@ public class Jogo {
     // Função para a questão BOSS 1
     public static void exercicioBoss01() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
             System.out.println("========================================================");
-            System.out.println("Problema: Divida o polinômio (6x³ + 5x² - 4x + 8) por (2x - 1).");
-
+    
             System.out.println("TUTORIAL:");
-            System.out.println("Para dividir polinômios, usamos a divisão polinomial.");
+            System.out.println("\nPara dividir polinômios, usamos a divisão polinomial.");
             System.out.println("1. Organize o polinômio de acordo com as potências decrescentes de x.");
             System.out.println("2. Divida o termo de maior grau do dividendo pelo termo de maior grau do divisor.");
             System.out.println("3. Multiplique o divisor pelo quociente encontrado e subtraia do dividendo.");
             System.out.println("4. Repita o processo até que o grau do resto seja menor que o grau do divisor.");
-
+    
             System.out.println("(6x³ + 5x² - 4x + 8) ÷ (2x - 1)");
-            System.out.println("Passo 1:");
+            System.out.println("\nPasso 1:");
             System.out.println("Grau do dividendo: 3");
             System.out.println("Grau do divisor: 1");
-
-            System.out.println("Passo 2:");
+    
+            System.out.println("\nPasso 2:");
             System.out.println("6x³ ÷ 2x = 3x²");
-
-            System.out.println("Passo 3:");
+    
+            System.out.println("\nPasso 3:");
             System.out.println("(3x²) (2x - 1) = 6x³ - 3x²");
             System.out.println("(6x³ + 5x² - 4x + 8) - (6x³ - 3x²) = 5x² - 4x + 8");
-
-            System.out.println("Passo 4:");
+    
+            System.out.println("\nPasso 4:");
             System.out.println("Grau do novo dividendo: 2");
             System.out.println("Grau do divisor: 1");
-
-            System.out.println("Passo 5:");
+    
+            System.out.println("\nPasso 5:");
             System.out.println("5x² ÷ 2x = (5/2) x");
-
-            System.out.println("Passo 6:");
+    
+            System.out.println("\nPasso 6:");
             System.out.println("((5/2) x) (2x - 1) = (5/2) x² - (5/2) x");
             System.out.println("(5x² - 4x + 8) - ((5/2) x² - (5/2) x) = (5/2) x - 4x + 8");
-
-            System.out.println("Passo 7:");
+    
+            System.out.println("\nPasso 7:");
             System.out.println("Grau do novo dividendo: 1");
             System.out.println("Grau do divisor: 1");
-
-            System.out.println("Passo 8:");
+    
+            System.out.println("\nPasso 8:");
             System.out.println("(5/2) x ÷ 2x = 5/4");
-
-            System.out.println("Passo 9:");
+    
+            System.out.println("\nPasso 9:");
             System.out.println("((5/4)) (2x - 1) = (5/2) x - (5/4)");
             System.out.println("((5/2) x - 4x + 8) - ((5/2) x - (5/4)) = 4x + 8 + (5/4)");
-
+    
             System.out.println(
-                    "Como o grau do novo dividendo é menor que o grau do divisor, o processo de divisão termina.");
-
+                    "\nComo o grau do novo dividendo é menor que o grau do divisor, o processo de divisão termina.");
+    
             System.out.println("Portanto, o quociente é 3x² + (5/2) x + (5/4) e o resto é 4x + 8 + (5/4).");
-
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 3x² - 5/2x + 5/4");
-            System.out.println("b) 3x² + 5/2x + 5/4");
-            System.out.println("c) 3x² + 5/2x - 5/4");
-            System.out.println("d) 3x² - 5/2x - 5/4");
-
-            System.out.print("Resposta: ");
+            System.out.println("\n\nProblema: Divida o polinômio (6x³ + 5x² - 4x + 8) por (2x - 1).");
+    
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("3x² - 5/2x + 5/4");
+            opcoesResposta.add("3x² + 5/2x + 5/4");
+            opcoesResposta.add("3x² + 5/2x - 5/4");
+            opcoesResposta.add("3x² - 5/2x - 5/4");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("3x² - 5/2x - 5/4"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("d")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -495,10 +615,10 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out.println("Você excedeu o número de tentativas. A resposta correta era: d) 3x² - 5/2x - 5/4");
+                System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 3x² - 5/2x - 5/4");
             }
         }
     }
@@ -506,36 +626,49 @@ public class Jogo {
     // Função para a questão BOSS 2
     public static void exercicioBoss02() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
             System.out.println("========================================================");
-            System.out.println("Problema: Multiplique o polinômio (x² + 3x - 2) por (2x² - 5x + 1).");
-
+    
             System.out.println("TUTORIAL:");
             System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
             System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
             System.out.println("(x² + 3x - 2) * (2x² - 5x + 1) ");
             System.out.println("= x² * (2x² - 5x + 1) + 3x * (2x² - 5x + 1) - 2 * (2x² - 5x + 1)");
-
+    
             System.out.println(
-                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
-            System.out.println("= 2x⁴ - 5x³ + x² + 6x³ - 15x² + 3x - 4x² + 10x - 2");
-
-            System.out.println("Agora, combinamos termos semelhantes:");
-            System.out.println("= 2x⁴ + (6x³ - 5x³) + (-15x² - 4x²) + (3x + 10x) - 2");
-            System.out.println("= 2x⁴ + x³ - 19x² + 13x - 2");
-
-            System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 2x⁴ - x³ + 19x² - 13x + 2");
-            System.out.println("b) 2x⁴ + x³ - 19x² + 13x - 2");
-            System.out.println("c) 2x⁴ + x³ - 19x² - 13x - 2");
-            System.out.println("d) 2x⁴ + x³ - 19x² + 13x - 2");
-
-            System.out.print("Resposta: ");
+                    "\nAgora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+            System.out.println("= 2x^4 - 5x³ + x² + 6x³ - 15x² + 3x - 4x² + 10x - 2");
+    
+            System.out.println("\nAgora, combinamos termos semelhantes:");
+            System.out.println("= 2x^4 + (6x³ - 5x³) + (-15x² - 4x²) + (3x + 10x) - 2");
+            System.out.println("= 2x^4 + x³ - 19x² + 13x - 2");
+            System.out.println("\nProblema: Multiplique o polinômio (x² + 3x - 2) por (2x² - 5x + 1).");
+    
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("2x^4 - x³ + 19x² - 13x + 2");
+            opcoesResposta.add("2x^4 + x³ - 19x² + 13x - 2");
+            opcoesResposta.add("2x^4 + x³ - 19x² - 13x - 2");
+            opcoesResposta.add("2x^4 + x³ - 19x² + 13x - 2");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("2x^4 - x³ + 19x² - 13x + 2"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("a")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -545,11 +678,11 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println(
-                        "Você excedeu o número de tentativas. A resposta correta era: a) 2x⁴ - x³ + 19x² - 13x + 2");
+                        "Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 2x^4 - x³ + 19x² - 13x + 2");
             }
         }
     }
@@ -557,36 +690,50 @@ public class Jogo {
     // Função para a questão BOSS 3
     public static void exercicioBoss03() {
         Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
         int tentativas = 3;
-
+    
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 3");
             System.out.println("========================================================");
-            System.out.println("Problema: Multiplique o polinômio (3x² - 2x + 5) por (4x - 1).");
-
-            System.out.println("TUTORIAL:");
+            System.out.println("\nTUTORIAL:");
             System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
             System.out.println("Então, multiplicamos cada termo do primeiro polinômio pelo segundo polinômio:");
             System.out.println("(3x² - 2x + 5) * (4x - 1) ");
             System.out.println("= 3x² * (4x - 1) - 2x * (4x - 1) + 5 * (4x - 1)");
-
+    
             System.out.println(
-                    "Agora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
+                    "\nAgora, distribuímos cada termo do primeiro polinômio para cada termo do segundo polinômio:");
             System.out.println("= 12x³ - 3x² - 8x² + 2x + 20x - 5");
-
-            System.out.println("Agora, combinamos termos semelhantes:");
+    
+            System.out.println("\nAgora, combinamos termos semelhantes:");
             System.out.println("= 12x³ - (3x² + 8x²) + (2x + 20x) - 5");
             System.out.println("= 12x³ - 11x² + 22x - 5");
-
+    
+            System.out.println("\nProblema: Multiplique o polinômio (3x² - 2x + 5) por (4x - 1).");
             System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 12x³ - 11x² + 22x - 5");
-            System.out.println("b) 12x³ + 11x² - 22x + 5");
-            System.out.println("c) 12x³ + 11x² + 22x - 5");
-            System.out.println("d) 12x³ - 11x² - 22x + 5");
-
-            System.out.print("Resposta: ");
+    
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("12x³ - 11x² + 22x - 5");
+            opcoesResposta.add("12x³ + 11x² - 22x + 5");
+            opcoesResposta.add("12x³ + 11x² + 22x - 5");
+            opcoesResposta.add("12x³ - 11x² - 22x + 5");
+    
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+    
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+    
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("12x³ - 11x² + 22x - 5"));
+    
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("b")) {
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
                 System.out.println("Resposta correta! Parabéns!");
                 break;
             } else {
@@ -596,11 +743,11 @@ public class Jogo {
                     System.out.println("Tentativas restantes: " + tentativas);
                 }
             }
-
+    
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println(
-                        "Você excedeu o número de tentativas. A resposta correta era: b) 12x³ + 11x² - 22x + 5");
+                        "Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 12x³ - 11x² + 22x - 5");
             }
         }
     }
