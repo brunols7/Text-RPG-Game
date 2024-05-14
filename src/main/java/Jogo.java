@@ -1252,6 +1252,7 @@ public class Jogo {
                         if (opcao == 1){
                             System.out.println(" É preciso fazer uma conta para dar dano á eles: \n");
                             //questao1
+                            exercicioAdicao01();
                             //colocar a arma
                             System.out.println("Você acertou: ... de dano em cada monstro.\n== Os monstros estao mortos! ==\n");
                             Thread.sleep(1000);
