@@ -944,10 +944,10 @@ public class Jogo {
         // Escolher arma e definir o dano e o status atual.
         danoArma = primeiraSala(input, agilidadePersonagem);
         danoGeral = (dano * danoArma) + danoArma;
+        clearConsole();
         statusAtual(vidaPersonagem, agilidadePersonagem, danoGeral);
         // FAZER FUNÇÃO DE AO FINALIZAR BUSCA PELA SALA, O PERSONAGEM SE DEPARA COM UM
         // MONSTRO NA PORTA ANTES (SENDO A PRIMEIRA BOSS FIGHT)
-        System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         corredor(input);
         refeitorio(input);
@@ -1245,10 +1245,10 @@ public class Jogo {
                     System.out.println("\n ==  Você começa á sair do refeitório quando de repente aparece 2 monstros na porta ==");
                     System.out.println(mob);
                     Thread.sleep(1000);
-                    System.out.println("O que devo fazer? [1] Usar para tentar ... bater neles  [2] Correr");
-                    System.out.print("== Opção desejada: ");
-                    opcao = sc.nextInt();
-                    do { 
+                    do {
+                        System.out.println("\nO que devo fazer? [1] Usar para tentar ... bater neles  [2] Correr");
+                        System.out.print("== Opção desejada: ");
+                        opcao = sc.nextInt();
                         if (opcao == 1){
                             System.out.println(" É preciso fazer uma conta para dar dano á eles: \n");
                             //questao1
