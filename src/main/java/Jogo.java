@@ -948,6 +948,8 @@ public class Jogo {
         // FAZER FUNÇÃO DE AO FINALIZAR BUSCA PELA SALA, O PERSONAGEM SE DEPARA COM UM
         // MONSTRO NA PORTA ANTES (SENDO A PRIMEIRA BOSS FIGHT)
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
+        int questao1 = exercicioAdicao01();
+        System.out.println("PLOW PLOW " + questao1);
     }
 
     // Função que mostra as instruções do jogo, ele contem um sleep onde vai segurar
@@ -1176,7 +1178,7 @@ public class Jogo {
         System.out.println("=-=-=-=-=-= STATUS ATUAL =-=-=-=-=-=");
         System.out.println("\nVida: " + vida);
         System.out.println("Agilidade: " + agilidade);
-        System.out.println("Dano: " + dano + "\n");
+        System.out.printf("Dano: %.2f\n", dano);
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
     }
