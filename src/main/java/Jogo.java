@@ -948,8 +948,11 @@ public class Jogo {
         // FAZER FUNÇÃO DE AO FINALIZAR BUSCA PELA SALA, O PERSONAGEM SE DEPARA COM UM
         // MONSTRO NA PORTA ANTES (SENDO A PRIMEIRA BOSS FIGHT)
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
-        int questao1 = exercicioAdicao01();
-        System.out.println("PLOW PLOW " + questao1);
+        System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
+        corredor(input);
+        refeitorio(input);
+        saidaRefeitorio(input, MobPequeno);
+
     }
 
     // Função que mostra as instruções do jogo, ele contem um sleep onde vai segurar
@@ -1030,16 +1033,16 @@ public class Jogo {
         int escolhaPrincipal;
 
         do {
-            System.out.println("*O que eu devo fazer?*");
-            System.out.println("[1] Procurar sua casa. [2] Procurar ajuda. [3] Entrar na escola.\n");
-            System.out.print("OPÇÃO DESEJADA: ");
+            System.out.println("O que eu devo fazer?");
+            System.out.println("== [1] Procurar sua casa. [2] Procurar ajuda. [3] Entrar na escola. ==\n");
+            System.out.print("== OPÇÃO DESEJADA: ");
             escolhaPrincipal = input.nextInt();
 
             if (escolhaPrincipal == 1) {
-                System.out.println("\n*Não é uma boa ideia, imagino que eu não esteja perto de casa*\n");
+                System.out.println("\nNão é uma boa ideia, imagino que eu não esteja perto de casa\n");
             } else if (escolhaPrincipal == 2) {
                 System.out.println(
-                        "\n*Não é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto*\n");
+                        "\nNão é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto\n");
             } else if (escolhaPrincipal == 3) {
                 System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha\n");
             } else if (escolhaPrincipal > 3 || escolhaPrincipal < 1) {
@@ -1059,11 +1062,11 @@ public class Jogo {
         Thread.sleep(2500);
         clearConsole();
         System.out.println("\n =-=-=-=-=-=-=-=-= VOCÊ ENTROU NA ESCOLA =-=-=-=-=-=-=-=-=\n\n");
-        System.out.println("Você se encontra em um corredor imenso e tem duas portas próximas a você.");
-        System.out.println("Você precisar entrar em uma dessas salas para procurar algo para se proteger...");
+        System.out.println("== Você se encontra em um corredor imenso e tem duas portas próximas a você. ==");
+        System.out.println("== Você precisar entrar em uma dessas salas para procurar algo para se proteger... ==");
 
         do {
-            System.out.println("\n\nVocê deseja entrar na sala a ESQUERDA ou a DIREITA?\n");
+            System.out.println("\n\n== Você deseja entrar na sala a ESQUERDA ou a DIREITA? ==\n");
             System.out.println("[1] SALA A ESQUERDA");
             System.out.println("[2] SALA A DIREITA\n");
             System.out.print("\nOPÇÃO DESEJADA: ");
@@ -1086,20 +1089,20 @@ public class Jogo {
         int segundaOpcao;
 
         System.out.println("\n=-=-=-=-=-=-=-=-= VOCÊ ENTROU NA SALA À DIREITA =-=-=-=-=-=-=-=-=\n");
-        System.out.println("Você se encontra em uma sala de aula com as mesas e cadeiras reviradas.");
+        System.out.println("== Você se encontra em uma sala de aula com as mesas e cadeiras reviradas. ==");
 
         do {
-            System.out.println("Você deseja [1] EXPLORAR a sala ou deseja [2] VOLTAR?\n");
-            System.out.print("OPÇÃO DESEJADA: ");
+            System.out.println(" == Você deseja: [1] EXPLORAR a sala [2] VOLTAR? ==\n");
+            System.out.print("== OPÇÃO DESEJADA: ");
             primeiraOpcao = input.nextInt();
 
             if (primeiraOpcao == 1) {
                 System.out.println("\nVocê decidiu explorar a sala.");
                 System.out.println("\nPROCURANDO...\n");
                 Thread.sleep(1500);
-                System.out.println("Você olhou nas mesas e nas cadeiras e não encontrou nada!");
-                System.out.println("Você deseja [1] PROCURAR no armário ou deseja [2] VOLTAR para o corredor\n");
-                System.out.print("OPÇÃO DESEJADA: ");
+                System.out.println("== Você olhou nas mesas e nas cadeiras e não encontrou nada! ==");
+                System.out.println("== Você deseja: [1] PROCURAR no armário [2] VOLTAR para o corredor ==\n");
+                System.out.print("== OPÇÃO DESEJADA: ");
                 segundaOpcao = input.nextInt();
 
                 do {
@@ -1107,7 +1110,7 @@ public class Jogo {
                         System.out.println("\nVocê decidiu olhar o armário.");
                         System.out.println("\nPROCURANDO...\n");
                         Thread.sleep(1000);
-                        System.out.println("Você encontrou uma maçã apodrecida e uns papéis.");
+                        System.out.println("== Você encontrou uma maçã apodrecida e uns papéis. ==");
                         System.out.println("Melhor voltar para a corredor e ir explorar a outra sala...");
                         Thread.sleep(4000);
                         break;
@@ -1136,15 +1139,15 @@ public class Jogo {
 
         System.out.println("\n=-=-=-=-=-=-=-=-= VOCÊ ENTROU NA SALA À ESQUERDA =-=-=-=-=-=-=-=-=\n");
 
-        System.out.println("\nVocê se encontra em uma sala com poucas mesas.");
-        System.out.println("Você acha que viu algo para se proteger perto da mesa do professor.");
-        System.out.println("Você deseja ir [1] OLHAR a mesa do professor ou deseja ir [2] EMBORA\n");
-        System.out.print("OPÇÃO DESEJADA: ");
+        System.out.println("\n== Você se encontra em uma sala com poucas mesas. ==");
+        System.out.println("== Você acha que viu algo para se proteger perto da mesa do professor. ==");
+        System.out.println("== Você deseja ir [1] OLHAR a mesa do professor ou deseja ir [2] EMBORA ==\n");
+        System.out.print("== OPÇÃO DESEJADA: ");
         opcaoSala = input.nextInt();
         if (opcaoSala == 1) {
             do {
                 System.out.println(
-                        "\nVocê encontra uma TESOURA e uma FACA na mesa do professor, qual você deseja pegar?\n");
+                        "\n== Você encontra uma TESOURA e uma FACA na mesa do professor, qual você deseja pegar? ==\n");
                 System.out.println("[1] FACA\n\nDano: 10\nAgilidade: -10\n");
                 System.out.println("[2] TESOURA\n\nDano: 7\nAgilidade: 10\n");
 
@@ -1152,22 +1155,22 @@ public class Jogo {
                 opcaoPrimeiraArma = input.nextInt();
 
                 if (opcaoPrimeiraArma == 1) {
-                    System.out.println("Você pegou a FACA!\n");
+                    System.out.println("== Você pegou a FACA! ==\n");
                     danoArma = 10;
                     agilidadePersonagem -= 10;
                 } else if (opcaoPrimeiraArma == 2) {
-                    System.out.println("Você pegou a TESOURA!\n");
+                    System.out.println("== Você pegou a TESOURA! ==\n");
                     danoArma = 7;
                     agilidadePersonagem += 10;
                 } else {
-                    System.out.println("OPÇÃO INVÁLIDA!\n");
+                    System.out.println("== OPÇÃO INVÁLIDA!\n");
                 }
 
             } while (opcaoPrimeiraArma < 1 || opcaoPrimeiraArma > 2);
 
             return danoArma;
         } else if (opcaoSala == 2) {
-            System.out.println("Você decidiu ir embora...");
+            System.out.println("== Você decidiu ir embora... ==");
             Thread.sleep(1500);
             primeiraSala(input, agilidadePersonagem);
         }
@@ -1178,8 +1181,91 @@ public class Jogo {
         System.out.println("=-=-=-=-=-= STATUS ATUAL =-=-=-=-=-=");
         System.out.println("\nVida: " + vida);
         System.out.println("Agilidade: " + agilidade);
-        System.out.printf("Dano: %.2f\n", dano);
+        System.out.println("Dano: " + dano + "\n");
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
     }
+    public static int corredor (Scanner sc){
+        int corredor;
+        do {
+            System.out.println("== Após a escolha da arma, você volta para o corredor \nPorém você escuta alguém abrindo a porta principal da escola ==");
+            System.out.println("== Você deseja: [1] Correr até o final do corredor [2] Entrar em uma das salas ==\n");
+            System.out.print("== OPÇÃO DESEJADA: ");
+            corredor = sc.nextInt();
+
+            if (corredor == 1) {
+                System.out.println("\n == Você corre e entra em um armário, você consegue ver um ser andando e passando reto pelo armário, parece que você está salvo ==\n\n- Mas o que é aquilo? eu não sei o que ta acontecendo e não sei que tipo de monstro é aquele, eu tenho que sair daqui\n");
+            } else if (corredor == 2) {
+                System.out.println(
+                        "\nSe eu entrar nessa sala ele poderia me ouvir, eu acabaria morrendo, melhor não\n");
+            } else if (corredor > 2 || corredor < 1) {
+                System.out.println("OPÇÃO INVÁLIDA!\n");
+            }
+        } while (corredor != 1);
+
+        return 0;
+    }
+    public static int refeitorio (Scanner sc) throws InterruptedException{
+        int refeitorio;
+        do {
+            System.out.println("== Você sai do armário, onde deseja entrar? ==");
+            System.out.println("== Você deseja: [1] Refeitório [2] Sala 101 [3] Sala 103 ==\n");
+            System.out.print("== OPÇÃO DESEJADA: ");
+            refeitorio = sc.nextInt();
+
+            if (refeitorio == 1) {
+                System.out.println("== Assim que você entra você vê vários papéis espalhados com um idioma que você jamais entenderia \nO que são esses tantos de papéis? ==");
+                System.out.println("== Він знає, що ти тут, він іде за тобою, він збирається послати всю свою армію == \nIsso é russo??? Eu realmente não consigo entender isso...");
+                Thread.sleep(1000);
+                System.out.println("O que é isso?");
+                System.out.println("== Você encontrou um mapa. 1/7 ==");
+                Thread.sleep(1000);
+                //Colocar o cara pra pegar arma
+            } else if (refeitorio == 2) {
+                System.out.println("Acabei entrando na sala, parece ser ");
+            } else if (refeitorio == 3) {
+                        System.out.println("Está trancado.");
+            } else if (refeitorio > 3 || refeitorio < 1) {
+                System.out.println("OPÇÃO INVÁLIDA!\n");
+            }
+        } while (refeitorio != 1);
+
+            return 0;
+        }
+        public static int saidaRefeitorio (Scanner sc, String mob) throws InterruptedException{
+            int mapaUm;
+            int opcao;
+            do {
+                System.out.println("Um pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
+                System.out.println("== Você deseja: [1] Sair do Refeitório [2] Explorar mais ==\n");
+                System.out.print("== OPÇÃO DESEJADA: ");
+                mapaUm = sc.nextInt();
+    
+                if (mapaUm == 1) {
+                    System.out.println("\n ==  Você começa á sair do refeitório quando de repente aparece 2 monstros na porta ==");
+                    System.out.println(mob);
+                    Thread.sleep(1000);
+                    System.out.println("O que devo fazer? [1] Usar para tentar ... bater neles  [2] Correr");
+                    System.out.print("== Opção desejada: ");
+                    opcao = sc.nextInt();
+                    do { 
+                        if (opcao == 1){
+                            System.out.println(" É preciso fazer uma conta para dar dano á eles: \n");
+                            //questao1
+                            //colocar a arma
+                            System.out.println("Você acertou: ... de dano em cada monstro.\n== Os monstros estao mortos! ==\n");
+                            Thread.sleep(1000);
+                            System.out.println("CONTA??? MATEMÁTICA??? Isso é muito estranho, eu não sei o que está acontecendo");
+                            System.out.println("====Você saiu do refeitório====");
+                        }else if (opcao == 2){
+                            System.out.println("Eles são muito rápidos, não consigo fugir deles\n");
+                        }
+                    } while (opcao != 1);
+                } else if (mapaUm == 2) {
+                    System.out.println("\nSó vejo um monte de papéis, não consigo entender nada\n");
+                }
+            } while (mapaUm != 1);
+    
+            return 0;
+        }
 }
