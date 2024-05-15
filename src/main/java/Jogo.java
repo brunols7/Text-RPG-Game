@@ -1300,7 +1300,7 @@ public class Jogo {
                             System.out.println("CONTA??? MATEMÁTICA??? Isso é muito estranho, eu não sei o que está acontecendo");
                             System.out.println("\n\n==== Você saiu do refeitório ====");
                         }else if (opcao == 2){
-                            System.out.println("Eles são muito rápidos, não consigo fugir deles\n");
+                            System.out.println("\nEles são muito rápidos, não consigo fugir deles\n");
                         }
                     } while (opcao != 1);
                 } else if (mapaUm == 2) {
