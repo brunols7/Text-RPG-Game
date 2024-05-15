@@ -64,7 +64,7 @@ public class Jogo {
         Random rand = new Random();
 
         int tentativas = 3;
-        int danoTomado = 10;
+        int danoTomado = 0;
 
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
@@ -156,10 +156,11 @@ public class Jogo {
     }
 
     // Função para o exercício de adição 2
-    public static void exercicioAdicao02() {
+    public static int exercicioAdicao02() {
         Scanner sc = new Scanner(System.in);
         Random rdm = new Random();
         int tentativas = 3;
+        int dano = 0;
 
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
@@ -209,6 +210,7 @@ public class Jogo {
                 tentativas--;
                 if (tentativas > 0) {
                     System.out.println("Tentativas restantes: " + tentativas);
+                    dano = 10;
                 }
             }
 
@@ -217,6 +219,7 @@ public class Jogo {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 7x³ - 3x² + 8");
             }
         }
+        return dano;
     }
 
     // Função para o exercício de adição 3
@@ -1221,7 +1224,7 @@ public class Jogo {
                 System.out.println("== Він знає, що ти тут, він іде за тобою, він збирається послати всю свою армію == \nIsso é russo??? Eu realmente não consigo entender isso...");
                 Thread.sleep(5000);
                 clearConsole();
-                System.out.println("O que é isso?");
+                System.out.println("\nO que é isso?");
                 System.out.println("== Você encontrou um mapa. 1/7 ==");
                 Thread.sleep(1000);
                 //Colocar o cara pra pegar arma
@@ -1237,6 +1240,18 @@ public class Jogo {
             return 0;
         }
         public static int saidaRefeitorio (Scanner sc, String mob, double dano) throws InterruptedException{
+
+            String voceMorreu = 
+            " ██▒   █▓ ▒█████   ▄████▄  ▓█████     ███▄ ▄███▓ ▒█████   ██▀███   ██▀███  ▓█████  █    ██     ▐██▌ \n" +
+            "▓██░   █▒▒██▒  ██▒▒██▀ ▀█  ▓█   ▀    ▓██▒▀█▀ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓█   ▀  ██  ▓██▒    ▐██▌ \n" +
+            " ▓██  █▒░▒██░  ██▒▒▓█    ▄ ▒███      ▓██    ▓██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒███   ▓██  ▒██░    ▐██▌ \n" +
+            "  ▒██ █░░▒██   ██░▒▓▓▄ ▄██▒▒▓█  ▄    ▒██    ▒██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ▒▓█  ▄ ▓▓█  ░██░    ▓██▒ \n" +
+            "   ▒▀█░  ░ ████▓▒░▒ ▓███▀ ░░▒████▒   ▒██▒   ░██▒░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░▒████▒▒▒█████▓     ▒▄▄  \n" +
+            "   ░ ▐░  ░ ▒░▒░▒░ ░ ░▒ ▒  ░░░ ▒░ ░   ░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░░ ▒░ ░░▒▓▒ ▒ ▒     ░▀▀▒ \n" +
+            "   ░ ░░    ░ ▒ ▒░   ░  ▒    ░ ░  ░   ░  ░      ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ░ ░  ░░░▒░ ░ ░     ░  ░ \n" +
+            "     ░░  ░ ░ ░ ▒  ░           ░      ░      ░   ░ ░ ░ ▒    ░░   ░   ░░   ░    ░    ░░░ ░ ░        ░   \n" +
+            "      ░      ░ ░  ░ ░         ░  ░          ░       ░ ░     ░        ░        ░  ░   ░         ░       \n" +
+            "     ░            ░                                                                                      \n";
             int mapaUm;
             int opcao;
             do {
@@ -1255,12 +1270,33 @@ public class Jogo {
                         System.out.print("== Opção desejada: ");
                         opcao = sc.nextInt();
                         if (opcao == 1){
-                            System.out.println(" É preciso fazer uma conta para dar dano á eles: \n");
+                            System.out.println("\nÉ preciso fazer uma conta para dar dano á eles: \n");
                             //questao1
-                            exercicioAdicao01();
+                            int questao1 = exercicioAdicao01();
+                            if(questao1 == 10){
+                                Thread.sleep(7000);
+                                clearConsole();
+                                System.out.println(voceMorreu);
+                                Thread.sleep(10000);
+                                System.exit(0);
+                            } else{
+                                System.out.println("\n\n== Você conseguiu derrotar o primeiro monstro, falta apenas mais um. ==\n\n");
+                            }
+                            //questao2
+                            int questao2 = exercicioAdicao02();
+                            if(questao2 == 10){
+                                Thread.sleep(7000);
+                                clearConsole();
+                                System.out.println(voceMorreu);
+                                Thread.sleep(10000);
+                                System.exit(0);
+                            } else{
+                                System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
+                            }
+
                             //colocar a arma
                             System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estao mortos! ==\n", dano);
-                            Thread.sleep(1000);
+                            Thread.sleep(3000);
                             System.out.println("CONTA??? MATEMÁTICA??? Isso é muito estranho, eu não sei o que está acontecendo");
                             System.out.println("\n\n==== Você saiu do refeitório ====");
                         }else if (opcao == 2){
