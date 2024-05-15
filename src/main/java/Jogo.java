@@ -773,9 +773,9 @@ public class Jogo {
 
         do {
             System.out.println("ESCOLHA UM PERSONAGEM:\n ");
-            System.out.println("[1] Jonn\n\nVida: 100\nAgilidade: 60\nDano: 8%\n");
+            System.out.println("[1] Jonn\n\nVida: 50\nAgilidade: 60\nDano: 8%\n");
             System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-            System.out.println("[2] Anne\n\nVida: 100\nAgilidade: 80\nDano: 6%\n");
+            System.out.println("[2] Anne\n\nVida: 50\nAgilidade: 80\nDano: 6%\n");
 
             System.out.print("OPÇÃO DESEJADA: ");
             opcao = sc.nextInt();
@@ -943,6 +943,9 @@ public class Jogo {
         escolherCaminhoPrincipal(input);
         // Escolher arma e definir o dano e o status atual.
         danoArma = primeiraSala(input, agilidadePersonagem);
+        if(danoArma == 10){
+            agilidadePersonagem -= 10;
+        }
         danoGeral = (dano * danoArma) + danoArma;
         clearConsole();
         statusAtual(vidaPersonagem, agilidadePersonagem, danoGeral);
@@ -951,7 +954,7 @@ public class Jogo {
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         corredor(input);
         refeitorio(input);
-        saidaRefeitorio(input, MobPequeno);
+        saidaRefeitorio(input, MobPequeno, danoGeral);
 
     }
 
@@ -1216,7 +1219,8 @@ public class Jogo {
             if (refeitorio == 1) {
                 System.out.println("== Assim que você entra você vê vários papéis espalhados com um idioma que você jamais entenderia \nO que são esses tantos de papéis? ==");
                 System.out.println("== Він знає, що ти тут, він іде за тобою, він збирається послати всю свою армію == \nIsso é russo??? Eu realmente não consigo entender isso...");
-                Thread.sleep(1000);
+                Thread.sleep(5000);
+                clearConsole();
                 System.out.println("O que é isso?");
                 System.out.println("== Você encontrou um mapa. 1/7 ==");
                 Thread.sleep(1000);
@@ -1232,11 +1236,11 @@ public class Jogo {
 
             return 0;
         }
-        public static int saidaRefeitorio (Scanner sc, String mob) throws InterruptedException{
+        public static int saidaRefeitorio (Scanner sc, String mob, double dano) throws InterruptedException{
             int mapaUm;
             int opcao;
             do {
-                System.out.println("Um pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
+                System.out.println("\nUm pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
                 System.out.println("== Você deseja: [1] Sair do Refeitório [2] Explorar mais ==\n");
                 System.out.print("== OPÇÃO DESEJADA: ");
                 mapaUm = sc.nextInt();
@@ -1244,7 +1248,8 @@ public class Jogo {
                 if (mapaUm == 1) {
                     System.out.println("\n ==  Você começa á sair do refeitório quando de repente aparece 2 monstros na porta ==");
                     System.out.println(mob);
-                    Thread.sleep(1000);
+                    Thread.sleep(7000);
+                    clearConsole();
                     do {
                         System.out.println("\nO que devo fazer? [1] Usar para tentar ... bater neles  [2] Correr");
                         System.out.print("== Opção desejada: ");
@@ -1254,10 +1259,10 @@ public class Jogo {
                             //questao1
                             exercicioAdicao01();
                             //colocar a arma
-                            System.out.println("Você acertou: ... de dano em cada monstro.\n== Os monstros estao mortos! ==\n");
+                            System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estao mortos! ==\n", dano);
                             Thread.sleep(1000);
                             System.out.println("CONTA??? MATEMÁTICA??? Isso é muito estranho, eu não sei o que está acontecendo");
-                            System.out.println("====Você saiu do refeitório====");
+                            System.out.println("\n\n==== Você saiu do refeitório ====");
                         }else if (opcao == 2){
                             System.out.println("Eles são muito rápidos, não consigo fugir deles\n");
                         }
