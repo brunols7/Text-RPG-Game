@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -1032,7 +1031,7 @@ public class Jogo {
         Thread.sleep(8000);
         clearConsole();
         System.out.println(
-                "\n\nAo acordar, você se encontra no meio do nada em frente a uma escola, muito confuso você percebe que não está sozinho, escutando barulhos de passos se aproximando, mas você não consegue enxergar nada com a neblina e as enormes árvores.\n\n");
+                "\n\nAo acordar, você se encontra no meio do nada em frente a uma escola, muito confuso, você percebe que não está sozinho, escutando barulhos de passos se aproximando, mas você não consegue enxergar nada com a neblina e as enormes árvores.\n\n");
     }
 
     public static int escolherCaminhoPrincipal(Scanner input) {
@@ -1045,12 +1044,12 @@ public class Jogo {
             escolhaPrincipal = input.nextInt();
 
             if (escolhaPrincipal == 1) {
-                System.out.println("\nNão é uma boa ideia, imagino que eu não esteja perto de casa\n");
+                System.out.println("\nNão é uma boa ideia, imagino que eu não esteja perto de casa.\n");
             } else if (escolhaPrincipal == 2) {
                 System.out.println(
-                        "\nNão é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto\n");
+                        "\nNão é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto...\n");
             } else if (escolhaPrincipal == 3) {
-                System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha\n");
+                System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha.\n");
             } else if (escolhaPrincipal > 3 || escolhaPrincipal < 1) {
                 System.out.println("OPÇÃO INVÁLIDA!\n");
             }
@@ -1241,6 +1240,7 @@ public class Jogo {
         }
         public static int saidaRefeitorio (Scanner sc, String mob, double dano) throws InterruptedException{
 
+            //Texto usado para exibir a mensagem de sua morte.
             String voceMorreu = 
             " ██▒   █▓ ▒█████   ▄████▄  ▓█████     ███▄ ▄███▓ ▒█████   ██▀███   ██▀███  ▓█████  █    ██     ▐██▌ \n" +
             "▓██░   █▒▒██▒  ██▒▒██▀ ▀█  ▓█   ▀    ▓██▒▀█▀ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓█   ▀  ██  ▓██▒    ▐██▌ \n" +
@@ -1266,7 +1266,7 @@ public class Jogo {
                     Thread.sleep(7000);
                     clearConsole();
                     do {
-                        System.out.println("\nO que devo fazer? [1] Usar para tentar ... bater neles  [2] Correr");
+                        System.out.println("\nO que devo fazer? [1] Usar ... para tentar bater neles  [2] Correr");
                         System.out.print("== Opção desejada: ");
                         opcao = sc.nextInt();
                         if (opcao == 1){
@@ -1295,9 +1295,9 @@ public class Jogo {
                             }
 
                             //colocar a arma
-                            System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estao mortos! ==\n", dano);
+                            System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estão mortos! ==\n", dano);
                             Thread.sleep(3000);
-                            System.out.println("CONTA??? MATEMÁTICA??? Isso é muito estranho, eu não sei o que está acontecendo");
+                            System.out.println("CONTA?!?! MATEMÁTICA?!?!? Isso é muito estranho, eu não sei o que está acontecendo");
                             System.out.println("\n\n==== Você saiu do refeitório ====");
                         }else if (opcao == 2){
                             System.out.println("\nEles são muito rápidos, não consigo fugir deles\n");
