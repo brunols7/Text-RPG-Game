@@ -1258,7 +1258,7 @@ public class Jogo {
         System.out.println("=-=-=-=-=-= STATUS ATUAL =-=-=-=-=-=");
         System.out.println("\nVida: " + vida);
         System.out.println("Agilidade: " + agilidade);
-        System.out.println("Dano: " + dano + "\n");
+        System.out.printf("Dano: %.2f\n", dano);
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
     }
