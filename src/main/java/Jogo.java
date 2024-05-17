@@ -1482,7 +1482,7 @@ public class Jogo {
                 Thread.sleep(5000);
                 System.out.println(". . .");
                 Thread.sleep(5000);
-                System.out.println("Parece que não apareceu nenhum monstro");
+                System.out.println("Parece que não apareceu nenhum monstro.");
             return 0;
         }
 }
