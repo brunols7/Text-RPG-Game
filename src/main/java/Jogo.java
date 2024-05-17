@@ -301,7 +301,7 @@ public class Jogo {
         int dano = 0;
     
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 1");
+            System.out.println("\nQUESTÃO 4");
             System.out.println("========================================================");
             System.out.println("TUTORIAL:");
             System.out.println(
@@ -365,7 +365,7 @@ public class Jogo {
         int dano = 0;
 
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 2");
+            System.out.println("\nQUESTÃO 5");
             System.out.println("========================================================");
             System.out.println("TUTORIAL:");
             System.out.println("Para subtrair polinômios, agrupamos os termos semelhantes e, em seguida, subtraímos.");
@@ -395,7 +395,7 @@ public class Jogo {
             }
     
             // Selecionando aleatoriamente a letra da resposta correta
-            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("x³ - 7x² + 6"));
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("x³ + 7x² + 6"));
     
             System.out.print("\nResposta: ");
             String resposta = sc.next();
@@ -431,7 +431,7 @@ public class Jogo {
         int dano = 0;
     
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 1");
+            System.out.println("\nQUESTÃO 6");
             System.out.println("========================================================");
             System.out.println("TUTORIAL:");
             System.out.println("\nPara multiplicar polinômios, usamos a propriedade distributiva.");
@@ -498,7 +498,7 @@ public class Jogo {
     int dano = 0;
 
     while (tentativas > 0) {
-        System.out.println("\nQUESTÃO 2");
+        System.out.println("\nQUESTÃO 7");
         System.out.println("========================================================");
         System.out.println("TUTORIAL:\n");
         System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
@@ -566,7 +566,7 @@ public class Jogo {
         int dano = 0;
     
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 1");
+            System.out.println("\nQUESTÃO FINAL 1");
             System.out.println("========================================================");
     
             System.out.println("TUTORIAL:");
@@ -664,7 +664,7 @@ public class Jogo {
         int dano = 0;
     
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 2");
+            System.out.println("\nQUESTÃO FINAL 2");
             System.out.println("========================================================");
     
             System.out.println("TUTORIAL:");
@@ -731,7 +731,7 @@ public class Jogo {
         int dano = 0;
     
         while (tentativas > 0) {
-            System.out.println("\nQUESTÃO 3");
+            System.out.println("\nQUESTÃO FINAL 3");
             System.out.println("========================================================");
             System.out.println("\nTUTORIAL:");
             System.out.println("Para multiplicar polinômios, usamos a propriedade distributiva.");
@@ -1106,9 +1106,9 @@ public class Jogo {
         refeitorio(input);
         saidaRefeitorio(input, MobPequeno, danoGeral, danoArma, voceMorreu);
         biblioteca(input, olho, MobPequeno, voceMorreu);
-        ciencias(input, escritaAuditorio);
-        porao(input);
-        floresta(input, ultimoPedaco, capelaDeseho);
+        ciencias(input, escritaAuditorio, MobPequeno, voceMorreu);
+        porao(input, MobPequeno, voceMorreu);
+        floresta(input, ultimoPedaco, capelaDeseho, MobPequeno, voceMorreu);
         capela(input, pentagrama, primeiroMob);
 
     }
@@ -1187,7 +1187,7 @@ public class Jogo {
                 "\n\nAo acordar, você se encontra no meio do nada em frente a uma escola, muito confuso, você percebe que não está sozinho, escutando barulhos de passos se aproximando, mas você não consegue enxergar nada com a neblina e as enormes árvores.\n\n");
     }
 
-    public static int escolherCaminhoPrincipal(Scanner input) {
+    public static int escolherCaminhoPrincipal(Scanner input) throws InterruptedException {
         int escolhaPrincipal;
 
         do {
@@ -1207,7 +1207,7 @@ public class Jogo {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (escolhaPrincipal != 3);
-
+        Thread.sleep(3000);
         return 0;
     }
 
@@ -1435,6 +1435,8 @@ public class Jogo {
                             } else{
                                 System.out.println("\n\n== Você conseguiu derrotar o primeiro monstro, falta apenas mais um. ==\n\n");
                             }
+                            Thread.sleep(2000);
+                            clearConsole();
                             int questao2 = exercicioAdicao02();
                             if(questao2 == 10){
                                 Thread.sleep(7000);
@@ -1448,7 +1450,10 @@ public class Jogo {
                             System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estão mortos! ==\n", dano);
                             Thread.sleep(3000);
                             System.out.println("\n- CONTA?!?! MATEMÁTICA?!?!? Isso é muito estranho, eu não sei o que está acontecendo\n");
+                            Thread.sleep(3000);
+                            clearConsole();
                             System.out.println("\n\n==== Você saiu do refeitório ====");
+                            
                         }else if (opcao == 2){
                             System.out.println("\n- Eles são muito rápidos, não consigo fugir deles\n");
                         }
@@ -1508,9 +1513,10 @@ public class Jogo {
 
                     // gaveta
                     System.out.println("\n- Mas o que é isso?");
+                    Thread.sleep(2500);
                     System.out.println(olho);
                     System.out.println("- QUE M**** É ESSA? Isso é um olho???");
-                    Thread.sleep(5000);
+                    Thread.sleep(10000);
                     clearConsole();
                     System.out.println("- Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
                     Thread.sleep(3000);
@@ -1564,15 +1570,31 @@ public class Jogo {
                 System.out.println(". . .");
                 Thread.sleep(5000);
                 System.out.println("- Parece que não apareceu nenhum monstro.");
-                //BICHO AQUI
+                Thread.sleep(5000);
+                System.out.println(mob);
+                Thread.sleep(5000);
+                clearConsole();
+                int questao4 = exercicioSubtracao01();
+                if(questao4 == 10){
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println(voceMorreu);
+                    Thread.sleep(10000);
+                    System.exit(0);
+                }else{
+                    System.out.println("\n\n== Você conseguiu derrotar o monstro. ==\n\n");
+                }
+                Thread.sleep(7000);
+                System.out.println("- DROGA. Só foi eu falar que não tinha monstro...");
             return 0;
         }
-        public static int ciencias (Scanner sc, String escritaAuditorio) throws InterruptedException{
+        public static int ciencias (Scanner sc, String escritaAuditorio, String mob, String voceMorreu) throws InterruptedException{
             int ciencias;
             do {
                 System.out.println("- Você volta para o corredor e percebe que ainda tem duas portas");
                 System.out.println("== Preciso dar uma olhada antes de ir para o porão ==\n");
-                System.out.print("[1] Sala de ciências [2] Auditório");
+                System.out.println("[1] Sala de ciências [2] Auditório");
+                System.out.print("OPÇÃO: ");
                 ciencias = sc.nextInt();
     
                 if (ciencias == 1) {
@@ -1587,8 +1609,43 @@ public class Jogo {
                     System.out.println("\u001B[31m" + escritaAuditorio + "\u001B[0m");
                     Thread.sleep(7000);
                     System.out.println("- Mathmancer? o que...eu ja ouvi esse nome mas, eu não lembro");
-                    //DOIS BICHOS AQUI
-                    System.out.println("== Mapas encontrados 4/7 ==");
+                    Thread.sleep(5000);
+                    System.out.println("== DOIS MONSTROS APARECEM ==");
+                    Thread.sleep(2500);
+                    System.out.println(mob);
+                    Thread.sleep(4000);
+                    clearConsole();
+                    int questao5 =  exercicioSubtracao02();
+                    if(questao5 == 10){
+                        Thread.sleep(7000);
+                        clearConsole();
+                        System.out.println(voceMorreu);
+                        Thread.sleep(10000);
+                        System.exit(0);
+                    }else{
+                        System.out.println("\n\n== Você conseguiu derrotar um dos monstros. ==\n\n");
+                    }
+                    Thread.sleep(2000);
+                    clearConsole();
+                    System.out.println("- Agora só falta o outro...");
+                    Thread.sleep(2000);
+                    System.out.println(mob);
+                    Thread.sleep(5000);
+                    clearConsole();
+                    int questao6 = exercicioMultiplicacao01();
+                    if(questao6 == 10){
+                        Thread.sleep(7000);
+                        clearConsole();
+                        System.out.println(voceMorreu);
+                        Thread.sleep(10000);
+                        System.exit(0);
+                    }else{
+                        System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
+                    }
+                    Thread.sleep(4000);
+                    clearConsole();
+
+                    System.out.println("== Mapas encontrados 5/7 ==");
                 } else if (ciencias == 2) {
                     System.out.println("- Eu deveria dar uma olhada na Sala de ciências antes...");
                 } else if (ciencias > 2 || ciencias < 1) {
@@ -1598,29 +1655,28 @@ public class Jogo {
     
                 return 0;
         }
-        public static int porao (Scanner sc) throws InterruptedException{
+        public static int porao (Scanner sc, String mob, String voceMorreu) throws InterruptedException{
             int porao;
             do {
                 System.out.println("== Você sai do auditório e acaba escutando um barulho vindo de baixo ==");
                 System.out.println("- Ele sabe que quero ir lá, eu não sei o que está acontecendo mas meu pai está envolvido nisso\n");
-                System.out.print("[1] Descer no porão [2] Tentar montar o mapa");
+                System.out.println("[1] Descer no porão [2] Tentar montar o mapa");
+                System.out.print("OPÇÃO: ");
                 porao = sc.nextInt();
     
                 if (porao == 1) {
                     System.out.println("== Mapa encontrado 6/7 ==");
-                    //BICHO AQUIII
-                    System.out.println("Parabéns, você derrotou mais um!");
-                    Thread.sleep(7000);
+                    Thread.sleep(5000);
                     clearConsole();
                     System.out.println("\nO que é isso?");
                     System.out.println("Isso...é...sangue? Mas de quem?");
                     Thread.sleep(4000);
                     System.out.println("Um...diário? Mas isso é impossivel já que a escola pegou fogo e eu nem sei se estou no mundo real ainda");
                     Thread.sleep(4000);
-                    System.out.println("== Ao abrir o diário, não é possivel compreender muitas coisas, mas então você consegue ver a letra de seu pai: ==");
-                    System.out.println("Diário: Eu fiz... a pior escolha da minha vida, eu confiei, eu precisava disso, tudo o que eu queria era ser um gênio, mas eu não queria que isso chegasse em minha família, não desse jeito.");
+                    System.out.println("\n\n== Ao abrir o diário, não é possivel compreender muitas coisas, mas então você consegue ver a letra de seu pai: ==");
+                    System.out.println("\n\nDiário: Eu fiz... a pior escolha da minha vida, eu confiei, eu precisava disso, tudo o que eu queria era ser um gênio, mas eu não queria que isso chegasse em minha família, não desse jeito.");
                     System.out.println("Não tem o que fazer, eu não posso contar pra eles, eu agora tenho que seguir e carregar isso comigo até o meu caixão...");
-                    System.out.println("- Sobre o que é isso? Eu não consigo descobrir, eu não estou entendendo nada");
+                    System.out.println("\n\n- Sobre o que é isso? Eu não consigo descobrir, eu não estou entendendo nada");
                 } else if (porao == 2) {
                     System.out.println("- Estou com 6 pedaços de 7, o único que falta é o centro do mapa, preciso procurar esse último pedaço");
                 } else if (porao > 2 || porao < 1) {
@@ -1630,13 +1686,16 @@ public class Jogo {
     
                 return 0;
     }
-    public static int floresta (Scanner sc, String ultimoPedaco, String capelaDeseho) throws InterruptedException{
+    public static int floresta (Scanner sc, String ultimoPedaco, String capelaDeseho, String mob, String voceMorreu) throws InterruptedException{
         int floresta;
         do {
-            System.out.println("== Após uma longa procura do último pedaço... ==");
-            Thread.sleep(7000);
-            System.out.println("- Eu desisto, vou tentar seguir o mapa mesmo sem o último pedaço, eu não aguento mais estar aqui, eu apenas quero ir embora\n");
-            System.out.print("[1] SEGUIR O MAPA [2] SEGUIR O MAPA [3] SEGUIR O MAPA");
+            Thread.sleep(5000);
+            clearConsole();
+            System.out.println("\n== Após uma longa procura do último pedaço... ==");
+            Thread.sleep(3000);
+            System.out.println("\n- Eu desisto, vou tentar seguir o mapa mesmo sem o último pedaço, eu não aguento mais estar aqui, eu apenas quero ir embora\n");
+            System.out.println("[1] SEGUIR O MAPA [2] SEGUIR O MAPA [3] SEGUIR O MAPA");
+            System.out.print("OPÇÃO: ");
             floresta = sc.nextInt();
 
             if (floresta == 1) {
@@ -1659,7 +1718,21 @@ public class Jogo {
                 System.out.println(ultimoPedaco);
                 Thread.sleep(8000);
                 clearConsole();
-                //BICHO AQUIII
+                System.out.println(mob);
+                Thread.sleep(5000);
+                clearConsole();
+                int questao7 = exercicioMultiplicacao02();
+                if(questao7 == 10){
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println(voceMorreu);
+                    Thread.sleep(10000);
+                    System.exit(0);
+                }else{
+                    System.out.println("\n\n== Você conseguiu derrotar o monstro. ==\n\n");
+                }
+                Thread.sleep(7000);
+                clearConsole();
                 System.out.println("- Eu espero não ver essa coisa de novo nunca mais");
                 Thread.sleep(7000);
                 System.out.println("- Eu nunca soube que existia essa capela, por que esse mapa me trouxe até aqui? ");
@@ -1726,7 +1799,7 @@ public class Jogo {
             System.out.println("[1] ENTRAR NA CAPELA [2] ENTRAR NA CAPELA [3] ENTRAR NA CAPELA\n");
             capela = sc.nextInt();
 
-            if (capela == 1) {
+            if (capela == 1 || capela == 2 || capela == 3) {
                 System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
                 System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
                 System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
@@ -1751,82 +1824,17 @@ public class Jogo {
                 System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
                 System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
                 System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
-                Thread.sleep(91000);
-                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
-                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
+                Thread.sleep(20000);
+                System.out.println("\n- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
+                System.out.println("Mathmancer: Mas ele não machucou, ele vendeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
                 System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...");
                 System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
-                Thread.sleep(9000);
-                clearConsole();
-            } else if (capela == 2) {
-                System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
-                System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
-                System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
-                Thread.sleep(7000);
-                clearConsole();
-                System.out.println("\n- O que é isso?");
-                System.out.println("Mais sangue? um...pentagrama?");
-                System.out.println(pentagrama);
-                Thread.sleep(7000);
-                clearConsole();
-                System.out.println("Por que?");
-                Thread.sleep(7000);
-                System.out.println("???: Eu te digo o porque...Você é igual seu pai sabia?");
-                System.out.println("quem...é você?");
-                System.out.println("???: Então ele realmente não te contou né?");
-                System.out.println(primeiroMob);
-                System.out.println("???: Eu sou o Mathmancer, isso não é obvio?");
-                Thread.sleep(8000);
-                clearConsole();
-                System.out.println("Mathmancer: Bom, a muito tempo atrás, o seu pai...digamos que ele estava precisando de bastante dinheiro...");
-                System.out.println("Mathmancer: E a única saida dele, era uma coisa que ele não tinha valor...A própria vida");
-                System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
-                System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
-                System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
-                Thread.sleep(9000);
-                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
-                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
-                System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...");
-                System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
-                Thread.sleep(9000);
-                clearConsole();
-            } else if (capela == 3) {
-                System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
-                System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
-                System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
-                Thread.sleep(7000);
-                clearConsole();
-                System.out.println("\n- O que é isso?");
-                System.out.println("Mais sangue? um...pentagrama?");
-                System.out.println(pentagrama);
-                Thread.sleep(7000);
-                clearConsole();
-                System.out.println("Por que?");
-                Thread.sleep(7000);
-                System.out.println("???: Eu te digo o porque...Você é igual seu pai sabia?");
-                System.out.println("quem...é você?");
-                System.out.println("???: Então ele realmente não te contou né?");
-                System.out.println(primeiroMob);
-                System.out.println("???: Eu sou o Mathmancer, isso não é obvio?");
-                Thread.sleep(8000);
-                clearConsole();
-                System.out.println("Mathmancer: Bom, a muito tempo atrás, o seu pai...digamos que ele estava precisando de bastante dinheiro...");
-                System.out.println("Mathmancer: E a única saida dele, era uma coisa que ele não tinha valor...A própria vida");
-                System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
-                System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
-                System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
-                Thread.sleep(9000);
-                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
-                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
-                System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...E a sua mãe? Consegui achar antes mesmo do seu querido papai avisa-la");
-                System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
-                Thread.sleep(9000);
+                Thread.sleep(20000);
                 clearConsole();
             } else if (capela > 3 || capela < 1) {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (capela < 1 || capela > 3);
-
             return 0;
 
     }
