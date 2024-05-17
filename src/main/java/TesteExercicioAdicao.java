@@ -114,6 +114,12 @@ public class TesteExercicioAdicao {
         int resultadoTeste2 = exercicioAdicao01("a");
         System.out.println("Resultado do teste com a resposta 'a': " + resultadoTeste2);
         
-        // Adicione mais testes conforme necessário
+        int resultadoTeste3 = exercicioAdicao01("b");
+        System.out.println("Resultado do teste com a resposta 'b': " + resultadoTeste3);
+        
+        // Teste com outra resposta simulada "d"
+        int resultadoTeste4 = exercicioAdicao01("d");
+        System.out.println("Resultado do teste com a resposta 'd': " + resultadoTeste4);
+    
     }
 }
