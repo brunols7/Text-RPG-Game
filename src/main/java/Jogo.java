@@ -1464,7 +1464,7 @@ public class Jogo {
                         Thread.sleep(10000);
                         System.exit(0);
                     }else{
-                        System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
+                        System.out.println("\n\n== Você conseguiu derrotar o monstro. ==\n\n");
                     }
                     Thread.sleep(7000);
                 }else{
@@ -1478,7 +1478,7 @@ public class Jogo {
                 System.out.println("A maioria dos pedaços de livros que tem aqui são do meu pai, eu reconheço essas páginas, mas... como poderiam ficar inteiros?");
                 Thread.sleep(3000);
                 System.out.println("Outro pedaço de um mapa, vou ter que pegar, espero que não apareça nenhum monstro");
-                System.out.println("== Mapa encontrado 3/7 ==");
+                System.out.println("\n== Mapa encontrado 3/7 ==");
                 Thread.sleep(5000);
                 System.out.println(". . .");
                 Thread.sleep(5000);
