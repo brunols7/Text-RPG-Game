@@ -6,8 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Jogo {
-    // Função principal onde é o Menu e onde vai chamar as outras funções que o jogo
-    // possue.
+    // Função principal onde é o Menu e onde vai chamar as outras funções que o jogo possue.
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         int opcaoMenu;
@@ -957,7 +956,7 @@ public class Jogo {
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         corredor(input);
         refeitorio(input);
-        saidaRefeitorio(input, MobPequeno, danoGeral);
+        saidaRefeitorio(input, MobPequeno, danoGeral, danoArma);
 
     }
 
@@ -1239,7 +1238,7 @@ public class Jogo {
 
             return 0;
         }
-        public static int saidaRefeitorio (Scanner sc, String mob, double dano) throws InterruptedException{
+        public static int saidaRefeitorio (Scanner sc, String mob, double dano, Double armaAtual) throws InterruptedException{
 
             //Texto usado para exibir a mensagem de sua morte.
             String voceMorreu = 
@@ -1255,6 +1254,16 @@ public class Jogo {
             "     ░            ░                                                                                      \n";
             int mapaUm;
             int opcao;
+            String arma = "";
+
+            if(armaAtual == 10){
+                arma = "FACA";
+            }else if (armaAtual == 7){
+                arma = "TESOURA";
+            }else{
+                arma = "SOCO";
+            }
+
             do {
                 System.out.println("\nUm pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
                 System.out.println("== Você deseja: [1] Sair do Refeitório [2] Explorar mais ==\n");
@@ -1266,8 +1275,9 @@ public class Jogo {
                     System.out.println(mob);
                     Thread.sleep(7000);
                     clearConsole();
+
                     do {
-                        System.out.println("\nO que devo fazer? [1] Usar ... para tentar bater neles  [2] Correr");
+                        System.out.printf("\nO que devo fazer? [1] Usar %s para tentar bater neles  [2] Correr\n", arma);
                         System.out.print("== Opção desejada: ");
                         opcao = sc.nextInt();
                         if (opcao == 1){
