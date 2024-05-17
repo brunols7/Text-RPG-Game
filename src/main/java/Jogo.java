@@ -1485,4 +1485,31 @@ public class Jogo {
                 System.out.println("Parece que não apareceu nenhum monstro.");
             return 0;
         }
+        public static void ciencias (Scanner sc, String mathmancer) throws InterruptedException{
+            int salaCiencias;
+            int auditorio = 0;
+            System.out.println("Você está de volta no corredor, diante de duas novas portas.");
+            System.out.println("[1] Sala de Ciências [2] Auditório");
+            salaCiencias = sc.nextInt();
+            if (salaCiencias == 1){
+                System.out.println("A sala de ciências tem um cheiro forte de produtos químicos, todos suspeitavam que o incêndio tinha começado daqui mas descobriram que tinha sido no porão...\n");
+                System.out.println("Diziam que ninguém além do meu pai ia no porão, eu tenho que ir lá");
+                System.out.println("Não tem nada aqui, eu deveria ir para o auditório");
+            }else if(salaCiencias == 2){
+            System.out.println("== Entrando no auditório ==");
+            System.out.println("[1] Olhar palco [2] Olhar assentos\n");
+            auditorio = sc.nextInt();
+            }else if(auditorio == 1){
+                System.out.println("Parece que tem algo no telão do palco, não enxergo muito bem daqui, eu deveria me aproximar mais");
+                Thread.sleep(5000);
+                System.out.println("Ao se aproximar você consegue finalmente ler o que estava escrito...");
+                System.out.println(mathmancer);
+            }else if (auditorio == 2){
+                System.out.println("Tem muitas cadeiras, não vejo o porque eu olhar");
+            } else if (auditorio > 2 || auditorio < 1) {
+                System.out.println("OPÇÃO INVÁLIDA!\n");
+            }else if (salaCiencias > 2 || salaCiencias < 1) {
+                    System.out.println("OPÇÃO INVÁLIDA!\n");
+            }
+        }
 }
