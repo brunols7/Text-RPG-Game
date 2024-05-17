@@ -1293,7 +1293,7 @@ public class Jogo {
             if (refeitorio == 1) {
                 System.out.println("== Assim que você entra você vê vários papéis espalhados com um idioma que você jamais entenderia \nO que são esses tantos de papéis? ==");
                 System.out.println("== Він знає, що ти тут, він іде за тобою, він збирається послати всю свою армію == \nIsso é russo??? Eu realmente não consigo entender isso...");
-                Thread.sleep(5000);
+                Thread.sleep(10000);
                 clearConsole();
                 System.out.println("\nO que é isso?");
                 System.out.println("== Você encontrou um mapa. 1/7 ==");
@@ -1444,6 +1444,7 @@ public class Jogo {
                     System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
                     Thread.sleep(3000);
                     System.out.println("\nVou olhar o piano agora, espero que não tenha mais nada estranho");
+                    Thread.sleep(5000);
 
                     // Piano
                     clearConsole();
