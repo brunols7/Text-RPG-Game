@@ -1564,6 +1564,7 @@ public class Jogo {
                 System.out.println(". . .");
                 Thread.sleep(5000);
                 System.out.println("- Parece que não apareceu nenhum monstro.");
+                //BICHO AQUI
             return 0;
         }
         public static int ciencias (Scanner sc, String escritaAuditorio) throws InterruptedException{
@@ -1586,6 +1587,8 @@ public class Jogo {
                     System.out.println("\u001B[31m" + escritaAuditorio + "\u001B[0m");
                     Thread.sleep(7000);
                     System.out.println("- Mathmancer? o que...eu ja ouvi esse nome mas, eu não lembro");
+                    //DOIS BICHOS AQUI
+                    System.out.println("== Mapas encontrados 4/7 ==");
                 } else if (ciencias == 2) {
                     System.out.println("- Eu deveria dar uma olhada na Sala de ciências antes...");
                 } else if (ciencias > 2 || ciencias < 1) {
