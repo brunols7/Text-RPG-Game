@@ -1123,7 +1123,7 @@ public class Jogo {
             } else if (escolhaPrincipal == 3) {
                 System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha.\n");
             } else if (escolhaPrincipal > 3 || escolhaPrincipal < 1) {
-                System.out.println("OPÇÃO INVÁLIDA!\n");
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (escolhaPrincipal != 3);
 
@@ -1240,7 +1240,7 @@ public class Jogo {
                     danoArma = 7;
                     agilidadePersonagem += 10;
                 } else {
-                    System.out.println("== OPÇÃO INVÁLIDA!\n");
+                    System.out.println("\n== OPÇÃO INVÁLIDA!\n");
                 }
 
             } while (opcaoPrimeiraArma < 1 || opcaoPrimeiraArma > 2);
@@ -1276,7 +1276,7 @@ public class Jogo {
                 System.out.println(
                         "\nSe eu entrar nessa sala ele poderia me ouvir, eu acabaria morrendo, melhor não\n");
             } else if (corredor > 2 || corredor < 1) {
-                System.out.println("OPÇÃO INVÁLIDA!\n");
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (corredor != 1);
 
@@ -1304,7 +1304,7 @@ public class Jogo {
             } else if (refeitorio == 3) {
                         System.out.println("Está trancado.");
             } else if (refeitorio > 3 || refeitorio < 1) {
-                System.out.println("OPÇÃO INVÁLIDA!\n");
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (refeitorio != 1);
 
@@ -1381,22 +1381,28 @@ public class Jogo {
         }
         // Sala da biblioteca
         public static int biblioteca (Scanner sc, String olho, String mob, String voceMorreu) throws InterruptedException{
-            System.out.println("Onde devo ir agora?");
-            System.out.println("[1] Sala de música [2] Biblioteca");
-            int salaMusica;
-            int piano;
-            System.out.print("OPÇÃO: ");
-            salaMusica = sc.nextInt();
-            if (salaMusica == 1){
-                System.out.println("\nQuando eu entro me vem uma sensação estranha, um aperto no coração.\n");
-                System.out.println("\nEu lembro dessa sala...eu já estudei aqui mas, a escola pegou fogo, ela foi completamente destruída, como ela está inteira?\n");
-                Thread.sleep(5000);
-                clearConsole();
-            }else if(salaMusica == 2){
-                System.out.println("Eu gostaria de ir para a sala de música primeiro, ela parece familiar...");
-            }
-            System.out.println("\n[1] Olhar piano [2] Olhar gavetas\n");
-                piano = sc.nextInt();
+            int salaMusica = 0;
+            int piano = 0;
+            do{
+                System.out.println("\nOnde devo ir agora?");
+                System.out.println("[1] Sala de música [2] Biblioteca");
+                
+                System.out.print("OPÇÃO: ");
+                salaMusica = sc.nextInt();
+                if (salaMusica == 1){
+                    System.out.println("\nQuando eu entro me vem uma sensação estranha, um aperto no coração.\n");
+                    System.out.println("\nEu lembro dessa sala...eu já estudei aqui mas, a escola pegou fogo, ela foi completamente destruída, como ela está inteira?\n");
+                    Thread.sleep(5000);
+                    clearConsole();
+                }else if(salaMusica == 2){
+                    System.out.println("Eu gostaria de ir para a sala de música primeiro, ela parece familiar...");
+                }else{
+                    System.out.println("\nOPÇÃO INVÁLIDA!\n");
+                }
+            }while(salaMusica > 2 || salaMusica < 1);
+            do{
+                System.out.println("\n[1] Olhar piano [2] Olhar gavetas\n");
+            piano = sc.nextInt();
                 if (piano == 1){
                     clearConsole();
                     System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
@@ -1417,6 +1423,18 @@ public class Jogo {
                     }else{
                         System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
                     }
+                    System.out.println("Agora vou olhar a gaveta, espero que não tenha mais nada estranho.");
+
+                    // gaveta
+                    System.out.println("\nMas o que é isso?");
+                    System.out.println(olho);
+                    System.out.println("QUE M**** É ESSA? Isso é um olho???");
+                    Thread.sleep(5000);
+                    clearConsole();
+                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
+                    Thread.sleep(3000);
+                    Thread.sleep(7000);
+
                 }else if (piano == 2){
                     System.out.println("\nMas o que é isso?");
                     System.out.println(olho);
@@ -1424,7 +1442,35 @@ public class Jogo {
                     Thread.sleep(5000);
                     clearConsole();
                     System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
+                    Thread.sleep(3000);
+                    System.out.println("\nVou olhar o piano agora, espero que não tenha mais nada estranho");
+
+                    // Piano
+                    clearConsole();
+                    System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
+                    System.out.println("== Mapa encontrado 2/7 ==");
+                    Thread.sleep(5000);
+                    System.out.println(mob);
+                    Thread.sleep(3000);
+                    System.out.println(" AI MEU DEUS, de novo esse bicho");
+                    Thread.sleep(7000);
+                    clearConsole();
+                    int questao3 = exercicioAdicao03();
+                    if(questao3 == 10){
+                        Thread.sleep(7000);
+                        clearConsole();
+                        System.out.println(voceMorreu);
+                        Thread.sleep(10000);
+                        System.exit(0);
+                    }else{
+                        System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
+                    }
+                    Thread.sleep(7000);
+                }else{
+                    System.out.println("\nOPÇÃO INVÁLIDA!\n");
                 }
+            }while(piano > 2 || piano < 1);
+
                 System.out.println("== Indo para a biblioteca ==");
                 System.out.println("Nossa, não sobrou nada nessa sala, o cheiro dessa sala é podre, não consigo ficar aqui por muito tempo");
                 Thread.sleep(5000);
