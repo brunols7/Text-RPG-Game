@@ -52,7 +52,7 @@ public class Jogo {
             }
         } while (opcaoMenu != 4);
 
-        System.out.println("\n\nAcabou!");
+        System.out.println("\n\nAcabou! Jogo em desenvolvimento");
 
     }
 
@@ -1020,15 +1020,74 @@ public class Jogo {
                      " ███   ███   ███   ███    ███     ███       ███    ███   ███   ███   ███   ███    ███ ███   ███ ███    ███   ███    ███   ███    ███ \n" +
                      "  ▀█   ███   █▀    ███    █▀     ▄████▀     ███    █▀     ▀█   ███   █▀    ███    █▀   ▀█   █▀  ████████▀    ██████████   ███    ███ \n" +
                      "                                                                                                                          ███    ███ \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
-                     "                                                                                                                                     \n" +
                      "                                                                                                                                     \n";
 
+
+        String ultimoPedaco = "┓┏                               ┓ •            ┓       ┓             \n" +
+        "┃┃┏┓┏┏┓  ┏┓┏┓┏┏┓┏┓╋┏┓┏┓┓┏  ┏┓  ┓┏┃╋┓┏┳┓┏┓  ┏┓┏┓┏┫┏┓┏┓  ┏┫┏┓  ┏┳┓┏┓┏┓┏┓\n" +
+        "┗┛┗┛┗┗   ┗ ┛┗┗┗┛┛┗┗┛ ┗┛┗┻  ┗┛  ┗┻┗┗┗┛┗┗┗┛  ┣┛┗ ┗┻┗┻┗┛  ┗┻┗┛  ┛┗┗┗┻┣┛┗┻\n" +
+        "                                           ┛                      ┛   ";
+
+        String capelaDeseho = 
+            "                                                            \n" +
+            "                                                            \n" +
+            "                                                            \n" +
+            "                              ##                            \n" +
+            "                              ##                            \n" +
+            "                           #########                        \n" +
+            "                              ##                            \n" +
+            "                              ##                            \n" +
+            "                              ####                          \n" +
+            "                            ##    ##                        \n" +
+            "                          ##        ##                      \n" +
+            "                        ##            ##                    \n" +
+            "                      ++################                    \n" +
+            "                      ++              ##                    \n" +
+            "                      ++      ##      ##                    \n" +
+            "                      ++      ##      ##                    \n" +
+            "                      ++      ##      ##                    \n" +
+            "                      ++              ##                    \n" +
+            "                      ++      ..      ##                    \n" +
+            "                      ##    ##  --@@  ####                  \n" +
+            "                    ##++    ++    ##  ##  ##                \n" +
+            "                  ##  ++    ##    ##  ##    ##              \n" +
+            "                ##    ..      ##++    ++      ##            \n" +
+            "              ##                                ##          \n" +
+            "            ##                 ##                  ##        \n" +
+            "          ####  ##  ##      ##.  .##     ##    ::  ####      \n" +
+            "            ##  ##  ##     ##      ##    ##    ++ ##        \n" +
+            "            ##            ##        ##            ##        \n" +
+            "            ##            ::        ##            ##        \n" +
+            "            ##  ##  ##    ##        ##   ##    ++ ##        \n" +
+            "            ##            ##        ##            ##        \n" +
+            "            ##            ##        ##            ##        \n" +
+            "            ##            ##        ##            ##        \n" +
+            "    ::####################################################  \n";
+
+            String pentagrama =  
+            "                                                            \n" +
+            "                          ##########                        \n" +
+            "                    ##          ####  ####                  \n" +
+            "                  @@            ##..    ######              \n" +
+            "              ####            ##  mm        ##              \n" +
+            "              ##              ##              ##            \n" +
+            "            ####                    ##          ##          \n" +
+            "            ####  MM######  ##      ##          ##          \n" +
+            "          ##    ##        ##  ########            ##        \n" +
+            "          ##      ##                ########      ##        \n" +
+            "          ##      ++##  ##          ##        @@####        \n" +
+            "          ##        ++##            ##@@    ##++            \n" +
+            "          ##          ####          @@..##@@      ##        \n" +
+            "          ##        ##    ##      ####@@          ##        \n" +
+            "          ##        ++        ####    ##          ##        \n" +
+            "            ##    ##      @@##        @@        ##          \n" +
+            "            ##  --    ##      ##      ##        ##          \n" +
+            "              ######            ##    ##      ####          \n" +
+            "              ##                  ##  ##    mm@@            \n" +
+            "                ####                ####  ##                \n" +
+            "                    ####              ####                  \n" +
+            "                        ##############                      \n" +
+            "                                                            ";
         // Começando o jogo e as histórias
         historiaInicial();
         escolherCaminhoPrincipal(input);
@@ -1047,6 +1106,10 @@ public class Jogo {
         refeitorio(input);
         saidaRefeitorio(input, MobPequeno, danoGeral, danoArma, voceMorreu);
         biblioteca(input, olho, MobPequeno, voceMorreu);
+        ciencias(input, escritaAuditorio);
+        porao(input);
+        floresta(input, ultimoPedaco, capelaDeseho);
+        capela(input, pentagrama, primeiroMob);
 
     }
 
@@ -1128,18 +1191,18 @@ public class Jogo {
         int escolhaPrincipal;
 
         do {
-            System.out.println("O que eu devo fazer?");
+            System.out.println("- O que eu devo fazer?");
             System.out.println("== [1] Procurar sua casa. [2] Procurar ajuda. [3] Entrar na escola. ==\n");
             System.out.print("== OPÇÃO DESEJADA: ");
             escolhaPrincipal = input.nextInt();
 
             if (escolhaPrincipal == 1) {
-                System.out.println("\nNão é uma boa ideia, imagino que eu não esteja perto de casa.\n");
+                System.out.println("\n- Não é uma boa ideia, imagino que eu não esteja perto de casa.\n");
             } else if (escolhaPrincipal == 2) {
                 System.out.println(
-                        "\nNão é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto...\n");
+                        "\n- Não é uma boa ideia, não consigo enxergar nada além dessa escola e não acho que teria alguém por perto...\n");
             } else if (escolhaPrincipal == 3) {
-                System.out.println("\nAcho que é a única opção que eu tenho, mesmo que essa escola seja medonha.\n");
+                System.out.println("\n- Acho que é a única opção que eu tenho, mesmo que essa escola seja medonha.\n");
             } else if (escolhaPrincipal > 3 || escolhaPrincipal < 1) {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
@@ -1192,7 +1255,7 @@ public class Jogo {
             primeiraOpcao = input.nextInt();
 
             if (primeiraOpcao == 1) {
-                System.out.println("\nVocê decidiu explorar a sala.");
+                System.out.println("\n== Você decidiu explorar a sala ==");
                 System.out.println("\nPROCURANDO...\n");
                 Thread.sleep(1500);
                 System.out.println("== Você olhou nas mesas e nas cadeiras e não encontrou nada! ==");
@@ -1202,11 +1265,11 @@ public class Jogo {
 
                 do {
                     if (segundaOpcao == 1) {
-                        System.out.println("\nVocê decidiu olhar o armário.");
+                        System.out.println("\n== Você decidiu olhar o armário ==");
                         System.out.println("\nPROCURANDO...\n");
                         Thread.sleep(1000);
                         System.out.println("== Você encontrou uma maçã apodrecida e uns papéis. ==");
-                        System.out.println("Melhor voltar para a corredor e ir explorar a outra sala...");
+                        System.out.println("- Melhor voltar para a corredor e ir explorar a outra sala...");
                         Thread.sleep(4000);
                         break;
                     } else if (segundaOpcao == 2) {
@@ -1292,7 +1355,7 @@ public class Jogo {
                 System.out.println("\n == Você corre e entra em um armário, você consegue ver um ser andando e passando reto pelo armário, parece que você está salvo ==\n\n\n\n- Mas o que é aquilo? eu não sei o que ta acontecendo e não sei que tipo de monstro é aquele, eu tenho que sair daqui\n");
             } else if (corredor == 2) {
                 System.out.println(
-                        "\nSe eu entrar nessa sala ele poderia me ouvir, eu acabaria morrendo, melhor não\n");
+                        "\n- Se eu entrar nessa sala ele poderia me ouvir, eu acabaria morrendo, melhor não\n");
             } else if (corredor > 2 || corredor < 1) {
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
@@ -1313,12 +1376,12 @@ public class Jogo {
                 System.out.println("== Він знає, що ти тут, він іде за тобою, він збирається послати всю свою армію == \nIsso é russo??? Eu realmente não consigo entender isso...");
                 Thread.sleep(10000);
                 clearConsole();
-                System.out.println("\nO que é isso?");
+                System.out.println("\n- O que é isso?");
                 System.out.println("== Você encontrou um mapa. 1/7 ==");
                 Thread.sleep(1000);
                 //Colocar o cara pra pegar arma
             } else if (refeitorio == 2) {
-                System.out.println("Acabei entrando na sala, parece ser ");
+                System.out.println("- Acabei entrando na sala, parece estar sem nada dentro");
             } else if (refeitorio == 3) {
                         System.out.println("Está trancado.");
             } else if (refeitorio > 3 || refeitorio < 1) {
@@ -1345,7 +1408,7 @@ public class Jogo {
             }
 
             do {
-                System.out.println("\nUm pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
+                System.out.println("\n- Um pedaço de um mapa? Se parece com o mapa que eu sonhei mas...por quê?");
                 System.out.println("== Você deseja: [1] Sair do Refeitório [2] Explorar mais ==\n");
                 System.out.print("== OPÇÃO DESEJADA: ");
                 mapaUm = sc.nextInt();
@@ -1357,11 +1420,11 @@ public class Jogo {
                     clearConsole();
 
                     do {
-                        System.out.printf("\nO que devo fazer? [1] Usar %s para tentar bater neles  [2] Correr\n", arma);
+                        System.out.printf("\n- O que devo fazer? [1] Usar %s para tentar bater neles  [2] Correr\n", arma);
                         System.out.print("== Opção desejada: ");
                         opcao = sc.nextInt();
                         if (opcao == 1){
-                            System.out.println("\nÉ preciso fazer uma conta para dar dano á eles: \n");
+                            System.out.println("\n- É preciso fazer uma conta para dar dano á eles: \n");
                             int questao1 = exercicioAdicao01();
                             if(questao1 == 10){
                                 Thread.sleep(7000);
@@ -1384,14 +1447,14 @@ public class Jogo {
                             }
                             System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estão mortos! ==\n", dano);
                             Thread.sleep(3000);
-                            System.out.println("CONTA?!?! MATEMÁTICA?!?!? Isso é muito estranho, eu não sei o que está acontecendo");
+                            System.out.println("\n- CONTA?!?! MATEMÁTICA?!?!? Isso é muito estranho, eu não sei o que está acontecendo\n");
                             System.out.println("\n\n==== Você saiu do refeitório ====");
                         }else if (opcao == 2){
-                            System.out.println("\nEles são muito rápidos, não consigo fugir deles\n");
+                            System.out.println("\n- Eles são muito rápidos, não consigo fugir deles\n");
                         }
                     } while (opcao != 1);
                 } else if (mapaUm == 2) {
-                    System.out.println("\nSó vejo um monte de papéis, não consigo entender nada\n");
+                    System.out.println("\n- Só vejo um monte de papéis, não consigo entender nada\n");
                 }
             } while (mapaUm != 1);
     
@@ -1402,18 +1465,18 @@ public class Jogo {
             int salaMusica = 0;
             int piano = 0;
             do{
-                System.out.println("\nOnde devo ir agora?");
+                System.out.println("\n- Onde devo ir agora?");
                 System.out.println("[1] Sala de música [2] Biblioteca");
                 
                 System.out.print("OPÇÃO: ");
                 salaMusica = sc.nextInt();
                 if (salaMusica == 1){
-                    System.out.println("\nQuando eu entro me vem uma sensação estranha, um aperto no coração.\n");
-                    System.out.println("\nEu lembro dessa sala...eu já estudei aqui mas, a escola pegou fogo, ela foi completamente destruída, como ela está inteira?\n");
+                    System.out.println("\n- Quando eu entro me vem uma sensação estranha, um aperto no coração.\n");
+                    System.out.println("\n- Eu lembro dessa sala...eu já estudei aqui mas, a escola pegou fogo, ela foi completamente destruída, como ela está inteira?\n");
                     Thread.sleep(5000);
                     clearConsole();
                 }else if(salaMusica == 2){
-                    System.out.println("Eu gostaria de ir para a sala de música primeiro, ela parece familiar...");
+                    System.out.println("- Eu gostaria de ir para a sala de música primeiro, ela parece familiar...");
                 }else{
                     System.out.println("\nOPÇÃO INVÁLIDA!\n");
                 }
@@ -1423,12 +1486,12 @@ public class Jogo {
             piano = sc.nextInt();
                 if (piano == 1){
                     clearConsole();
-                    System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
+                    System.out.println("- Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
                     System.out.println("== Mapa encontrado 2/7 ==");
                     Thread.sleep(5000);
                     System.out.println(mob);
                     Thread.sleep(3000);
-                    System.out.println(" AI MEU DEUS, de novo esse bicho");
+                    System.out.println(" - AI MEU DEUS, de novo esse bicho");
                     Thread.sleep(7000);
                     clearConsole();
                     int questao3 = exercicioAdicao03();
@@ -1441,37 +1504,37 @@ public class Jogo {
                     }else{
                         System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
                     }
-                    System.out.println("Agora vou olhar a gaveta, espero que não tenha mais nada estranho.");
+                    System.out.println("- Agora vou olhar a gaveta, espero que não tenha mais nada estranho.");
 
                     // gaveta
-                    System.out.println("\nMas o que é isso?");
+                    System.out.println("\n- Mas o que é isso?");
                     System.out.println(olho);
-                    System.out.println("QUE M**** É ESSA? Isso é um olho???");
+                    System.out.println("- QUE M**** É ESSA? Isso é um olho???");
                     Thread.sleep(5000);
                     clearConsole();
-                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
+                    System.out.println("- Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
                     Thread.sleep(3000);
                     Thread.sleep(7000);
 
                 }else if (piano == 2){
-                    System.out.println("\nMas o que é isso?");
+                    System.out.println("\n- Mas o que é isso?");
                     System.out.println(olho);
-                    System.out.println("QUE M**** É ESSA? Isso é um olho???");
+                    System.out.println("- QUE M**** É ESSA? Isso é um olho???");
                     Thread.sleep(5000);
                     clearConsole();
-                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
+                    System.out.println("- Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
                     Thread.sleep(3000);
-                    System.out.println("\nVou olhar o piano agora, espero que não tenha mais nada estranho");
+                    System.out.println("\n- Vou olhar o piano agora, espero que não tenha mais nada estranho");
                     Thread.sleep(5000);
 
                     // Piano
                     clearConsole();
-                    System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
+                    System.out.println("- Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
                     System.out.println("== Mapa encontrado 2/7 ==");
                     Thread.sleep(5000);
                     System.out.println(mob);
                     Thread.sleep(3000);
-                    System.out.println(" AI MEU DEUS, de novo esse bicho");
+                    System.out.println(" - AI MEU DEUS, de novo esse bicho");
                     Thread.sleep(7000);
                     clearConsole();
                     int questao3 = exercicioAdicao03();
@@ -1491,16 +1554,16 @@ public class Jogo {
             }while(piano > 2 || piano < 1);
 
                 System.out.println("== Indo para a biblioteca ==");
-                System.out.println("Nossa, não sobrou nada nessa sala, o cheiro dessa sala é podre, não consigo ficar aqui por muito tempo");
+                System.out.println("- Nossa, não sobrou nada nessa sala, o cheiro dessa sala é podre, não consigo ficar aqui por muito tempo");
                 Thread.sleep(5000);
-                System.out.println("A maioria dos pedaços de livros que tem aqui são do meu pai, eu reconheço essas páginas, mas... como poderiam ficar inteiros?");
+                System.out.println("- A maioria dos pedaços de livros que tem aqui são do meu pai, eu reconheço essas páginas, mas... como poderiam ficar inteiros?");
                 Thread.sleep(3000);
-                System.out.println("Outro pedaço de um mapa, vou ter que pegar, espero que não apareça nenhum monstro");
+                System.out.println("- Outro pedaço de um mapa, vou ter que pegar, espero que não apareça nenhum monstro");
                 System.out.println("\n== Mapa encontrado 3/7 ==");
                 Thread.sleep(5000);
                 System.out.println(". . .");
                 Thread.sleep(5000);
-                System.out.println("Parece que não apareceu nenhum monstro.");
+                System.out.println("- Parece que não apareceu nenhum monstro.");
             return 0;
         }
         public static int ciencias (Scanner sc, String escritaAuditorio) throws InterruptedException{
@@ -1512,19 +1575,19 @@ public class Jogo {
                 ciencias = sc.nextInt();
     
                 if (ciencias == 1) {
-                    System.out.println("A sala de ciências tem um cheiro forte de produtos químicos, todos suspeitavam que o incêndio tinha começado daqui mas descobriram que tinha sido no porão\n");
-                    System.out.println("Diziam que ninguém além do meu pai ia no porão, eu tenho que ir lá, já que nunca me deixaram ir");
-                    System.out.println("E não tem nada aqui, eu deveria ir para o auditório");
+                    System.out.println("- A sala de ciências tem um cheiro forte de produtos químicos, todos suspeitavam que o incêndio tinha começado daqui mas descobriram que tinha sido no porão\n");
+                    System.out.println("- Diziam que ninguém além do meu pai ia no porão, eu tenho que ir lá, já que nunca me deixaram ir");
+                    System.out.println("- E não tem nada aqui, eu deveria ir para o auditório");
                     Thread.sleep(8000);
                     clearConsole();
                     System.out.println(". . .");
-                    System.out.println("\nO que é aquilo no palco? eu tenho que ir lá ler");
+                    System.out.println("\n- O que é aquilo no palco? eu tenho que ir lá ler");
                     System.out.println("== Quando você chega no palco, você percebe uma escrita enorme, mas o que é aquilo? Você talvez nunca descubra. ==");
-                    System.out.println(escritaAuditorio);
+                    System.out.println("\u001B[31m" + escritaAuditorio + "\u001B[0m");
                     Thread.sleep(7000);
-                    System.out.println("Mathmancer? o que...eu ja ouvi esse nome mas, eu não lembro");
+                    System.out.println("- Mathmancer? o que...eu ja ouvi esse nome mas, eu não lembro");
                 } else if (ciencias == 2) {
-                    System.out.println("Eu deveria dar uma olhada na Sala de ciências antes...");
+                    System.out.println("- Eu deveria dar uma olhada na Sala de ciências antes...");
                 } else if (ciencias > 2 || ciencias < 1) {
                     System.out.println("\nOPÇÃO INVÁLIDA!\n");
                 }
@@ -1536,7 +1599,7 @@ public class Jogo {
             int porao;
             do {
                 System.out.println("== Você sai do auditório e acaba escutando um barulho vindo de baixo ==");
-                System.out.println("Ele sabe que quero ir lá, eu não sei o que está acontecendo mas meu pai está envolvido nisso\n");
+                System.out.println("- Ele sabe que quero ir lá, eu não sei o que está acontecendo mas meu pai está envolvido nisso\n");
                 System.out.print("[1] Descer no porão [2] Tentar montar o mapa");
                 porao = sc.nextInt();
     
@@ -1554,9 +1617,9 @@ public class Jogo {
                     System.out.println("== Ao abrir o diário, não é possivel compreender muitas coisas, mas então você consegue ver a letra de seu pai: ==");
                     System.out.println("Diário: Eu fiz... a pior escolha da minha vida, eu confiei, eu precisava disso, tudo o que eu queria era ser um gênio, mas eu não queria que isso chegasse em minha família, não desse jeito.");
                     System.out.println("Não tem o que fazer, eu não posso contar pra eles, eu agora tenho que seguir e carregar isso comigo até o meu caixão...");
-                    System.out.println("Sobre o que é isso? Eu não consigo descobrir, eu não estou entendendo nada");
+                    System.out.println("- Sobre o que é isso? Eu não consigo descobrir, eu não estou entendendo nada");
                 } else if (porao == 2) {
-                    System.out.println("Estou com 6 pedaços de 7, o único que falta é o centro do mapa, preciso procurar esse último pedaço");
+                    System.out.println("- Estou com 6 pedaços de 7, o único que falta é o centro do mapa, preciso procurar esse último pedaço");
                 } else if (porao > 2 || porao < 1) {
                     System.out.println("\nOPÇÃO INVÁLIDA!\n");
                 }
@@ -1564,4 +1627,205 @@ public class Jogo {
     
                 return 0;
     }
+    public static int floresta (Scanner sc, String ultimoPedaco, String capelaDeseho) throws InterruptedException{
+        int floresta;
+        do {
+            System.out.println("== Após uma longa procura do último pedaço... ==");
+            Thread.sleep(7000);
+            System.out.println("- Eu desisto, vou tentar seguir o mapa mesmo sem o último pedaço, eu não aguento mais estar aqui, eu apenas quero ir embora\n");
+            System.out.print("[1] SEGUIR O MAPA [2] SEGUIR O MAPA [3] SEGUIR O MAPA");
+            floresta = sc.nextInt();
+
+            if (floresta == 1) {
+                System.out.println("== Você finalmente se encontra fora daquela escola, quando derrepente, a escola começa a pegar fogo ==");
+                System.out.println("- O que? Como é possivel? Pegar fogo de novo sem nem ter nada, não ter eletricidade, não ter ninguém...");
+                Thread.sleep(5000);
+                clearConsole();
+                System.out.println("\n- só me resta seguir o mapa");
+                System.out.println("o mapa mostra um caminho, um caminho que parece que foi feito com sangue, da onde vem todo esse sangue?");
+                Thread.sleep(4000);
+                System.out.println(". . .");
+                Thread.sleep(4000);
+                System.out.println("== Seguindo o mapa...==");
+                Thread.sleep(4000);
+                System.out.println("== Após uma longa caminhada ==");
+                System.out.println(capelaDeseho);
+                System.out.println("- Eu finalmente cheguei, o que é isso? Uma capela abandonada?");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println(ultimoPedaco);
+                Thread.sleep(8000);
+                clearConsole();
+                //BICHO AQUIII
+                System.out.println("- Eu espero não ver essa coisa de novo nunca mais");
+                Thread.sleep(7000);
+                System.out.println("- Eu nunca soube que existia essa capela, por que esse mapa me trouxe até aqui? ");
+            } else if (floresta == 2) {
+                System.out.println("== Você finalmente se encontra fora daquela escola, quando derrepente, a escola começa a pegar fogo ==");
+                System.out.println("- O que? Como é possivel? Pegar fogo de novo sem nem ter nada, não ter eletricidade, não ter ninguém...");
+                Thread.sleep(5000);
+                clearConsole();
+                System.out.println("\n- só me resta seguir o mapa");
+                System.out.println("o mapa mostra um caminho, um caminho que parece que foi feito com sangue, da onde vem todo esse sangue?");
+                Thread.sleep(4000);
+                System.out.println(". . .");
+                Thread.sleep(4000);
+                System.out.println("== Seguindo o mapa...==");
+                Thread.sleep(4000);
+                System.out.println("== Após uma longa caminhada ==");
+                System.out.println(capelaDeseho);
+                System.out.println("- Eu finalmente cheguei, o que é isso? Uma capela abandonada?");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println(ultimoPedaco);
+                Thread.sleep(8000);
+                clearConsole();
+                //BICHO AQUIII
+                System.out.println("- Eu espero não ver essa coisa de novo nunca mais");
+                Thread.sleep(7000);
+                System.out.println("- Eu nunca soube que existia essa capela, por que esse mapa me trouxe até aqui? ");
+            }else if (floresta == 3){
+                System.out.println("== Você finalmente se encontra fora daquela escola, quando derrepente, a escola começa a pegar fogo ==");
+                System.out.println("- O que? Como é possivel? Pegar fogo de novo sem nem ter nada, não ter eletricidade, não ter ninguém...");
+                Thread.sleep(5000);
+                clearConsole();
+                System.out.println("\n- só me resta seguir o mapa");
+                System.out.println("o mapa mostra um caminho, um caminho que parece que foi feito com sangue, da onde vem todo esse sangue?");
+                Thread.sleep(4000);
+                System.out.println(". . .");
+                Thread.sleep(4000);
+                System.out.println("== Seguindo o mapa...==");
+                Thread.sleep(4000);
+                System.out.println("== Após uma longa caminhada ==");
+                System.out.println(capelaDeseho);
+                System.out.println("- Eu finalmente cheguei, o que é isso? Uma capela abandonada?");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println(ultimoPedaco);
+                Thread.sleep(8000);
+                clearConsole();
+                //BICHO AQUIII
+                System.out.println("- Eu espero não ver essa coisa de novo nunca mais");
+                Thread.sleep(7000);
+                System.out.println("- Eu nunca soube que existia essa capela, por que esse mapa me trouxe até aqui? ");
+            } else if (floresta > 3 || floresta < 1) {
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
+            }
+        } while (floresta < 1 || floresta > 3);
+
+            return 0;
+    }
+    public static int capela (Scanner sc, String pentagrama, String primeiroMob) throws InterruptedException{
+        int capela;
+        int entrada;
+        do {
+            System.out.println("- Eu não tenho escolha");
+            System.out.println("[1] ENTRAR NA CAPELA [2] ENTRAR NA CAPELA [3] ENTRAR NA CAPELA\n");
+            capela = sc.nextInt();
+
+            if (capela == 1) {
+                System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
+                System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
+                System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("\n- O que é isso?");
+                System.out.println("Mais sangue? um...pentagrama?");
+                System.out.println(pentagrama);
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("Por que?");
+                Thread.sleep(7000);
+                System.out.println("???: Eu te digo o porque...Você é igual seu pai sabia?");
+                System.out.println("quem...é você?");
+                System.out.println("???: Então ele realmente não te contou né?");
+                System.out.println(primeiroMob);
+                System.out.println("???: Eu sou o Mathmancer, isso não é obvio?");
+                Thread.sleep(8000);
+                clearConsole();
+                System.out.println("Mathmancer: Bom, a muito tempo atrás, o seu pai...digamos que ele estava precisando de bastante dinheiro...");
+                System.out.println("Mathmancer: E a única saida dele, era uma coisa que ele não tinha valor...A própria vida");
+                System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
+                System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
+                System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
+                Thread.sleep(91000);
+                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
+                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
+                System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...");
+                System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
+                Thread.sleep(9000);
+                clearConsole();
+            } else if (capela == 2) {
+                System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
+                System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
+                System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("\n- O que é isso?");
+                System.out.println("Mais sangue? um...pentagrama?");
+                System.out.println(pentagrama);
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("Por que?");
+                Thread.sleep(7000);
+                System.out.println("???: Eu te digo o porque...Você é igual seu pai sabia?");
+                System.out.println("quem...é você?");
+                System.out.println("???: Então ele realmente não te contou né?");
+                System.out.println(primeiroMob);
+                System.out.println("???: Eu sou o Mathmancer, isso não é obvio?");
+                Thread.sleep(8000);
+                clearConsole();
+                System.out.println("Mathmancer: Bom, a muito tempo atrás, o seu pai...digamos que ele estava precisando de bastante dinheiro...");
+                System.out.println("Mathmancer: E a única saida dele, era uma coisa que ele não tinha valor...A própria vida");
+                System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
+                System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
+                System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
+                Thread.sleep(9000);
+                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
+                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
+                System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...");
+                System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
+                Thread.sleep(9000);
+                clearConsole();
+            } else if (capela == 3) {
+                System.out.println("== Assim que você entra, você percebe que não tem nada de estranho ou diferente desse lugar, era o que você achava... ==");
+                System.out.println("- Eu tenho que explorar, eu não iria vir aqui atoa");
+                System.out.println("== Você então percebe que tem uma escada e você decide descer essa escada, até porque você não tem outra escolha ==");
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("\n- O que é isso?");
+                System.out.println("Mais sangue? um...pentagrama?");
+                System.out.println(pentagrama);
+                Thread.sleep(7000);
+                clearConsole();
+                System.out.println("Por que?");
+                Thread.sleep(7000);
+                System.out.println("???: Eu te digo o porque...Você é igual seu pai sabia?");
+                System.out.println("quem...é você?");
+                System.out.println("???: Então ele realmente não te contou né?");
+                System.out.println(primeiroMob);
+                System.out.println("???: Eu sou o Mathmancer, isso não é obvio?");
+                Thread.sleep(8000);
+                clearConsole();
+                System.out.println("Mathmancer: Bom, a muito tempo atrás, o seu pai...digamos que ele estava precisando de bastante dinheiro...");
+                System.out.println("Mathmancer: E a única saida dele, era uma coisa que ele não tinha valor...A própria vida");
+                System.out.println("Mathmancer: Então o seu pai sempre teve o grande desejo de se tornar um grande mestre da matemática, pois ele na verdade nunca foi");
+                System.out.println("Mathmancer: Mas ao ler um simples livro antigo, ele decide que iria fazer um pacto pra ser O grande mestre da matemática");
+                System.out.println("Mathmancer: Tudo isso em troca de que? De fama, dinheiro, reconhecimento, ganancia");
+                Thread.sleep(9000);
+                System.out.println("- Não, isso é mentira, meu pai jamais machucaria eu e minha mãe");
+                System.out.println("Mathmancer: Mas ele não machucou, ele vndeu a própria alma, mas você acha mesmo que eu me contentaria com apenas uma?");
+                System.out.println("Mathmancer: Esperei você fazer algo que eu pudesse te achar, e você fez...E a sua mãe? Consegui achar antes mesmo do seu querido papai avisa-la");
+                System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
+                Thread.sleep(9000);
+                clearConsole();
+            } else if (capela > 3 || capela < 1) {
+                System.out.println("\nOPÇÃO INVÁLIDA!\n");
+            }
+        } while (capela < 1 || capela > 3);
+
+            return 0;
+
+    }
+    
 }
