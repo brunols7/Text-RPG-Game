@@ -1354,4 +1354,49 @@ public class Jogo {
     
             return 0;
         }
+        // Sala da biblioteca
+        public static int biblioteca (Scanner sc, String olho, String mob) throws InterruptedException{
+            System.out.println("Onde devo ir agora?");
+            System.out.println("[1] Sala de música [2] Biblioteca");
+            int salaMusica;
+            int piano;
+            System.out.print("OPÇÃO: ");
+            salaMusica = sc.nextInt();
+            if (salaMusica == 1){
+                System.out.println("\nQuando eu entro me vem uma sensação estranha, um aperto no coração.\n");
+                System.out.println("\nEu lembro dessa sala...eu já estudei aqui mas, a escola pegou fogo, ela foi completamente destruída, como ela está inteira?\n");
+                Thread.sleep(5000);
+                clearConsole();
+            }else if(salaMusica == 2){
+                System.out.println("Eu gostaria de ir para a sala de música primeiro, ela parece familiar...");
+            }
+            System.out.println("\n[1] Olhar piano [2] Olhar gavetas\n");
+                piano = sc.nextInt();
+                if (piano == 1){
+                    System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
+                    System.out.println("== Mapa encontrado 2/7 ==");
+                    Thread.sleep(5000);
+                    System.out.println(mob);
+                    System.out.println(" AI MEU DEUS, de novo esse bicho");
+                }else if (piano == 2){
+                    System.out.println("Mas o que é isso?");
+                    System.out.println(olho);
+                    System.out.println("QUE M**** É ESSA? Isso é um olho???");
+                    Thread.sleep(5000);
+                    clearConsole();
+                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo");
+                }
+                System.out.println("== Indo para a biblioteca ==");
+                System.out.println("Nossa, não sobrou nada nessa sala, o cheiro dessa sala é podre, não consigo ficar aqui por muito tempo");
+                Thread.sleep(5000);
+                System.out.println("A maioria dos pedaços de livros que tem aqui são do meu pai, eu reconheço essas páginas, mas... como poderiam ficar inteiros?");
+                Thread.sleep(3000);
+                System.out.println("Outro pedaço de um mapa, vou ter que pegar, espero que não apareça nenhum monstro");
+                System.out.println("== Mapa encontrado 3/7 ==");
+                Thread.sleep(5000);
+                System.out.println(". . .");
+                Thread.sleep(5000);
+                System.out.println("Parece que não apareceu nenhum monstro");
+            return 0;
+        }
 }
