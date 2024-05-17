@@ -1,4 +1,4 @@
-package main.java;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -1011,6 +1011,24 @@ public class Jogo {
         // System.out.println("\u001B[31m" + MobPequeno + "\u001B[0m");
         // System.out.println(MobPequeno);
 
+        String escritaAuditorio = "   ▄▄▄▄███▄▄▄▄      ▄████████     ███        ▄█    █▄      ▄▄▄▄███▄▄▄▄      ▄████████ ███▄▄▄▄    ▄████████    ▄████████    ▄████████ \n" +
+                     " ▄██▀▀▀███▀▀▀██▄   ███    ███ ▀█████████▄   ███    ███   ▄██▀▀▀███▀▀▀██▄   ███    ███ ███▀▀▀██▄ ███    ███   ███    ███   ███    ███ \n" +
+                     " ███   ███   ███   ███    ███    ▀███▀▀██   ███    ███   ███   ███   ███   ███    ███ ███   ███ ███    █▀    ███    █▀    ███    ███ \n" +
+                     " ███   ███   ███   ███    ███     ███   ▀  ▄███▄▄▄▄███▄▄ ███   ███   ███   ███    ███ ███   ███ ███         ▄███▄▄▄      ▄███▄▄▄▄██▀ \n" +
+                     " ███   ███   ███ ▀███████████     ███     ▀▀███▀▀▀▀███▀  ███   ███   ███ ▀███████████ ███   ███ ███        ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   \n" +
+                     " ███   ███   ███   ███    ███     ███       ███    ███   ███   ███   ███   ███    ███ ███   ███ ███    █▄    ███    █▄  ▀███████████ \n" +
+                     " ███   ███   ███   ███    ███     ███       ███    ███   ███   ███   ███   ███    ███ ███   ███ ███    ███   ███    ███   ███    ███ \n" +
+                     "  ▀█   ███   █▀    ███    █▀     ▄████▀     ███    █▀     ▀█   ███   █▀    ███    █▀   ▀█   █▀  ████████▀    ██████████   ███    ███ \n" +
+                     "                                                                                                                          ███    ███ \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n" +
+                     "                                                                                                                                     \n";
+
         // Começando o jogo e as histórias
         historiaInicial();
         escolherCaminhoPrincipal(input);
@@ -1485,31 +1503,65 @@ public class Jogo {
                 System.out.println("Parece que não apareceu nenhum monstro.");
             return 0;
         }
-        public static void ciencias (Scanner sc, String mathmancer) throws InterruptedException{
-            int salaCiencias;
-            int auditorio = 0;
-            System.out.println("Você está de volta no corredor, diante de duas novas portas.");
-            System.out.println("[1] Sala de Ciências [2] Auditório");
-            salaCiencias = sc.nextInt();
-            if (salaCiencias == 1){
-                System.out.println("A sala de ciências tem um cheiro forte de produtos químicos, todos suspeitavam que o incêndio tinha começado daqui mas descobriram que tinha sido no porão...\n");
-                System.out.println("Diziam que ninguém além do meu pai ia no porão, eu tenho que ir lá");
-                System.out.println("Não tem nada aqui, eu deveria ir para o auditório");
-            }else if(salaCiencias == 2){
-            System.out.println("== Entrando no auditório ==");
-            System.out.println("[1] Olhar palco [2] Olhar assentos\n");
-            auditorio = sc.nextInt();
-            }else if(auditorio == 1){
-                System.out.println("Parece que tem algo no telão do palco, não enxergo muito bem daqui, eu deveria me aproximar mais");
-                Thread.sleep(5000);
-                System.out.println("Ao se aproximar você consegue finalmente ler o que estava escrito...");
-                System.out.println(mathmancer);
-            }else if (auditorio == 2){
-                System.out.println("Tem muitas cadeiras, não vejo o porque eu olhar");
-            } else if (auditorio > 2 || auditorio < 1) {
-                System.out.println("OPÇÃO INVÁLIDA!\n");
-            }else if (salaCiencias > 2 || salaCiencias < 1) {
-                    System.out.println("OPÇÃO INVÁLIDA!\n");
-            }
+        public static int ciencias (Scanner sc, String escritaAuditorio) throws InterruptedException{
+            int ciencias;
+            do {
+                System.out.println("- Você volta para o corredor e percebe que ainda tem duas portas");
+                System.out.println("== Preciso dar uma olhada antes de ir para o porão ==\n");
+                System.out.print("[1] Sala de ciências [2] Auditório");
+                ciencias = sc.nextInt();
+    
+                if (ciencias == 1) {
+                    System.out.println("A sala de ciências tem um cheiro forte de produtos químicos, todos suspeitavam que o incêndio tinha começado daqui mas descobriram que tinha sido no porão\n");
+                    System.out.println("Diziam que ninguém além do meu pai ia no porão, eu tenho que ir lá, já que nunca me deixaram ir");
+                    System.out.println("E não tem nada aqui, eu deveria ir para o auditório");
+                    Thread.sleep(8000);
+                    clearConsole();
+                    System.out.println(". . .");
+                    System.out.println("\nO que é aquilo no palco? eu tenho que ir lá ler");
+                    System.out.println("== Quando você chega no palco, você percebe uma escrita enorme, mas o que é aquilo? Você talvez nunca descubra. ==");
+                    System.out.println(escritaAuditorio);
+                    Thread.sleep(7000);
+                    System.out.println("Mathmancer? o que...eu ja ouvi esse nome mas, eu não lembro");
+                } else if (ciencias == 2) {
+                    System.out.println("Eu deveria dar uma olhada na Sala de ciências antes...");
+                } else if (ciencias > 2 || ciencias < 1) {
+                    System.out.println("\nOPÇÃO INVÁLIDA!\n");
+                }
+            } while (ciencias != 1);
+    
+                return 0;
         }
+        public static int porao (Scanner sc) throws InterruptedException{
+            int porao;
+            do {
+                System.out.println("== Você sai do auditório e acaba escutando um barulho vindo de baixo ==");
+                System.out.println("Ele sabe que quero ir lá, eu não sei o que está acontecendo mas meu pai está envolvido nisso\n");
+                System.out.print("[1] Descer no porão [2] Tentar montar o mapa");
+                porao = sc.nextInt();
+    
+                if (porao == 1) {
+                    System.out.println("== Mapa encontrado 6/7 ==");
+                    //BICHO AQUIII
+                    System.out.println("Parabéns, você derrotou mais um!");
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println("\nO que é isso?");
+                    System.out.println("Isso...é...sangue? Mas de quem?");
+                    Thread.sleep(4000);
+                    System.out.println("Um...diário? Mas isso é impossivel já que a escola pegou fogo e eu nem sei se estou no mundo real ainda");
+                    Thread.sleep(4000);
+                    System.out.println("== Ao abrir o diário, não é possivel compreender muitas coisas, mas então você consegue ver a letra de seu pai: ==");
+                    System.out.println("Diário: Eu fiz... a pior escolha da minha vida, eu confiei, eu precisava disso, tudo o que eu queria era ser um gênio, mas eu não queria que isso chegasse em minha família, não desse jeito.");
+                    System.out.println("Não tem o que fazer, eu não posso contar pra eles, eu agora tenho que seguir e carregar isso comigo até o meu caixão...");
+                    System.out.println("Sobre o que é isso? Eu não consigo descobrir, eu não estou entendendo nada");
+                } else if (porao == 2) {
+                    System.out.println("Estou com 6 pedaços de 7, o único que falta é o centro do mapa, preciso procurar esse último pedaço");
+                } else if (porao > 2 || porao < 1) {
+                    System.out.println("\nOPÇÃO INVÁLIDA!\n");
+                }
+            } while (porao != 1);
+    
+                return 0;
+    }
 }
