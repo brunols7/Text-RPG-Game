@@ -209,56 +209,70 @@ public class Jogo {
                 tentativas--;
                 if (tentativas > 0) {
                     System.out.println("Tentativas restantes: " + tentativas);
-                    dano = 10;
                 }
             }
 
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 7x³ - 3x² + 8");
+                return dano = 10;
             }
         }
         return dano;
     }
 
     // Função para o exercício de adição 3
-    public static void exercicioAdicao03() {
+    public static int exercicioAdicao03() {
         Scanner sc = new Scanner(System.in);
         int tentativas = 3;
+        int dano = 0;
 
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 3");
             System.out.println("========================================================");
-            System.out.println("Problema: Qual é o resultado da operação (6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1)?");
             System.out.println("TUTORIAL: ");
             System.out.println(
-                    "Para somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
-            System.out.println("PASSO 1: ");
-            System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" + //
-                    "(6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1) \r\n" + //
-                    "= (6x^4 + x^4) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + //
+                    "\nPara somar polinômios, agrupamos os termos semelhantes. Lembre-se de que os termos semelhantes têm a mesma parte literal (as variáveis) com o mesmo expoente.\n");
+            System.out.println("\nPASSO 1: ");
+            System.out.println("Então, somamos os termos semelhantes de cada polinômio:\r\n" +
+                    "(6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1) \r\n" +
+                    "= (6x^4 + x^4) + (-3x³ + 5x³) + (2x² - x²) + (0 + 1)\r\n" + 
                     "");
-            System.out.println("PASSO 2: ");
-            System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + //
-                    "6x^4 + x^4 = 7x^4\r\n" + //
-                    "-3x³ + 5x³ = 2x³\r\n" + //
-                    "2x² - x² = x²\r\n" + //
-                    "0 + 1 = 1\r\n" + //
+            System.out.println("\nPASSO 2: ");
+            System.out.println("Agora, somamos cada grupo de termos semelhantes:\r\n" + 
+                    "6x^4 + x^4 = 7x^4\r\n" +
+                    "-3x³ + 5x³ = 2x³\r\n" +
+                    "2x² - x² = x²\r\n" + 
+                    "0 + 1 = 1\r\n" +
                     "");
-
+            System.out.println("Problema: Qual é o resultado da operação (6x^4 - 3x³ + 2x²) + (x^4 + 5x³ - x² + 1)?\n");
             System.out.println("Qual é o resultado da operação?");
-            System.out.println("a) 7x^4 + 2x³ + x² + 1");
-            System.out.println("b) 7x^4 - 3x³ + x² + 1");
-            System.out.println("c) 7x^4 + 2x³ + x² - 1");
-            System.out.println("d) 7x^4 - 3x³ + x² - 1");
+            
+            // Definindo as opções de resposta
+            List<String> opcoesResposta = new ArrayList<>();
+            opcoesResposta.add("7x^4 + 2x³ + x² + 1");
+            opcoesResposta.add("7x^4 - 3x³ + x² + 1");
+            opcoesResposta.add("7x^4 + 2x³ + x² - 1");
+            opcoesResposta.add("7x^4 - 3x³ + x² - 1");
 
-            System.out.print("Resposta: ");
+            // Embaralhando as opções de resposta
+            Collections.shuffle(opcoesResposta);
+
+            // Exibindo as opções de resposta embaralhadas
+            for (int i = 0; i < opcoesResposta.size(); i++) {
+                System.out.println((char) ('a' + i) + ") " + opcoesResposta.get(i));
+            }
+
+            // Selecionando aleatoriamente a letra da resposta correta
+            char letraRespostaCorreta = (char) ('a' + opcoesResposta.indexOf("7x^4 + 2x³ + x² + 1"));
+
+            System.out.print("\nResposta: ");
             String resposta = sc.next();
-            if (resposta.equalsIgnoreCase("a")) {
-                System.out.println("Resposta correta! Parabéns!");
+            if (resposta.equalsIgnoreCase(String.valueOf(letraRespostaCorreta))) {
+                System.out.println("Resposta correta! Parabéns!\n");
                 break;
             } else {
-                System.out.println("Resposta incorreta.");
+                System.out.println("Resposta incorreta.\n");
                 tentativas--;
                 if (tentativas > 0) {
                     System.out.println("Tentativas restantes: " + tentativas);
@@ -267,10 +281,12 @@ public class Jogo {
 
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
-                System.out
-                        .println("Você excedeu o número de tentativas. A resposta correta era: a) 7x^4 + 2x³ + x² + 1");
+                System.out.println(
+                        "Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 7x^4 + 2x³ + x² + 1\n");
+                return dano = 10;
             }
         }
+        return dano;
     }
     // FIM DAS QUESTÕES DE ADIÇÃO!
 
@@ -278,10 +294,11 @@ public class Jogo {
 
     // INÍCIO DAS QUESTÕES DE SUBTRAÇÃO!!
     // Função para a questão de subtração 1
-    public static void exercicioSubtracao01() {
+    public static int exercicioSubtracao01() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
+        int dano = 0;
     
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
@@ -334,16 +351,19 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 3x² + 7x + 7");
+                return dano = 10;
             }
         }
+        return dano;
     }
 
     // Função para a questão de subtração 2
-    public static void exercicioSubtracao02() {
+    public static int exercicioSubtracao02() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
-    
+        int dano = 0;
+
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
             System.out.println("========================================================");
@@ -393,8 +413,10 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") x³ - 7x² + 6");
+                return dano = 10;
             }
         }
+        return dano;
     }
     // FIM DAS QUESTÕES DE SUBTRAÇÃO
 
@@ -402,10 +424,11 @@ public class Jogo {
 
     // INÍCIO DAS QUESTÕES DE MULTIPLICAÇÃO!!
     // Função para a questão de multiplicação 1
-    public static void exercicioMultiplicacao01() {
+    public static int exercicioMultiplicacao01() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
+        int dano = 0;
     
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
@@ -461,15 +484,18 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 2x³ - 5x² + 2x + 15");
+                return dano = 10;
             }
         }
+        return dano;
     }
 
     // Função para a questão de multiplicação 2
-    public static void exercicioMultiplicacao02() {
+    public static int exercicioMultiplicacao02() {
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
     int tentativas = 3;
+    int dano = 0;
 
     while (tentativas > 0) {
         System.out.println("\nQUESTÃO 2");
@@ -522,8 +548,10 @@ public class Jogo {
         // Se for a última tentativa e ainda errar, exibe a resposta correta.
         if (tentativas == 0) {
             System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 12x³ - x² + 2x + 3");
+            return dano = 10;
         }
     }
+    return dano;
 }
     // FIM DAS QUESTÕES DE MULTIPLICAÇÃO!!
 
@@ -531,10 +559,11 @@ public class Jogo {
 
     // INÍCIO DAS QUESTÕES DO BOSS!!
     // Função para a questão BOSS 1
-    public static void exercicioBoss01() {
+    public static int exercicioBoss01() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
+        int dano = 0;
     
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 1");
@@ -621,15 +650,18 @@ public class Jogo {
             // Se for a última tentativa e ainda errar, exibe a resposta correta
             if (tentativas == 0) {
                 System.out.println("Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 3x² - 5/2x - 5/4");
+                return dano = 10;
             }
         }
+        return dano;
     }
 
     // Função para a questão BOSS 2
-    public static void exercicioBoss02() {
+    public static int exercicioBoss02() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
+        int dano = 0;
     
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 2");
@@ -685,15 +717,18 @@ public class Jogo {
             if (tentativas == 0) {
                 System.out.println(
                         "Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 2x^4 - x³ + 19x² - 13x + 2");
+                return dano = 10;
             }
         }
+        return dano;
     }
 
     // Função para a questão BOSS 3
-    public static void exercicioBoss03() {
+    public static int exercicioBoss03() {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
         int tentativas = 3;
+        int dano = 0;
     
         while (tentativas > 0) {
             System.out.println("\nQUESTÃO 3");
@@ -750,8 +785,10 @@ public class Jogo {
             if (tentativas == 0) {
                 System.out.println(
                         "Você excedeu o número de tentativas. A resposta correta era: " + letraRespostaCorreta + ") 12x³ - 11x² + 22x - 5");
+                return dano = 10;
             }
         }
+        return dano;
     }
     // FIM DAS QUEESTÕES DO BOSS!!
 //------------------------------------------- FIM DAS 10 QUESTÕES ------------------------------------------
@@ -1199,7 +1236,7 @@ public class Jogo {
             corredor = sc.nextInt();
 
             if (corredor == 1) {
-                System.out.println("\n == Você corre e entra em um armário, você consegue ver um ser andando e passando reto pelo armário, parece que você está salvo ==\n\n- Mas o que é aquilo? eu não sei o que ta acontecendo e não sei que tipo de monstro é aquele, eu tenho que sair daqui\n");
+                System.out.println("\n == Você corre e entra em um armário, você consegue ver um ser andando e passando reto pelo armário, parece que você está salvo ==\n\n\n\n- Mas o que é aquilo? eu não sei o que ta acontecendo e não sei que tipo de monstro é aquele, eu tenho que sair daqui\n");
             } else if (corredor == 2) {
                 System.out.println(
                         "\nSe eu entrar nessa sala ele poderia me ouvir, eu acabaria morrendo, melhor não\n");
@@ -1282,7 +1319,6 @@ public class Jogo {
                         opcao = sc.nextInt();
                         if (opcao == 1){
                             System.out.println("\nÉ preciso fazer uma conta para dar dano á eles: \n");
-                            //questao1
                             int questao1 = exercicioAdicao01();
                             if(questao1 == 10){
                                 Thread.sleep(7000);
@@ -1293,7 +1329,6 @@ public class Jogo {
                             } else{
                                 System.out.println("\n\n== Você conseguiu derrotar o primeiro monstro, falta apenas mais um. ==\n\n");
                             }
-                            //questao2
                             int questao2 = exercicioAdicao02();
                             if(questao2 == 10){
                                 Thread.sleep(7000);
@@ -1304,8 +1339,6 @@ public class Jogo {
                             } else{
                                 System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
                             }
-
-                            //colocar a arma
                             System.out.printf("Você acertou: %.2f de dano em cada monstro.\n\n== Os monstros estão mortos! ==\n", dano);
                             Thread.sleep(3000);
                             System.out.println("CONTA?!?! MATEMÁTICA?!?!? Isso é muito estranho, eu não sei o que está acontecendo");
