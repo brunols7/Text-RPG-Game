@@ -974,6 +974,40 @@ public class Jogo {
                 "                    --@@                --                  \n" +
                 "                        MM##::    ..@@                      \n";
 
+                String voceMorreu = 
+                " ██▒   █▓ ▒█████   ▄████▄  ▓█████     ███▄ ▄███▓ ▒█████   ██▀███   ██▀███  ▓█████  █    ██     ▐██▌ \n" +
+                "▓██░   █▒▒██▒  ██▒▒██▀ ▀█  ▓█   ▀    ▓██▒▀█▀ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓█   ▀  ██  ▓██▒    ▐██▌ \n" +
+                " ▓██  █▒░▒██░  ██▒▒▓█    ▄ ▒███      ▓██    ▓██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒███   ▓██  ▒██░    ▐██▌ \n" +
+                "  ▒██ █░░▒██   ██░▒▓▓▄ ▄██▒▒▓█  ▄    ▒██    ▒██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ▒▓█  ▄ ▓▓█  ░██░    ▓██▒ \n" +
+                "   ▒▀█░  ░ ████▓▒░▒ ▓███▀ ░░▒████▒   ▒██▒   ░██▒░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░▒████▒▒▒█████▓     ▒▄▄  \n" +
+                "   ░ ▐░  ░ ▒░▒░▒░ ░ ░▒ ▒  ░░░ ▒░ ░   ░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░░ ▒░ ░░▒▓▒ ▒ ▒     ░▀▀▒ \n" +
+                "   ░ ░░    ░ ▒ ▒░   ░  ▒    ░ ░  ░   ░  ░      ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ░ ░  ░░░▒░ ░ ░     ░  ░ \n" +
+                "     ░░  ░ ░ ░ ▒  ░           ░      ░      ░   ░ ░ ░ ▒    ░░   ░   ░░   ░    ░    ░░░ ░ ░        ░   \n" +
+                "      ░      ░ ░  ░ ░         ░  ░          ░       ░ ░     ░        ░        ░  ░   ░         ░       \n" +
+                "     ░            ░                                                                                      \n";
+
+                String olho = "                                                            \n" +
+        "                                                            \n" +
+        "                          ++######                          \n" +
+        "                    ######################                  \n" +
+        "                ##############################              \n" +
+        "            ++############++------++@@##mm@@####            \n" +
+        "          ######::####++--          --++##MM::####++        \n" +
+        "        ######..mmmmmm..    --..::    ..--##++--####mm      \n" +
+        "      @@####::::####--    ######--##    ::::mmmm..####      \n" +
+        "      ####--....mm##..  MM######  ##--  --@@##  ++mm####    \n" +
+        "    ####++..::--  mm    ##############  ..--##..++..mm####  \n" +
+        "    ####++....--  MM..  ##############  ..::##  ::--######  \n" +
+        "      ####--::++MM##..    ##########::  --####  --..####    \n" +
+        "      ..####..--####::    ::######..    ++..@@--..####      \n" +
+        "        mm####::::mm##--      ..      --####::::####++      \n" +
+        "          ++####mmMM####::..      ..::####mmMM####::        \n" +
+        "              ######MM####++++::++mm############            \n" +
+        "                ##############################              \n" +
+        "                    ######################                  \n" +
+        "                            ..++..                          \n" +
+        "                                                            \n" +
+        "                                                            ";
         // System.out.println("\u001B[31m" + MobPequeno + "\u001B[0m");
         // System.out.println(MobPequeno);
 
@@ -993,7 +1027,8 @@ public class Jogo {
         System.out.println("\n\n=-=-=-=-=-=-=-=-= VOCÊ VOLTOU PARA O CORREDOR =-=-=-=-=-=-=-=-=\n\n");
         corredor(input);
         refeitorio(input);
-        saidaRefeitorio(input, MobPequeno, danoGeral, danoArma);
+        saidaRefeitorio(input, MobPequeno, danoGeral, danoArma, voceMorreu);
+        biblioteca(input, olho, MobPequeno, voceMorreu);
 
     }
 
@@ -1275,20 +1310,10 @@ public class Jogo {
 
             return 0;
         }
-        public static int saidaRefeitorio (Scanner sc, String mob, double dano, Double armaAtual) throws InterruptedException{
+        public static int saidaRefeitorio (Scanner sc, String mob, double dano, Double armaAtual, String voceMorreu) throws InterruptedException{
 
             //Texto usado para exibir a mensagem de sua morte.
-            String voceMorreu = 
-            " ██▒   █▓ ▒█████   ▄████▄  ▓█████     ███▄ ▄███▓ ▒█████   ██▀███   ██▀███  ▓█████  █    ██     ▐██▌ \n" +
-            "▓██░   █▒▒██▒  ██▒▒██▀ ▀█  ▓█   ▀    ▓██▒▀█▀ ██▒▒██▒  ██▒▓██ ▒ ██▒▓██ ▒ ██▒▓█   ▀  ██  ▓██▒    ▐██▌ \n" +
-            " ▓██  █▒░▒██░  ██▒▒▓█    ▄ ▒███      ▓██    ▓██░▒██░  ██▒▓██ ░▄█ ▒▓██ ░▄█ ▒▒███   ▓██  ▒██░    ▐██▌ \n" +
-            "  ▒██ █░░▒██   ██░▒▓▓▄ ▄██▒▒▓█  ▄    ▒██    ▒██ ▒██   ██░▒██▀▀█▄  ▒██▀▀█▄  ▒▓█  ▄ ▓▓█  ░██░    ▓██▒ \n" +
-            "   ▒▀█░  ░ ████▓▒░▒ ▓███▀ ░░▒████▒   ▒██▒   ░██▒░ ████▓▒░░██▓ ▒██▒░██▓ ▒██▒░▒████▒▒▒█████▓     ▒▄▄  \n" +
-            "   ░ ▐░  ░ ▒░▒░▒░ ░ ░▒ ▒  ░░░ ▒░ ░   ░ ▒░   ░  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░░ ▒▓ ░▒▓░░░ ▒░ ░░▒▓▒ ▒ ▒     ░▀▀▒ \n" +
-            "   ░ ░░    ░ ▒ ▒░   ░  ▒    ░ ░  ░   ░  ░      ░  ░ ▒ ▒░   ░▒ ░ ▒░  ░▒ ░ ▒░ ░ ░  ░░░▒░ ░ ░     ░  ░ \n" +
-            "     ░░  ░ ░ ░ ▒  ░           ░      ░      ░   ░ ░ ░ ▒    ░░   ░   ░░   ░    ░    ░░░ ░ ░        ░   \n" +
-            "      ░      ░ ░  ░ ░         ░  ░          ░       ░ ░     ░        ░        ░  ░   ░         ░       \n" +
-            "     ░            ░                                                                                      \n";
+            
             int mapaUm;
             int opcao;
             String arma = "";
@@ -1355,7 +1380,7 @@ public class Jogo {
             return 0;
         }
         // Sala da biblioteca
-        public static int biblioteca (Scanner sc, String olho, String mob) throws InterruptedException{
+        public static int biblioteca (Scanner sc, String olho, String mob, String voceMorreu) throws InterruptedException{
             System.out.println("Onde devo ir agora?");
             System.out.println("[1] Sala de música [2] Biblioteca");
             int salaMusica;
@@ -1373,18 +1398,32 @@ public class Jogo {
             System.out.println("\n[1] Olhar piano [2] Olhar gavetas\n");
                 piano = sc.nextInt();
                 if (piano == 1){
+                    clearConsole();
                     System.out.println("Mais um mapa, tenho certeza que aqueles bichos irão aparecer novamente");
                     System.out.println("== Mapa encontrado 2/7 ==");
                     Thread.sleep(5000);
                     System.out.println(mob);
+                    Thread.sleep(3000);
                     System.out.println(" AI MEU DEUS, de novo esse bicho");
+                    Thread.sleep(7000);
+                    clearConsole();
+                    int questao3 = exercicioAdicao03();
+                    if(questao3 == 10){
+                        Thread.sleep(7000);
+                        clearConsole();
+                        System.out.println(voceMorreu);
+                        Thread.sleep(10000);
+                        System.exit(0);
+                    }else{
+                        System.out.println("\n\n== Você conseguiu derrotar o último monstro. ==\n\n");
+                    }
                 }else if (piano == 2){
-                    System.out.println("Mas o que é isso?");
+                    System.out.println("\nMas o que é isso?");
                     System.out.println(olho);
                     System.out.println("QUE M**** É ESSA? Isso é um olho???");
                     Thread.sleep(5000);
                     clearConsole();
-                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo");
+                    System.out.println("Eu não sei o que é esse bicho, eu não sei o porque dele me perseguir, eu preciso descobrir o que está acontecendo\n");
                 }
                 System.out.println("== Indo para a biblioteca ==");
                 System.out.println("Nossa, não sobrou nada nessa sala, o cheiro dessa sala é podre, não consigo ficar aqui por muito tempo");
