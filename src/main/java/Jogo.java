@@ -1831,12 +1831,13 @@ public class Jogo {
                 System.out.println("Mathmancer: Vocês, humanos, tão tolos, vocês não se contentam com a realidade, e sempre tentam achar algo pra fugir dela");
                 Thread.sleep(20000);
                 clearConsole();
-            } else if (capela > 3 || capela < 1) {
+                System.out.println("Você nunca me venceria");
+                Thread.sleep(7000);
+                //Contas do boss (DUAS de multiplicção e 1 de divisão)
                 System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (capela < 1 || capela > 3);
             return 0;
 
     }
-    
 }
