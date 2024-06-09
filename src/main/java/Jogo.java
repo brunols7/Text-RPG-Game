@@ -1,7 +1,3 @@
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -1212,6 +1208,19 @@ public class Jogo {
             "                    ####              ####                  \n" +
             "                        ##############                      \n" +
             "                                                            ";
+
+
+        String fimDoJogo =  
+        "  █████▒██▓ ███▄ ▄███▓   ▓█████▄  ▒█████      ▄▄▄██▀▀▀▒█████    ▄████  ▒█████                 \n" +
+        "▓██   ▒▓██▒▓██▒▀█▀ ██▒   ▒██▀ ██▌▒██▒  ██▒      ▒██  ▒██▒  ██▒ ██▒ ▀█▒▒██▒  ██▒               \n" +
+        "▒████ ░▒██▒▓██    ▓██░   ░██   █▌▒██░  ██▒      ░██  ▒██░  ██▒▒██░▄▄▄░▒██░  ██▒               \n" +
+        "░▓█▒  ░░██░▒██    ▒██    ░▓█▄   ▌▒██   ██░   ▓██▄██▓ ▒██   ██░░▓█  ██▓▒██   ██░               \n" +
+        "░▒█░   ░██░▒██▒   ░██▒   ░▒████▓ ░ ████▓▒░    ▓███▒  ░ ████▓▒░░▒▓███▀▒░ ████▓▒░ ██▓  ██▓  ██▓ \n" +
+        " ▒ ░   ░▓  ░ ▒░   ░  ░    ▒▒▓  ▒ ░ ▒░▒░▒░     ▒▓▒▒░  ░ ▒░▒░▒░  ░▒   ▒ ░ ▒░▒░▒░  ▒▓▒  ▒▓▒  ▒▓▒ \n" +
+        " ░      ▒ ░░  ░      ░    ░ ▒  ▒   ░ ▒ ▒░     ▒ ░▒░    ░ ▒ ▒░   ░   ░   ░ ▒ ▒░  ░▒   ░▒   ░▒  \n" +
+        " ░ ░    ▒ ░░      ░       ░ ░  ░ ░ ░ ░ ▒      ░ ░ ░  ░ ░ ░ ▒  ░ ░   ░ ░ ░ ░ ▒   ░    ░    ░   \n" +
+        "        ░         ░         ░        ░ ░      ░   ░      ░ ░        ░     ░ ░    ░    ░    ░  \n" +
+        "                          ░                                                      ░    ░    ░  \n";
         // Começando o jogo e as histórias
         historiaInicial();
         escolherCaminhoPrincipal(input);
@@ -1233,7 +1242,7 @@ public class Jogo {
         ciencias(input, escritaAuditorio, MobPequeno, voceMorreu);
         porao(input, MobPequeno, voceMorreu);
         floresta(input, ultimoPedaco, capelaDeseho, MobPequeno, voceMorreu);
-        capela(input, pentagrama, primeiroMob);
+        capela(input, pentagrama, primeiroMob, voceMorreu, fimDoJogo);
 
     }
 
@@ -1915,7 +1924,7 @@ public class Jogo {
 
             return 0;
     }
-    public static int capela (Scanner sc, String pentagrama, String primeiroMob) throws InterruptedException{
+    public static int capela (Scanner sc, String pentagrama, String primeiroMob, String voceMorreu, String fimDoJogo) throws InterruptedException{
         int capela;
         int entrada;
         do {
@@ -1958,7 +1967,93 @@ public class Jogo {
                 System.out.println("Você nunca me venceria");
                 Thread.sleep(7000);
                 //Contas do boss (DUAS de multiplicção e 1 de divisão)
-                System.out.println("\nOPÇÃO INVÁLIDA!\n");
+                int questao8 = exercicioBoss01();
+                if(questao8 == 10){
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println(voceMorreu);
+                    Thread.sleep(10000);
+                    System.exit(0);
+                }else{
+                    System.out.println("\n\n== Você acertou a primeira questão. ==\n\n");
+                }
+                Thread.sleep(5000);
+                clearConsole();
+                int questao9 = exercicioBoss02();
+                if(questao9 == 10){
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println(voceMorreu);
+                    Thread.sleep(10000);
+                    System.exit(0);
+                }else{
+                    System.out.println("\n\n== Você acertou a segunda questão. ==\n\n");
+                }
+                Thread.sleep(5000);
+                clearConsole();
+                int questao10 = exercicioBoss03();
+                if(questao10 == 10){
+                    Thread.sleep(7000);
+                    clearConsole();
+                    System.out.println(voceMorreu);
+                    Thread.sleep(10000);
+                    System.exit(0);
+                }else{
+                    System.out.println("\n\n== Você acertou a última questão... ==\n\n");
+                }
+                Thread.sleep(5000);
+                clearConsole();
+                System.out.print(".");
+                Thread.sleep(1500);
+                System.out.print(".");
+                Thread.sleep(1500);
+                System.out.print(".\n\n");
+                Thread.sleep(3500);
+                System.out.println(voceMorreu);
+                Thread.sleep(2500);
+                System.out.println("\n\n\n O sangue no porão, era seu, mas você nem sequer percebeu...");
+                Thread.sleep(2000);
+                System.out.println("Aquela escola, ela existe, mas ela nunca pegou fogo, mas você nunca perceberia, já que quem morreu no fogo em sua própria casa, foi você");
+                Thread.sleep(4500);
+                System.out.println("Tudo o que se passou até agora, não foi nada real, foi apenas sua passagem do mundo real, para o inferno...");
+                Thread.sleep(4500);
+                System.out.println("E tudo isso? Tudo isso é culpa da ganancia de seu pai, o que ele fez, foi real também, vender a alma dele e de sua mãe para ser um grande mestre na matemática.");
+                Thread.sleep(5500);
+                System.out.println("O que realmente é mais importante? A família? O dinheiro? O poder e a fama?");
+                Thread.sleep(1500);
+                System.out.println("Você sabe o que escolher, você sabe o que seu pai escolheu...");
+                int escolhaFinal;
+                do { 
+                    System.out.println("\n[1] Família | [2] Dinheiro | [3] Poder e Fama\n");
+                    System.out.print("Opção: ");
+                    escolhaFinal = sc.nextInt();
+
+                    switch(escolhaFinal){
+                        case 1:
+                            System.out.println("Você sabe o que escolher...");
+                            Thread.sleep(1500);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            System.out.println("Opção Inválida!");
+                    }
+
+                } while (escolhaFinal != 2 || escolhaFinal != 3);
+
+
+                Thread.sleep(4500);
+                clearConsole();
+                System.out.println("Vocês humanos são todos iguais...");
+                Thread.sleep(6000);
+                System.out.println(fimDoJogo);
+                Thread.sleep(15000);
+                System.exit(0);
+                
+                
+                // System.out.println("\nOPÇÃO INVÁLIDA!\n");
             }
         } while (capela < 1 || capela > 3);
             return 0;
