@@ -1,3 +1,11 @@
+/*
+ * CENTRO UNIVERSITÁRIO SENAC
+ * GRUPO 3 - TURMA A, NOTURNA
+ * BRUNO LEONARDO SILVA
+ * JOÃO VICTOR CAVALCANTI DE SOUZA
+ * MARIANA VIDAL VAZ
+ */
+
 import java.util.Random;
 import java.util.Scanner;
 
